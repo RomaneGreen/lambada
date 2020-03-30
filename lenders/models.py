@@ -14,3 +14,5 @@ class Lender(models.Model):
     is_mvp = models.BooleanField(default=False)
     def __str__(self):
         return self.name
+
+        
