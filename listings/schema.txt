@@ -1,0 +1,17 @@
+program_link  charfiled
+program_type charfiled
+program contact charfiled
+Neighborhoods blank = true  textfield
+at_a_glance charfiled
+canbecombined charfiled
+requires_inspection charfiled
+must_be_primary residence charfiled
+minimum_contribution_amount integerfiled
+credit requirement charfiled
+employer_particpation: charfiled
+mortgage_amount: charfiled
+country blank = true charfiled
+first time buyers only = charfiled
+maxDebtToIncome charfiled
+amount of assistance = intrgerfiled 
+
