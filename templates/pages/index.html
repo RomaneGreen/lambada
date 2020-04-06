@@ -7,7 +7,7 @@
 <section id="showcase">
         <div class="container text-center">
           <div class="home-search p-5">
-            <div class="overlay p-5">
+            <div class="overlay p-5 searchoverlay">
               <h1 class="display-4 mb-4">
                 Search Housing Assistance programs
               </h1>
@@ -60,7 +60,7 @@
                       </select>
                     </div>
                   </div>
-                  <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+                  <button class="btn btn-secondary btn-block mt-4 submitform" type="submit">Submit form</button>
                 </form>
               </div>
             </div>
@@ -72,7 +72,8 @@
 
       <section id="listings" class="py-5">
             <div class="container">
-              <h3 class="text-center mb-3">Latest Listings</h3>
+              <h3 class="text-center mb-3">Housing Assistant programs</h3>
+            <p>Enter you location in search bar or <span>Allow Your Location to see more programs near you</span></p>
               <div class="row">
 
                 {% if listings %}
@@ -116,7 +117,7 @@
                             <i class="fas fa-clock"></i> {{ listing.list_date | timesince}}</div>
                         </div>
                         <hr>
-                        <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
+                        <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
                       </div>
                     </div>
                   </div>
@@ -129,79 +130,117 @@
                 </div>
                 {% endif %}
                
-        
-    
-          </section>
-        
-          <section id="services" class="py-5 bg-secondary text-white">
+              </section>
+          <section id="team" class="py-5">
+              <div class="container">
+                <h2 class="text-center">Our Mission</h2>
+                <hr>
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas labore minima nihil sequi, praesentium illo! Lorem ipsum dolor sit amet consectetur adipisicing</h3>
+                <div class="row text-center">
+                  <div class="col-md-4">
+                    <img src="assets/img/realtors/kyle.jpg" alt="" class="rounded-circle mb-3">
+                    <!-- <h4>Lorem ipsum</h4> -->
+                    <p class="text-succes">
+                      
+                      </i> Lorem ipsum</p>
+                    <hr>
+                    <p>
+                      <i class="fas fa-phon"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, velit?</p>
+                    <p>
+                  </div>
+          
+                  <div class="col-md-4">
+                    <img src="assets/img/realtors/mark.jpg" alt="" class="rounded-circle mb-3">
+                    <!-- <h4>Lorem ipsum</h4> -->
+                    <p class="text-succes">Lorem ipsum</p>
+                    <hr>
+                    <p>
+                      <i class="fas fa-phon"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, iste.</p>
+                    <p>
+                  </div>
+          
+                  <div class="col-md-4">
+                    <img src="assets/img/realtors/jenny.jpg" alt="" class="rounded-circle mb-3">
+                    <!-- <h4>Lorem ipsum</h4> -->
+                    <p class="text-succes">Lorem ipsum</p>
+                    <hr>
+                    <p>
+                      <i class="fas fa-phon"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, maiores?</p>
+                    <p>
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
+          <section id="services"  class="py-5 bg-primary text-white servicesinfo">
             <div class="container">
               <div class="row text-center">
                 <div class="col-md-4">
-                  <i class="fas fa-comment fa-4x mr-4"></i>
+                  <i class="fas fa-home fa-4x mr-4"></i>
                   <hr>
-                  <h3>Consulting Services</h3>
+                  <h3>Why Lambada </h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
                     hic dignissimos ratione ea quae.</p>
                 </div>
                 <div class="col-md-4">
                   <i class="fas fa-home fa-4x mr-4"></i>
                   <hr>
-                  <h3>Propery Management</h3>
+                  <h3>Why Lambada </h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
                     hic dignissimos ratione ea quae.</p>
                 </div>
                 <div class="col-md-4">
-                  <i class="fas fa-suitcase fa-4x mr-4"></i>
+                  <i class="fas fa-home fa-4x mr-4"></i>
                   <hr>
-                  <h3>Renting & Selling</h3>
+                  <h3>Why Lambada</h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
                     hic dignissimos ratione ea quae.</p>
                 </div>
               </div>
             </div>
-
-
-           
+         
           </section>
 
           <section id="team" class="py-5">
-                <div class="container">
-                  <h2 class="text-center">Our Mission</h2>
-                  <div class="row text-center">
-                    <div class="col-md-4">
-                      <img src="assets/img/realtors/kyle.jpg" alt="" class="rounded-circle mb-3">
-                      <h4>Kyle Brown</h4>
-                      <p class="text-success">
-                        <i class="fas fa-award text-success mb-3"></i> Realtor</p>
-                      <hr>
-                      <p>
-                        <i class="fas fa-phone"></i> (555)-555-5555</p>
-                      <p>
-                        <i class="fas fa-envelope-open"></i> kyle@btrealestate.co</p>
-                    </div>
-            
-                    <div class="col-md-4">
-                      <img src="assets/img/realtors/mark.jpg" alt="" class="rounded-circle mb-3">
-                      <h4>Mark Hudson</h4>
-                      <p class="text-success">Realtor</p>
-                      <hr>
-                      <p>
-                        <i class="fas fa-phone"></i> (444)-444-4444</p>
-                      <p>
-                        <i class="fas fa-envelope-open"></i> mark@btrealestate.co</p>
-                    </div>
-            
-                    <div class="col-md-4">
-                      <img src="assets/img/realtors/jenny.jpg" alt="" class="rounded-circle mb-3">
-                      <h4>Jenny Johnson</h4>
-                      <p class="text-success">Realtor</p>
-                      <hr>
-                      <p>
-                        <i class="fas fa-phone"></i> (333)-333-3333</p>
-                      <p>
-                        <i class="fas fa-envelope-open"></i> jenny@btrealestate.co</p>
-                    </div>
+              <div class="container">
+                <h2 class="text-center">Feedback/Review</h2>
+                <hr>
+                <div class="row text-center">
+                  <div class="col-md-4">
+                    <img src="assets/img/realtors/kyle.jpg" alt="" class="rounded-circle mb-3">
+                    <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, voluptate?</h5>
+                    <p class="text-succes">
+                      
+                   
+                    
+                    <p>
+                    
+                    <p>
+                     
+                  </div>
+          
+                  <div class="col-md-4">
+                    <img src="assets/img/realtors/mark.jpg" alt="" class="rounded-circle mb-3">
+                    <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, voluptate?</h5>
+                    <p class="text-succes"></p>
+               
+                    <p>
+                      <i class="fas fa-phon"></i></p>
+                    <p>
+                      
+                  </div>
+          
+                  <div class="col-md-4">
+                    <img src="assets/img/realtors/jenny.jpg" alt="" class="rounded-circle mb-3">
+                    <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, voluptate?</h5>
+                    <p class="text-succes"> </p>
+                 
+                    <p>
+                      <i class="fas fa-phon"></i> </p>
+                    <p>
                   </div>
                 </div>
-              </section>
+              </div>
+                     
+          </section> 
 {% endblock %}

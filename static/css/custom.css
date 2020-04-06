@@ -1,0 +1,31 @@
+
+
+.btn-nav {
+    background-color:#015AEB;
+    border: 1px solid #015AEB; 
+    color: white;
+    border-radius: 18.6961px;
+}
+
+.submitform {
+    background-color:#015AEB;
+    border: 1px solid rgb(230, 231, 233);
+    border-radius: 18px;
+    color: #fff !important;
+}
+
+.submitform:hover {
+    background-color:#fff;
+    border: 1px solid #fff;
+    border-radius: 18px;
+    color: rgb(0, 0, 0) !important;
+}
+.searchoverlay {
+    background-color: #015AEB !important;
+    color: white;
+}
+
+.servicesinfo {
+    background-color: orchid;
+}
+/* #EBEEF6 */

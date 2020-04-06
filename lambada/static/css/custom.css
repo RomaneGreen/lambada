@@ -1,0 +1,93 @@
+
+
+.btn-nav {
+    background-color:#015AEB;
+    border: 1px solid #015AEB; 
+    color: white;
+    border-radius: 18.6961px;
+}
+
+.submitform {
+    background-color:#fff !important;
+    border: 1px solid rgb(230, 231, 233);
+    border-radius: 18px;
+    color: rgb(0, 0, 0) !important;
+}
+
+.submitform:hover {
+    background-color:#fff;
+    border: 1px solid #fff;
+    border-radius: 18px;
+    color: #000 !important;
+}
+.searchoverlay {
+    background-color: #015AEB !important;
+    color: white;
+}
+
+.servicesinfo {
+    background-color: #015AEB !important;
+}
+/* #EBEEF6 */
+
+
+#services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    background-color: #015AEB !important; 
+}
+
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    color: #015aeb;
+}
+
+
+.badge-secondary {
+    color: #212529;
+    background-color: #30caa0;
+    visibility: hidden;
+}
+
+
+
+.text-secondary {
+    color: #000 !important;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color:#015AEB;
+    border-color:#015AEB;
+}
+
+.btn-primary:active {
+    color: #fff;
+    background-color:#015AEB;
+    border-color:#015AEB;
+}
+
+
+.btn-secondary {
+    color: #fff;
+    background-color:#015AEB;
+    border-color:#015AEB;
+}
+
+
+#showcase-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    background: #015aeb;
+}
