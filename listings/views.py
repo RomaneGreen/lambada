@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Listing
 from listings.choices import price_choices,bedroom_choices,state_choices
-
+from django.db.models import Q
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 # Create your views here.
 
@@ -44,7 +44,7 @@ def search(request):
     if 'city' in request.GET:
         keywords = request.GET['city']
         if keywords:
-            queryset_list = queryset_list.filter(city__iexact=keywords) 
+            queryset_list = queryset_list.filter(Q(city__iexact=keywords) | Q(state__iexact=keywords) |  Q(zipcode__iexact=keywords) ) 
     
     if 'state' in request.GET:
         keywords = request.GET['state']
