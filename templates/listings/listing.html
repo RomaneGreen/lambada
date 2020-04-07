@@ -95,15 +95,15 @@
                       <span class="float-right">{{listing.amount | intcomma }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bed"></i> Requires inspection:
+                      <i class="fas fa-search-dollar"></i> Requires inspection:
                       <span class="float-right">{{listing.requiresinspection}}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bath"></i> First time buyers:
+                      <i class="fas fa-home"></i> First time buyers:
                       <span class="float-right">{{listing.firstbuyersonly}}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-car"></i> Amount of assistance:
+                      <i class="fas fa-money-bill-alt"></i> Amount of assistance:
                       <span class="float-right">{{listing.amountofassistance}}
                       </span>
                     </li>
@@ -112,21 +112,21 @@
                 <div class="col-md-6">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-th-large"></i> Square Feet:
-                      <span class="float-right">3200</span>
+                      <i class="fas fa-credit-card"></i> Credit Requirement:
+                      <span class="float-right">{{ listing.creditrequirment}}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-square"></i> Lot Size:
-                      <span class="float-right">2.5 Acres
+                      <i class="fas fa-briefcase"></i> Employer Participation:
+                      <span class="float-right">{{ listing.employerparticipation}}
                       </span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-calendar"></i> Listing Date:
-                      <span class="float-right">8/30/2018</span>
+                      <i class="fas fa-city"></i> Can be combined:
+                      <span class="float-right">{{listing.canbecombined}}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bed"></i> Realtor:
-                      <span class="float-right">Kyle Brown
+                      <i class="fas fa-bed"></i> Lender:
+                      <span class="float-right">{{listing.lender}}
                       </span>
                     </li>
     
