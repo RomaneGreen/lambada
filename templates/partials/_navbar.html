@@ -52,6 +52,27 @@
             </ul>
     
             <ul style="color: black;" class="navbar-nav ml-auto">
+
+            {% if user.is_authenticated %}
+              
+                <li class="nav-item mr-3">
+                <a class="nav-link" href="{% url 'dashboard' %}">
+                  <!-- <i class="fas fa-sign-in-alt"></i> -->
+                   Welcome {{ user.username }}
+                  <button class="btn-nav">  Dashboard </button>
+                  </a>
+              </li>
+              <li class="nav-item mr-3">
+                <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+             
+                  <i class="fas fa-sign-out-alt"></i>Logout
+                     </a>
+              </li>
+              <form id="logout" action="{% url 'logout' %}" method=POST>
+              {% csrf_token %}
+              <input type="hidden">
+              </form>
+            {% else %}
              
               <li class="nav-item mr-3">
                 <a class="nav-link" href="{% url 'login' %}">
@@ -65,6 +86,7 @@
                     <button class="btn-nav"> Sign up</button>
                     </a>
                 </li>
+                {% endif %}
             </ul>
           </div>
         </div>
