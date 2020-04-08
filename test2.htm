@@ -32,13 +32,20 @@
     }
     .mapboxgl-ctrl-geocoder {
         min-width: 100%;
+        border-radius: 18px;
     }
     #map {
         margin-top: 75px;
     }
+    .mapboxgl-ctrl-geocoder--input {
+        border-radius: 18px;
+    
+    }
 </style>
-<div id="map"></div>
+<div id="map" style="width:400px;height:300px"></div>
 <div id="geocoder" class="geocoder"></div>
+
+
 
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA';
@@ -55,6 +62,9 @@
     });
         console.log(geocoder)
     document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+    let val = document.getElementByTagName('mapboxgl-ctrl-geocoder--input').value;
+    console.log("val",val)
 </script>
 
 </body>

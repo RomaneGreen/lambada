@@ -19,8 +19,8 @@
                 <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
                   <div class="form-group">
-                  <label for="first_name"> Name</label>
-                  <input type="text" name="first_last_name" class="form-control" required>
+                  <label for="fullname"> Name</label>
+                  <input type="text" name="fullname" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
@@ -39,20 +39,20 @@
                   <input type="text" name="username" class="form-control" required>
                 </div>
                  <div class="form-group">
-                  <label for="last_name">Occupation</label>
+                  <label for="occupation">Occupation</label>
                   <input type="text" name="occupation" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label for="last_name">Employer</label>
+                  <label for="employer">Employer</label>
                   <input type="text" name="employer" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label for="last_name">Annual Income</label>
+                  <label for="income">Annual Income</label>
                   <input type="text" name="income" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label for="last_name">Family Size</label>
-                  <input type="text" name="family_size" class="form-control" required>
+                  <label for="familysize">Family Size</label>
+                  <input type="text" name="familysize" class="form-control" required>
                 </div>
               
              
