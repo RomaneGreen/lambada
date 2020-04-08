@@ -1,1 +1,69 @@
-<div>Register</div>
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+
+<section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Create an account</h4>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                  <div class="form-group">
+                  <label for="first_name"> Name</label>
+                  <input type="text" name="first_last_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="password2">Password</label>
+                  <input type="password" name="password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Confirm Password</label>
+                  <input type="password" name="password2" class="form-control" required>
+                </div>
+                   <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" class="form-control" required>
+                </div>
+                 <div class="form-group">
+                  <label for="last_name">Occupation</label>
+                  <input type="text" name="occupation" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Employer</label>
+                  <input type="text" name="employer" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Annual Income</label>
+                  <input type="text" name="income" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Family Size</label>
+                  <input type="text" name="family_size" class="form-control" required>
+                </div>
+              
+             
+             
+                
+                
+                <input type="submit" value="Sign up" class="btn btn-secondary btn-block">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
