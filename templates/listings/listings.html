@@ -4,11 +4,27 @@
 
 {% block title %} | Browse Listings {% endblock %}
 
-
 {% block content %}
 
 
+<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;'></div>
+<script>
+mapboxgl.accessToken = '{{mapbox_access_token}}';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center:  [-79.4512, 43.6568], // starting position
+    zoom: 13 // starting zoom
+});
+
+
+</script>
+
+
+
 <section id="bc" class="mt-3">
+yaowww
+
         <div class="container">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">

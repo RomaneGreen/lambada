@@ -5,6 +5,13 @@
 {% block title %} | Welcome {% endblock %}
 {% block content %}
 
+
+<script>
+function myFunction() {
+alert("ki");
+}
+</script>
+
 <section id="showcase">
         <div class="container text-center">
           <div class="home-search p-5">
@@ -12,7 +19,7 @@
               <h1 class="display-4 mb-4">
                 Search Housing Assistance programs
               </h1>
-              <p class="lead">Enter your in the search bar or Allow your location to see more programs near you</p>
+              <p class="lead">Enter your in the search bar or <a href="{% url 'listings' %}" <button onclick="myFunction()" id="allowyourlocation" class="allowyourlocation"> Allow your location </button style="color:white !important;" onclick"alert("hi")"></a> to see more programs near you</p>
               <div class="search">
                 <form action="{% url 'search' %}">
                   <!-- Form Row 1 -->
@@ -246,3 +253,6 @@
                      
           </section> 
 {% endblock %}
+
+
+

@@ -8,13 +8,15 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 def index(request):
    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+   mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
 
    paginator = Paginator(listings, 1)
    page = request.GET.get('page')
    paged_listings = paginator.get_page(page)
 
    context = {
-       'listings': paged_listings
+       'listings': paged_listings,
+       'mapbox_access_token': mapbox_access_token,
    }
 
  
@@ -27,7 +29,8 @@ def listing(request, listing_id):
   listing = get_object_or_404(Listing, pk=listing_id)
 
   context = {
-      'listing': listing
+      'listing': listing,
+    
   }
   return render(request,'listings/listing.html',context)
 

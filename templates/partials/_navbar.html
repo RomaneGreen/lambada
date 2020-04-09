@@ -23,7 +23,8 @@
               <!-- <div class="col-md-4 mb-0"> -->
                   <label class="sr-only">City</label>
                   <div>
-                  <input id="autocomplete" style="border: 1px solid lightgrey; border-radius: 22px; width: 640px;margin-top:1.8rem;" type="text" name="city" class="form-control" placeholder="Enter a city, state or county">
+                  <input id="autocomplete" style="border: 1px solid lightgrey; border-radius: 22px; width: 640px;margin-top:1.8rem;" type="text" name="city" 
+                  class="form-control" placeholder="Enter a city, state or county" minlength="2" required>
                   <!-- <button class="btn btn-secondary btn-sm mt-4" type="submit">Sub form</button> -->
                   </div>
                 <!-- </div> -->
@@ -108,3 +109,6 @@ function initAutocomplete() {
 	}
  </script>
        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script> -->
+
+
+
