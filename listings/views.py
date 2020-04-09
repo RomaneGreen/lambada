@@ -42,9 +42,11 @@ def search(request):
         queryset_list = queryset_list.filter(description__icontains=keywords)
       
     if 'city' in request.GET:
-        keywords = request.GET['city']
+        keywords = request.GET['city'].replace(',', '')
         if keywords:
-            queryset_list = queryset_list.filter(Q(city__icontains=keywords) | Q(state__icontains=keywords) |  Q(zipcode__iexact=keywords) |  Q(Neighborhoods__icontains=keywords) ) 
+            queryset_list = queryset_list.filter(Q(city__icontains=keywords) |
+             Q(state__icontains=keywords) |  Q(zipcode__iexact=keywords) | 
+              Q(Neighborhoods__icontains=keywords)  |  Q(country__icontains=keywords)  |  Q(address__icontains=keywords)  )
     
     if 'state' in request.GET:
         keywords = request.GET['state']
