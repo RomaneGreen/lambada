@@ -23,7 +23,7 @@
               <!-- <div class="col-md-4 mb-0"> -->
                   <label class="sr-only">City</label>
                   <div>
-                  <input style="border: 1px solid lightgrey; border-radius: 22px; width: 640px;" type="text" name="city" class="form-control" placeholder="Enter neighborhood, city, state, county or zip">
+                  <input id="autocomplete" style="border: 1px solid lightgrey; border-radius: 22px; width: 640px;z-index:100;" type="text" name="city" class="form-control" placeholder="Enter neighborhood, city, state or county">
                   <!-- <button class="btn btn-secondary btn-sm mt-4" type="submit">Sub form</button> -->
                   </div>
                 <!-- </div> -->
@@ -91,3 +91,20 @@
           </div>
         </div>
       </nav>
+
+
+
+<script>
+
+function initAutocomplete() {
+	// Create the autocomplete object, restricting the search to geographical
+	// location types.
+	autocomplete = new google.maps.places.Autocomplete(
+	  /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+	  {types: ['geocode']});
+  //console.log(autocomplete)
+  
+	//console.log("params",geolocation,circle)
+	}
+ </script>
+       <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script>

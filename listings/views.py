@@ -44,7 +44,7 @@ def search(request):
     if 'city' in request.GET:
         keywords = request.GET['city']
         if keywords:
-            queryset_list = queryset_list.filter(Q(city__iexact=keywords) | Q(state__iexact=keywords) |  Q(zipcode__iexact=keywords) ) 
+            queryset_list = queryset_list.filter(Q(city__icontains=keywords) | Q(state__icontains=keywords) |  Q(zipcode__iexact=keywords) |  Q(Neighborhoods__icontains=keywords) ) 
     
     if 'state' in request.GET:
         keywords = request.GET['state']
