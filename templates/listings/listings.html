@@ -6,24 +6,77 @@
 
 {% block content %}
 
-
 <div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;'></div>
+
+
 <script>
+
+function myFunction() {
+
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+   console.log("NOT SUPPORTED")
+  }
+}
+
+function showPosition(position) {
+
+  let lat = position.coords.latitude 
+  let lon = position.coords.longitude
+  console.log("COORDINATES",lat,lon);
+
+}
+/*function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+   console.log("NOT SUPPORTED")
+  }
+}
+
+function showPosition(position) {
+
+  let lat = position.coords.latitude 
+  let lon = position.coords.longitude
+  console.log("COORDINATES",lat,lon);
+
+}
+*/
+
 mapboxgl.accessToken = '{{mapbox_access_token}}';
 var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center:  [-79.4512, 43.6568], // starting position
-    zoom: 13 // starting zoom
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-79.4512, 43.6568],
+zoom: 13
 });
+ 
+map.addControl(
+new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+})
+);
+
+//mapboxgl.accessToken = '{{mapbox_access_token}}';
+//var map = new mapboxgl.Map({
+  //  container: 'map',
+  //  style: 'mapbox://styles/mapbox/streets-v9',
+  //  center:  [lon, lat], // starting position
+  //  center:  [-79.4512, 43.6568],  starting position
+   // zoom: 13 // starting zoom
+//});
 
 
 </script>
 
+<button onclick="myFunction()"> im a button</button>
 
 
 <section id="bc" class="mt-3">
-yaowww
+
 
         <div class="container">
           <nav aria-label="breadcrumb">
