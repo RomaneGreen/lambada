@@ -3,6 +3,7 @@ from django.contrib import messages,auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
 
+
 # Create your views here.
 def register(request):
   if request.method == "POST":
