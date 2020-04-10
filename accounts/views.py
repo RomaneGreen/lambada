@@ -3,6 +3,7 @@ from django.contrib import messages,auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
 from django.contrib.gis.geoip2 import GeoIP2
+import requests
 
 
 # Create your views here.
@@ -71,15 +72,18 @@ def logout(request):
 
 
 def dashboard(request):
+  
   user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
   ipinfo = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
-  # g = GeoIP2()
-  # city = g.city('72.14.207.99')
-  #.split(',')[0].strip()
-
+  ipinfo = '24.187.82.109'
+  r = requests.get('https://www.iplocate.io/api/lookup/'+ipinfo)
+  city = r.json()['city']
+  print(r.json()['city'])
+  
   context = {
     'contacts' : user_contacts,
     'ipinfo': ipinfo,
-    'city': g
+    'city': city
+   
   }
   return render(request,'accounts/dashboard.html', context)
