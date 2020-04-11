@@ -3,10 +3,19 @@ from .models import Listing
 from listings.choices import price_choices,bedroom_choices,state_choices
 from django.db.models import Q
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+import requests
 # Create your views here.
 
 
 def index(request):
+   ipdata = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
+   ipmapinfo = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
+   r = requests.get('https://www.iplocate.io/api/lookup/'+ipmapinfo)
+   your_lat = r.json()['latitude']
+   your_lon = r.json()['longitude']
+   my_lat = '40.663918'
+   my_lon = '-73.8820097'
+   my_ip = '24.187.82.109'
    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
    mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
 
@@ -17,10 +26,12 @@ def index(request):
    context = {
        'listings': paged_listings,
        'mapbox_access_token': mapbox_access_token,
+       'my_lat': my_lat,
+       'my_lon': my_lon
    }
 
  
-
+   print('wow',your_lat,your_lon,r.json())
    return render(request,'listings/listings.html',context)
 
 
@@ -41,11 +52,13 @@ def search(request):
 
     if 'keywords' in request.GET:
       keywords = request.GET['keywords']
+      r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
+      print("dannnnmm",r.json())
       if keywords:
         queryset_list = queryset_list.filter(description__icontains=keywords)
-      
+        
     if 'city' in request.GET:
-        keywords = request.GET['city'].replace(',', '')
+        keywords = request.GET['city']
         if keywords:
             queryset_list = queryset_list.filter(Q(city__icontains=keywords) |
              Q(state__icontains=keywords) |  Q(zipcode__iexact=keywords) | 
@@ -66,6 +79,7 @@ def search(request):
         if keywords:
             queryset_list = queryset_list.filter(minimumcontribution__lte=keywords)  
 
+      
 
 
     context = {
@@ -77,4 +91,7 @@ def search(request):
         'values': request.GET
         # 'listings': queryset_listing
     }  
+    r = "hi server"
+    r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
+    print("dannnnmm",r.json()['results'])
     return render(request,'listings/search.html',context)

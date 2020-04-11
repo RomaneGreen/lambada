@@ -49,16 +49,16 @@ mapboxgl.accessToken = '{{mapbox_access_token}}';
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
-center: [-79.4512, 43.6568],
+center: ['{{my_lon}}','{{my_lat}}'],
 zoom: 13
 });
  
-map.addControl(
-new MapboxGeocoder({
-accessToken: mapboxgl.accessToken,
-mapboxgl: mapboxgl
-})
-);
+//map.addControl(
+//new MapboxGeocoder({
+//accessToken: mapboxgl.accessToken,
+//mapboxgl: mapboxgl
+//})
+//);
 
 //mapboxgl.accessToken = '{{mapbox_access_token}}';
 //var map = new mapboxgl.Map({
