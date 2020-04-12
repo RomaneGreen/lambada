@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'lenders.apps.LendersConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'sslserver',
     'django_extensions',
+    'baton.autodiscover'
 ]
 
 MIDDLEWARE = [
@@ -185,3 +188,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
+
+
+
+
+

@@ -24,6 +24,10 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('listings/',include('listings.urls')),
     path('admin/', admin.site.urls),
+    #url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    #url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     path('accounts/',include('accounts.urls')),
     path('contacts/',include('contacts.urls')),
     path('accounts/', include('allauth.urls')),
