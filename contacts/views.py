@@ -13,7 +13,7 @@ def contact(request):
     email = request.POST['email']
     phone = request.POST['phone']
     message = request.POST['message']
-    user_id = request.POST['user_id']
+    user_id = request.POST.get['user_id']
     lender_email = request.POST['lender_email']
     if request.user.is_authenticated:
       user_id = request.user.id
@@ -38,3 +38,4 @@ def contact(request):
 
     return
         
+ 

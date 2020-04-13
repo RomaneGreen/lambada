@@ -38,3 +38,14 @@ class Listing(models.Model):
     list_date = models.DateTimeField(default=datetime.now,blank=True)
     def __str__(self):
         return self.title
+
+
+class Searchsave(models.Model):
+   phrase = models.CharField(max_length=100)
+   link_visited = models.CharField(max_length=300,blank=True)
+   misc = models.CharField(max_length=100,blank=True)
+   length = models.IntegerField(blank=True)
+   time_visited = models.DateTimeField(default=datetime.now,blank=True)
+   user_id = models.IntegerField(blank=True)
+   def __str__(self):
+        return self.phrase

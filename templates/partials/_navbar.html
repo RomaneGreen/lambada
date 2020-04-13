@@ -19,14 +19,20 @@
                 <a style="font-size: 22px;padding:23px;margin-right:59rem;font-weight:bold;margin-right:61px" class="nav-link" href="{% url 'index' %}">Lambada</a>
               </li>
               <!-- <input type="text"> -->
-              <form action="{% url 'search' %}">
+              <form action="{% url 'search' %}" >
+                  <!-- {% csrf_token %} -->
+                  {% if user.is_authenticated %}
+                  <input type="hidden" name="user_id" value="{{user.id}}">
+                  {% else %}
+                       <input type="hidden" name="user_id" value="0">
+                      {% endif %}
               <!-- <div class="col-md-4 mb-0"> -->
                   <label class="sr-only">City</label>
                   <div>
-                    <form action="">
+                    
                   <input id="autocomplete" style="border: 1px solid lightgrey; border-radius: 22px; width: 640px;margin-top:1.8rem;" type="text" name="city" 
                   class="form-control" placeholder="Enter a city, state or county" minlength="2" required>
-                </form>
+                
                   <!-- <button class="btn btn-secondary btn-sm mt-4" type="submit">Sub form</button> -->
                   </div>
                 <!-- </div> -->

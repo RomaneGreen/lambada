@@ -1,9 +1,12 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import Listing
+from .models import Searchsave
 from listings.choices import price_choices,bedroom_choices,state_choices
 from django.db.models import Q
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 import requests
+from django.contrib import messages
+
 # Create your views here.
 
 
@@ -49,7 +52,7 @@ def listing(request, listing_id):
 
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date')
-
+    
     if 'keywords' in request.GET:
       keywords = request.GET['keywords']
       r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
@@ -59,11 +62,27 @@ def search(request):
         
     if 'city' in request.GET:
         keywords = request.GET['city']
+        print('kword',keywords)
+        search_term = keywords
+        user_id = request.GET['user_id'] 
+        print(user_id,"uuidxxxx")
+        link = request.get_full_path()
+        print('request',link,)
+        if request.user.is_authenticated:
+          user_id = request.user.id
+          has_visited = Searchsave.objects.all().filter(phrase=search_term,user_id=user_id)
+          if has_visited:
+              wishlist = Searchsave.objects.get(phrase=search_term)
+              wishlist.delete()
         if keywords:
             queryset_list = queryset_list.filter(Q(city__icontains=keywords) |
              Q(state__icontains=keywords) |  Q(zipcode__iexact=keywords) | 
               Q(Neighborhoods__icontains=keywords)  |  Q(country__icontains=keywords)  |  Q(address__icontains=keywords)  )
-    
+        length = queryset_list.count()
+
+        searchsaved = Searchsave(phrase=search_term,link_visited=link,length=queryset_list.count(),user_id=user_id)
+        searchsaved.save()
+      
     if 'state' in request.GET:
         keywords = request.GET['state']
         if keywords:
@@ -92,6 +111,6 @@ def search(request):
         # 'listings': queryset_listing
     }  
     r = "hi server"
-    r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
-    print("dannnnmm",r.json()['results'])
+    # r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
+    # print("dannnnmm",r.json()['results'])
     return render(request,'listings/search.html',context)

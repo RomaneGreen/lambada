@@ -53,7 +53,8 @@
                 <th></th>
               </tr>
             </thead>
-               
+            <!-- look:   {{searches.link_visited}}
+            {{count}} -->
               <tbody>
           {% for contact in contacts %}
               <tr>
@@ -74,4 +75,73 @@
       </div>
     </div>
   </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="dashboard" class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- <h2>Welcome {{user.first_name}}</h2> -->
+  
+            {% if searches %}
+  
+  
+            <p>Here are your saved searches</p>
+              <table class="table">
+                 <thead>
+                <tr>
+                  <th scope="col">Time Visited</th>
+                  <th scope="col">Search phrase</th>
+                  <th scope="col">Results</th>
+                  <th></th>
+                </tr>
+              </thead>
+              look:   {{searches.link_visited}}
+              {{count}}
+                <tbody>
+            {% for search in searches %}
+            {% if search.user_id == user.id %}
+                <tr>
+                  <td>{{search.time_visited}}</td>
+                  <td> "{{ search.phrase}}"</td>
+                  <td> {{search.length}}</td>
+                  <!-- <td> {{search.user_id}}</td> -->
+                  <!-- <td> {{search.link_visited}}</td> -->
+                  <td>
+                    <a class="btn btn-light" href="{{search.link_visited }}">Revisit Search</a>
+                  </td>
+                  {% endif %}
+                </tr>
+                  <tr>
+                   {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <p> You havent made any inquiries</p>
+               {% endif %}
+              </div>
+        </div>
+      </div>
+    
+    </section>
   {% endblock %}
+
+
+
+
+
+
+
+
+  
