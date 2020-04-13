@@ -18,6 +18,10 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from jet.dashboard.dashboard_modules import google_analytics_views
+from jet.dashboard.dashboard_modules import yandex_metrika_views
+
+
 
 
 urlpatterns = [
