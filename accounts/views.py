@@ -103,8 +103,8 @@ def dashboard(request):
 
 def search_delete(request,search_id):
   # s = get_object_or_404(Searchsave, id=search_id)
-  s=Searchsave.objects.get(id=search_id)
+  s=Searchsave.objects.filter(id=search_id)
   s.delete()
-  print("heyyyyy",s.id)
+  print("heyyyyy",)
   return redirect('/accounts/dashboard')
   return

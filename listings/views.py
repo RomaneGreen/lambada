@@ -72,7 +72,7 @@ def search(request):
           user_id = request.user.id
           has_visited = Searchsave.objects.all().filter(phrase=search_term,user_id=user_id)
           if has_visited:
-              wishlist = Searchsave.objects.get(phrase=search_term)
+              wishlist = Searchsave.objects.filter(phrase=search_term,user_id=user_id)
               wishlist.delete()
         if keywords:
             queryset_list = queryset_list.filter(Q(city__icontains=keywords) |
