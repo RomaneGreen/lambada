@@ -13,16 +13,32 @@ from django.contrib import messages
 def index(request):
    ipdata = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
    ipmapinfo = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
-   r = requests.get('https://www.iplocate.io/api/lookup/'+ipmapinfo)
+   my_ip = '134.192.135.254' 
+   #replace my_ip with ipmapinfo in production
+   r = requests.get('https://www.iplocate.io/api/lookup/'+my_ip) 
+   r2 = requests.get('https://ipinfo.io/'+my_ip+'?token=bcd68a7fad37ec')
+   r3 = requests.get('https://api.ipdata.co/'+my_ip+'?api-key=e4516990308595b51a3aa80f5d8f73d68d63ecd5d759d2a9702ac586')
    your_lat = r.json()['latitude']
    your_lon = r.json()['longitude']
+
+   your_state = r2.json()['region']
+   your_regcode = r3.json()['region_code']
+   your_city = r.json()['city']
+   your_bigcity = r2.json()['city']
+   your_postal = r.json()['postal_code']
+
+   print('NEWDATA',your_city,your_postal,your_state,your_bigcity,your_regcode)
    my_lat = '40.663918'
    my_lon = '-73.8820097'
-   my_ip = '24.187.82.109'
-   listings = Listing.objects.order_by('-list_date').filter(is_published=True)
    mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
 
-   paginator = Paginator(listings, 1)
+
+   listings = Listing.objects.order_by('-list_date').filter(Q(state=your_state) |
+    Q(state=your_regcode)| Q(city=your_bigcity)| Q(city=your_city)| Q(zipcode=your_postal))
+   
+   amount_of_results = listings.count()
+
+   paginator = Paginator(listings, 3)
    page = request.GET.get('page')
    paged_listings = paginator.get_page(page)
 
@@ -30,11 +46,12 @@ def index(request):
        'listings': paged_listings,
        'mapbox_access_token': mapbox_access_token,
        'my_lat': my_lat,
-       'my_lon': my_lon
+       'my_lon': my_lon,
+       'count': amount_of_results
    }
 
  
-   print('wow',your_lat,your_lon,r.json())
+   #print('wow',your_lat,your_lon,r.json())
    return render(request,'listings/listings.html',context)
 
 
