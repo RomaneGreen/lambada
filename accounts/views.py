@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib import messages,auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
@@ -98,3 +98,13 @@ def dashboard(request):
    
   }
   return render(request,'accounts/dashboard.html', context)
+
+
+
+def search_delete(request,search_id):
+  # s = get_object_or_404(Searchsave, id=search_id)
+  s=Searchsave.objects.get(id=search_id)
+  s.delete()
+  print("heyyyyy",s.id)
+  return redirect('/accounts/dashboard')
+  return

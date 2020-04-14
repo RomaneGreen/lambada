@@ -11,6 +11,7 @@ urlpatterns = [
     path('register',views.register,name='register'),
     path('logout',views.logout,name='logout'),
     path('dashboard',views.dashboard,name='dashboard'),
+    path('delete/<int:search_id>/', views.search_delete, name='search_query_delete'),
     path('reset_password/',auth_views.PasswordResetView.as_view(template_name="accounts/password_reset.html"),name="reset_password"),
     path('reset_password_sent',auth_views.PasswordResetDoneView.as_view(template_name="accounts/password_reset_sent.html"),name="password_reset_done"),
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name="accounts/password_reset_form.html"),name="password_reset_confirm"),

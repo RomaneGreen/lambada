@@ -107,7 +107,7 @@
                   <th></th>
                 </tr>
               </thead>
-              look:   {{searches.link_visited}}
+              <!-- look:   {{searches}} -->
               {{count}}
                 <tbody>
             {% for search in searches %}
@@ -116,8 +116,13 @@
                   <td>{{search.time_visited}}</td>
                   <td> "{{ search.phrase}}"</td>
                   <td> {{search.length}}</td>
-                  <!-- <td> {{search.user_id}}</td> -->
+                  <!-- <td> {{search.id}}</td> -->
                   <!-- <td> {{search.link_visited}}</td> -->
+                  <td> <form action="{% url 'search_query_delete' search.id %}" method="post">
+                      {% csrf_token %}
+                      <input type="submit" value="Delete search query">
+                  </form>
+                </td>
                   <td>
                     <a class="btn btn-light" href="{{search.link_visited }}">Revisit Search</a>
                   </td>
