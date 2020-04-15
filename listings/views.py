@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 import requests
 from django.contrib import messages
-
+import reverse_geocoder as rg
 # Create your views here.
 
 
@@ -73,16 +73,38 @@ def search(request):
     if 'keywords' in request.GET:
       keywords = request.GET['keywords']
       r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
-      print("dannnnmm",r.json())
+     # print("dannnnmm",r.json())
       if keywords:
         queryset_list = queryset_list.filter(description__icontains=keywords)
         
     if 'city' in request.GET:
         keywords = request.GET['city']
-        print('kword',keywords)
+        #print('kword',keywords)
+        r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
+        #print("ONE",r.json()['results'][0]["geometry"]["location"]["lat"],"TWO:",r.json()['results'][0]["geometry"]["location"]["lng"])
+        lat = r.json()['results'][0]["geometry"]["location"]["lat"]
+        lon = r.json()['results'][0]["geometry"]["location"]["lng"]
+        lat = str(lat)
+        lon = str(lon)
+        # r2 = requests.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lon+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
+        # print(r2.json()['results'][0]['address_components'][3]['long_name'])
+        # print(r2.json()['results'][0]['address_components'][3]['short_name'])
+        # print(r2.json()['results'][0]['address_components'][2]['long_name'])
+        # print(r2.json()['results'][0]['address_components'][5]['long_name'])
+        coordinates = (lat,lon)
+        results = rg.search(coordinates)
+        print(results[0]['admin1'])
+        print(results[0]['admin2'])
+        state = results[0]['admin1']
+        county = results[0]['admin2']
+        # state = r2.json()['results'][0]['address_components'][3]['long_name']
+        # state_abbrev = r2.json()['results'][0]['address_components'][3]['short_name']
+        # county = r2.json()['results'][0]['address_components'][2]['long_name']
+        # zip = r2.json()['results'][0]['address_components'][5]['long_name']
+        #print(r2.json())
         search_term = keywords
         user_id = request.GET['user_id'] 
-        print(user_id,"uuidxxxx")
+        #print(user_id,"uuidxxxx")
         link = request.get_full_path()
         print('request',link,)
         if request.user.is_authenticated:
@@ -92,9 +114,9 @@ def search(request):
               wishlist = Searchsave.objects.filter(phrase=search_term,user_id=user_id)
               wishlist.delete()
         if keywords:
-            queryset_list = queryset_list.filter(Q(city__icontains=keywords) |
-             Q(state__icontains=keywords) |  Q(zipcode__iexact=keywords) | 
-              Q(Neighborhoods__icontains=keywords)  |  Q(country__icontains=keywords)  |  Q(address__icontains=keywords)  )
+            queryset_list = queryset_list.filter(Q(city__iexact=keywords) |
+             Q(state__iexact=state) |  Q(zipcode__iexact=state) | Q(city__iexact=state) |
+              Q(Neighborhoods__iexact=county) )
         length = queryset_list.count()
 
         searchsaved = Searchsave(phrase=search_term,link_visited=link,length=queryset_list.count(),user_id=user_id)
