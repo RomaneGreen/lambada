@@ -21,3 +21,18 @@ phrase
 visit_link
 results_length
 user_id = models.IntegerField(blank=True)
+
+important columms (7)
+householdincomerestrictions bool 
+amilimit bool 
+mustearncounselingcertificate bool 
+fixedratemortgagesonly bool 
+eligible 21
+get started 20
+eligibility_limitations 20 
+
+program distribution 4 text
+program_contact text 
+participatinglenders 16 text 
+canbecombinedwith 14 text 
+ami 15 integer

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'sslserver',
     'django_extensions',
+    'import_export',
     'baton.autodiscover'
 ]
 
