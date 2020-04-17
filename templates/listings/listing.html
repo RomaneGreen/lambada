@@ -2,7 +2,7 @@
 
 {% load humanize %}
 
-{% block title %} | {{listing.title}} {% endblock %}
+{% block title %} | {{listing.programname}} {% endblock %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
         <div class="container">
           <div class="row text-center">
             <div class="col-md-12">
-              <h1 class="display-4">{{listing.title}}</h1>
+              <h1 class="display-4">{{listing.programname}}</h1>
               <p class="lead">
                 <i class="fas fa-map-marker"></i> {{listing.state}}</p>
             </div>
@@ -29,7 +29,7 @@
               <li class="breadcrumb-item">
                 <a href="{% url 'listings' %}">Listings</a>
               </li>
-              <li class="breadcrumb-item active">{{ listing.title }}</li>
+              <li class="breadcrumb-item active">{{ listing.programname }}</li>
             </ol>
           </nav>
         </div>
@@ -182,7 +182,7 @@
          
                 <div class="form-group">
                   <label for="listing_name" class="col-form-label">Listing:</label>
-                  <input type="text" name="listing" class="form-control" value="{{listing.title}}">
+                  <input type="text" name="listing" class="form-control" value="{{listing.programname}}">
                 </div>
                 <div class="form-group">
                   <label for="name" class="col-form-label">Your Name:</label>

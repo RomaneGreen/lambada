@@ -4,9 +4,9 @@ from lenders.models import Lender
 # Create your models here.
 
 class Listing(models.Model):
-    lender = models.ForeignKey(Lender,on_delete=models.DO_NOTHING,blank=True)
-    title = models.CharField(max_length=200,blank=True)
-    program = models.CharField(max_length=200,blank=True)
+    lender = models.ForeignKey(Lender,on_delete=models.DO_NOTHING,blank=True) # ---> Program Originator
+    programname = models.CharField(max_length=200,blank=True)   # ---> Program Name
+    programtype = models.CharField(max_length=200,blank=True)    # --->  Program Type
     programdistribution = models.CharField(max_length=200,blank=True)
     programcontact = models.CharField(max_length=200,blank=True)
     participatinglenders = models.CharField(max_length=300,blank=True)
@@ -33,17 +33,17 @@ class Listing(models.Model):
     minimumcontribution = models.IntegerField(blank=True)
     mortgageamount = models.IntegerField(blank=True)
     amountofassistance = models.IntegerField(blank=True)
-    photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
-    photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
-    photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
-    photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
-    photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
-    photo_5 = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
-    photo_6 = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
+    eligible = models.TextField(max_length=400,blank=True)
+    getstarted = models.TextField(max_length=200,blank=True)
+    eligibilitylimitations = models.TextField(max_length=400,blank=True)
+    amilimit = models.TextField(blank=True,null=True)
+    householdincomerestrictions = models.TextField(max_length=20,blank=True)
+    mustearncounselingcertificate = models.TextField(max_length=20,blank=True)
+    fixedratemortgagesonly = models.TextField(max_length=20,blank=True)
     is_published=models.BooleanField(default=True,blank=True)
     list_date = models.DateTimeField(default=datetime.now,blank=True)
     def __str__(self):
-        return self.title
+        return self.name
 
 
 class Searchsave(models.Model):
