@@ -1,21 +1,21 @@
-/*
+/* /* 
     DJANGO Admin styles
 */
 
 @import url(fonts.css);
 
-body {
+/* body {
     margin: 0;
     padding: 0;
     font-size: 14px;
     font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
     color: #333;
     background: #fff;
-}
+} */
 
 /* LINKS */
 
-a:link, a:visited {
+/* a:link, a:visited {
     color: #447e9b;
     text-decoration: none;
 }
@@ -39,7 +39,7 @@ a.section:link, a.section:visited {
 
 a.section:focus, a.section:hover {
     text-decoration: underline;
-}
+} */
 
 /* GLOBAL DEFAULTS */
 
@@ -825,7 +825,7 @@ table#change-history tbody th {
 
 /* HEADER */
 
-#header {
+/* #header {
     width: auto;
     height: 40px;
     padding: 10px 40px;
@@ -833,7 +833,7 @@ table#change-history tbody th {
     line-height: 40px;
     color: #ffc;
     overflow: hidden;
-}
+} */
 
 #header a:link, #header a:visited {
     color: #fff;
@@ -847,7 +847,7 @@ table#change-history tbody th {
     float: left;
 }
 
-#branding h1 {
+/* #branding h1 {
     padding: 0;
     margin: 0 20px 0 0;
     font-weight: 300;
@@ -869,7 +869,7 @@ table#change-history tbody th {
 
 #branding a:hover {
     text-decoration: none;
-}
+} */
 
 #user-tools {
     float: right;
@@ -894,7 +894,7 @@ table#change-history tbody th {
 
 /* SIDEBAR */
 
-#content-related {
+/* #content-related {
     background: #f8f8f8;
 }
 
@@ -907,13 +907,13 @@ table#change-history tbody th {
     color: #666;
     padding: 0 16px;
     margin: 0 0 16px;
-}
+} */
 
 #content-related h4 {
     font-size: 13px;
 }
 
-#content-related p {
+/* #content-related p {
     padding-left: 16px;
     padding-right: 16px;
 }
@@ -936,7 +936,7 @@ table#change-history tbody th {
     border-bottom: 1px solid #eaeaea;
     font-size: 18px;
     color: #333;
-}
+} */
 
 .delete-confirmation form input[type="submit"] {
     background: #ba2121;
@@ -980,4 +980,4 @@ table#change-history tbody th {
 
 .popup #header {
     padding: 10px 20px;
-}
+} */
