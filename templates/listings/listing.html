@@ -129,7 +129,7 @@
                     </li>
                     <li class="list-group-item text-secondary">
                       <i class="fas fa-bed"></i> Lender:
-                      <span class="float-right">{{listing.lender}}
+                      <span class="float-right">{{listing.programoriginator}}
                       </span>
                     </li>
     
@@ -147,10 +147,10 @@
             </div>
             <div class="col-md-3">
               <div class="card mb-3">
-                <img class="card-img-top" src="{{ listing.lender.photo_url}}" alt="">
+                <img class="card-img-top" src="{{ listing.programoriginator.photo_url}}" alt="">
                 <div class="card-body">
                   <h5 class="card-title">Program Name</h5>
-                  <h6 class="text-secondary">{{ listing.lender}}</h6>
+                  <h6 class="text-secondary">{{ listing.programoriginator}}</h6>
                 </div>
               </div>
               <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Save to dashboard</button>
@@ -177,7 +177,7 @@
            {% else %}
                 <input type="hidden" name="user_id" value="0">
                {% endif %}
-               <input type="hidden" name="lender_email" value="{{listing.lender.email}}">
+               <input type="hidden" name="lender_email" value="{{listing.programoriginator.email}}">
                <input type="hidden" name="listing_id" value="{{listing.id }}">
          
                 <div class="form-group">

@@ -4,7 +4,7 @@ from lenders.models import Lender
 # Create your models here.
 
 class Listing(models.Model):
-    lender = models.ForeignKey(Lender,on_delete=models.DO_NOTHING,blank=True) # ---> Program Originator
+    programoriginator = models.TextField(max_length=30,blank=True) # ---> Program Originator
     programname = models.CharField(max_length=200,blank=True)   # ---> Program Name
     programtype = models.CharField(max_length=200,blank=True)    # --->  Program Type
     programdistribution = models.CharField(max_length=200,blank=True)
@@ -43,7 +43,7 @@ class Listing(models.Model):
     is_published=models.BooleanField(default=True,blank=True)
     list_date = models.DateTimeField(default=datetime.now,blank=True)
     def __str__(self):
-        return self.name
+        return self.programname
 
 
 class Searchsave(models.Model):

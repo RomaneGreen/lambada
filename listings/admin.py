@@ -14,7 +14,7 @@ class ListingAdmin(ImportExportModelAdmin):
     list_display_links = ('id','programname')
     list_filter = ('state',)
     list_editable = ('is_published',)
-    search_fields = ('programname','address','program','city')
+    search_fields = ('programname','address','programoriginator','city')
     list_per_page = 25
 
 admin.site.register(Listing,ListingAdmin)
