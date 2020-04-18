@@ -18,57 +18,61 @@
  
   {% else %}
 
-<h3 class="signinheader">Sign in to your account</h3>
+<div id="loginbody">
+<h3 id="signinheader">Sign in to your account</h3>
+<br>
 
-<h6 style="color:#465175;">Sign in with google or facebook account </h6>
+<h6 style="color:#465175;">Sign in with Google or Facebook account </h6>
 
 
   
   
-  <a style="color:#465175;opacity: 0.6;" href="{% provider_login_url 'google' %}">
+  <a class="loginlink" href="{% provider_login_url 'google' %}">
       <button class="btn-nav-login" style="color:white;"> <i class="fab fa-google fa-1x"></i>
-  Login with Google</a>
+  Sign in with Google</a>
   </button>
-    <a style="color:#465175;opacity: 0.6;" href="{% provider_login_url "facebook"  %}">
+    <a class="loginlink" href="{% provider_login_url "facebook"  %}">
       <button class="btn-nav-login" style="color:white;"> <i class="fab fa-facebook fa-1x"></i>
-  Login with Facebook  </a>
+  Sign in with Facebook  </a>
   </button>
 
-<h6 style="color:#465175;">Or using your lambada account </h6>
+<br> <br>
+<h6 style="color:#465175;font-weight:normal !important">Or using your lambada account </h6>
 
 
 
 
-  <a style="color:#465175;opacity: 0.6;" href="{% url 'reset_password'  %}">
+  <!-- <a style="color:#465175;opacity: 0.6;" href="{% url 'reset_password'  %}">
     <button class="btn-nav-login" style="color:white;">
-Forgot Password ?  </a>
+Forgot Password ?  </a> -->
 </button>
 
   <form action="{% url 'login' %}" method="POST">
                {% csrf_token %}
                 <div class="">
-                  <label for="username">Username</label>    <br>
-                  <input type="text" name="username" class="" required>
+                  <label id="loginusername" for="username">Username</label>    <br>
+                  <input type="text" name="username" class="" placeholder="         Enter Username" required>
                 </div> 
                
                 <div class="">
                   <label for="password2">Password</label>    <br>
-                  <input type="password" name="password" class="" required>
+                  <input type="password" name="password" placeholder="         Enter Password" class="" required>
                 </div>
 
                   <a style="color:#465175;opacity: 0.6;" href="{% url 'reset_password'  %}">
-    <button class="btn-nav-login" style="color:white;">
-Forgot Password ?  </a> 
-</button> <br>
+    
+<span style="color: black;margin-top:3rem;">Forgot Password?</span> </a> 
+ <br>
 
-                <input type="submit" value="Sign in" class="">
+                <input type="submit" value="Sign in" id="signin" class="">
               </form>
-<h6 style="color:#465175;">Dont have an account?  <a  href="{% url 'register'  %}">Sign up</h6>
+              <br>
+<h6 style="color:#465175;font-weight:normal !important";>Dont have an account?  <a  style="color:#015AEB; !important;text-decoration:underline" href="{% url 'register'  %}">Sign up</h6>
 
   {% endif %}
-
+</div>
 <!-- # TEST ABOVE # -->
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
           <div class="card">
@@ -77,7 +81,7 @@ Forgot Password ?  </a>
                 <i class="fas fa-sign-in-alt"></i> Login</h4>
             </div>
             <div class="card-body">
-             <!-- Alerts -->
+     
             {% include 'partials/_alerts.html' %}
                <form action="{% url 'login' %}" method="POST">
                {% csrf_token %}
@@ -100,18 +104,18 @@ Forgot Password ?  </a>
     </div>
 
 
-     <!-- <head>
-    <title>Google Registration</title> -->
-  <!-- </head>
+      <head>
+    <title>Google Registration</title> 
+   </head>
   <body>
-  <h1>My Google Login Project</h1> -->
+  <h1>My Google Login Project</h1> 
   {% if user.is_authenticated %}
   <p>Welcome, {{ user.username }} !</p>
  
   {% else %}
-  <!-- <h1>My Google Login Project</h1> -->
   
-  <a style="color:white;" href="{% provider_login_url 'google' %}">
+  
+   <a style="color:white;" href="{% provider_login_url 'google' %}">
       <button class="btn-nav" style="color:white;">
   Login with Google</a>
   </button>
@@ -126,5 +130,5 @@ Forgot Password ?  </a>
 </button>
 
   {% endif %}
-  </section>
+  </section>  -->
 {% endblock %}

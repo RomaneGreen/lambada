@@ -1,12 +1,8 @@
 
 
-.sigininheader {
-color: #465175;
-font-family:poppins;
-font-weight: 600;
-font-size: 4px;
-line-height:36px;
-}
+
+
+
 
 .btn-nav {
     background-color:blue;
@@ -137,4 +133,123 @@ line-height:36px;
   color: red;
   -webkit-text-fill-color: blue;
   border-radius: 199px;
+}
+
+#footer {
+   position: relative;
+   height:8rem;
+   top: 1.5rem;
+   
+   border-top: 2px solid #EBEEF6;
+
+}
+
+#footertext {
+   position: relative;
+   left: 11.2rem;
+   top: 2rem;
+
+}
+
+#loginbody {
+    margin-left: 11.2rem;
+}
+
+#loginbody h3 {
+color: #465175 !important;
+font-family: sans-serif;
+font-weight: 600 !important;
+font-size: 24px;
+line-height:36px;
+}
+
+#loginbody h6 {
+color: #465175 !important;
+font-family: sans-serif;
+font-weight: 600 !important;
+font-size: 14px;
+line-height:21px;
+}
+
+#loginbody a {
+color: #465175;  
+opacity: 0.6;
+font-size: 16px;
+line-height: 21px;
+text-decoration: none;
+}
+
+
+#loginbody button {
+width: 261px;
+height: 50px;
+font-size: 14px;
+line-height: 21px;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 25px;
+}
+
+#loginbody label {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+
+}
+
+#loginbody input {
+font-family: sans-serif;
+width: 419.46px;
+height: 50px;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 25px;
+
+}
+
+#loginbody input::placeholder {
+font-family: sans-serif;
+color: #465175;
+opacity: 0.6;
+}
+
+#loginbody span {
+margin-left: 308px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+
+}
+
+#signin {
+    background-color: #015AEB;
+    color: red;
+    width: 101.93px;
+    height: 37.39px;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+border: none;
+}
+
+#loginbody #signin{
+ background-color: #015AEB;
+ color: white;
+ width: 101.93px;
+ height: 37.39px;
+font-family: Inter,sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+border: none;
+
 }
