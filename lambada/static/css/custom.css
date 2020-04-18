@@ -1,10 +1,27 @@
 
 
+.sigininheader {
+color: #465175;
+font-family:poppins;
+font-weight: 600;
+font-size: 4px;
+line-height:36px;
+}
+
 .btn-nav {
-    background-color:#015AEB;
-    border: 1px solid #015AEB; 
+    background-color:blue;
+    border: 1px solid #EBEEF6; 
     color: white;
     border-radius: 18.6961px;
+}
+.btn-nav-login {
+    background-color:white;
+    font-family: Poppins;
+    color: #465175;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 18.6961px;
+    border: 2px solid #EBEEF6;
 }
 
 .submitform {
@@ -97,3 +114,27 @@
     text-decoration: underline;
 }
 
+.fa-google {
+  background: 
+    linear-gradient(to bottom left,transparent 49%,#fbbc05 50%) 0 25%/48% 40%,
+    linear-gradient(to top    left,transparent 49%,#fbbc05 50%) 0 75%/48% 40%,
+  
+    linear-gradient(-40deg ,transparent 53%,#ea4335 54%),
+    linear-gradient( 45deg ,transparent 46%,#4285f4 48%),
+    #34a853;
+  background-repeat:no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.fa-facebook {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: red;
+  -webkit-text-fill-color: blue;
+  border-radius: 199px;
+}

@@ -6,7 +6,7 @@ from lenders.models import Lender
 
 def index(request):
 
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    listings = Listing.objects.order_by('id').filter(is_published=True)[:6]
     context = {
         'listings': listings,    
         'state_choices': state_choices,

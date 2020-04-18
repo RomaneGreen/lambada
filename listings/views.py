@@ -33,12 +33,12 @@ def index(request):
    mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
 
 
-   listings = Listing.objects.order_by('-list_date').filter(Q(state=your_state) |
+   listings = Listing.objects.order_by('id').filter(Q(state=your_state) |
     Q(state=your_regcode)| Q(city=your_bigcity)| Q(city=your_city)| Q(zipcode=your_postal))
    
    amount_of_results = listings.count()
 
-   paginator = Paginator(listings, 3)
+   paginator = Paginator(listings, 6)
    page = request.GET.get('page')
    paged_listings = paginator.get_page(page)
 
@@ -68,7 +68,7 @@ def listing(request, listing_id):
 
 
 def search(request):
-    queryset_list = Listing.objects.order_by('-list_date')
+    queryset_list = Listing.objects.order_by('id')
     
     if 'keywords' in request.GET:
       keywords = request.GET['keywords']

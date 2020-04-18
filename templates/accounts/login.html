@@ -1,4 +1,4 @@
- {% extends 'base.html' %}
+ {% extends 'basetwo.html' %}
 
 {% load humanize %}
 
@@ -11,7 +11,63 @@
 
 {% block content %}
 
- <section id="login" class="bg-light py-5">
+ <section id="login" class="bg-white py-5">
+
+ {% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }} !</p>
+ 
+  {% else %}
+
+<h3 class="signinheader">Sign in to your account</h3>
+
+<h6 style="color:#465175;">Sign in with google or facebook account </h6>
+
+
+  
+  
+  <a style="color:#465175;opacity: 0.6;" href="{% provider_login_url 'google' %}">
+      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-google fa-1x"></i>
+  Login with Google</a>
+  </button>
+    <a style="color:#465175;opacity: 0.6;" href="{% provider_login_url "facebook"  %}">
+      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-facebook fa-1x"></i>
+  Login with Facebook  </a>
+  </button>
+
+<h6 style="color:#465175;">Or using your lambada account </h6>
+
+
+
+
+  <a style="color:#465175;opacity: 0.6;" href="{% url 'reset_password'  %}">
+    <button class="btn-nav-login" style="color:white;">
+Forgot Password ?  </a>
+</button>
+
+  <form action="{% url 'login' %}" method="POST">
+               {% csrf_token %}
+                <div class="">
+                  <label for="username">Username</label>    <br>
+                  <input type="text" name="username" class="" required>
+                </div> 
+               
+                <div class="">
+                  <label for="password2">Password</label>    <br>
+                  <input type="password" name="password" class="" required>
+                </div>
+
+                  <a style="color:#465175;opacity: 0.6;" href="{% url 'reset_password'  %}">
+    <button class="btn-nav-login" style="color:white;">
+Forgot Password ?  </a> 
+</button> <br>
+
+                <input type="submit" value="Sign in" class="">
+              </form>
+<h6 style="color:#465175;">Dont have an account?  <a  href="{% url 'register'  %}">Sign up</h6>
+
+  {% endif %}
+
+<!-- # TEST ABOVE # -->
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
