@@ -253,3 +253,87 @@ line-height: 27px;
 border: none;
 
 }
+
+#passwordresetbody {
+    margin-left: 11.2rem;
+}
+#passwordresetbody h3 {
+    width: 571.11px;
+height: 30.53px;
+left: 100px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+color: #465175;
+}
+
+#passwordresetbody p {
+width: 381.1px;
+height: 50px;
+color: #465175;
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+}
+
+#passwordresetbody input {
+
+width: 419.46px;
+height: 50px;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 25px;
+}
+
+#passwordresetbody input[name="Send email"] {
+
+width: 141px;
+height: 37px;
+background: #015AEB;
+border-radius: 18.6961px;
+color: white;
+border:none;
+}
+
+#passwordresetbody span {
+
+width: 282px;
+height: 26px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+
+/* text-blue */
+
+color: #465175;
+}
+
+
+#passwordresetbody label[for=id_email] {
+
+width: 345.34px;
+height: 25.75px;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+
+
+
+color: #465175;
+}
+
+#passwordresetbody input::placeholder {
+
+color: #465175;
+opacity: 0.6;
+font-size: 14px;
+}
