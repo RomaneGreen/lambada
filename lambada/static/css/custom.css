@@ -299,6 +299,16 @@ color: white;
 border:none;
 }
 
+#passwordresetbody input[name="Update Password"] {
+
+width: 141px;
+height: 37px;
+background: #015AEB;
+border-radius: 18.6961px;
+color: white;
+border:none;
+}
+
 #passwordresetbody span {
 
 width: 282px;
@@ -331,9 +341,47 @@ line-height: 21px;
 color: #465175;
 }
 
+#passwordresetbody label[for=id_new_password1] {
+
+width: 345.34px;
+height: 25.75px;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+
+
+
+color: #465175;
+}
+
+#passwordresetbody label[for=id_new_password2] {
+
+width: 345.34px;
+height: 25.75px;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+
+
+
+color: #465175;
+}
+
+
+
 #passwordresetbody input::placeholder {
 
 color: #465175;
 opacity: 0.6;
 font-size: 14px;
+}
+
+#firsthalf {
+    display: none;
 }

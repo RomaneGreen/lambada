@@ -1,24 +1,52 @@
-{% extends 'base.html' %}
+{% extends 'basetwo.html' %}
 
 
 {% block title %} | Register account {% endblock %}
 
 {% block content %}
 
-<section id="register" class="bg-light py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card">
-            <div class="card-header bg-primary text-white">
-              <h4>
-                <i class="fas fa-user-plus"></i> Create an account</h4>
-            </div>
-            <div class="card-body">
-            <!-- Alerts -->
-            {% include 'partials/_alerts.html' %}
-                <form action="{% url 'register' %}" method="POST">
-                {% csrf_token %}
+<div id="registerbody"> 
+   <div id="secondhalf">
+                 <div class="form-group">
+                  <label for="occupation">Occupation</label>
+                  <input type="text" name="occupation" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="employer">Employer</label>
+                  <input type="text" name="employer" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="income">Annual Income</label>
+                  <input type="text" name="income" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="familysize">Family Size</label>
+                  <input type="text" name="familysize" class="form-control" required>
+                </div>
+              <div>
+
+   <button id="switchhalf" type="button">Next</button>
+
+                    <!-- <div id="secondhalf">
+                 <div class="form-group">
+                  <label for="occupation">Occupation</label>
+                  <input type="text" name="occupation" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="employer">Employer</label>
+                  <input type="text" name="employer" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="income">Annual Income</label>
+                  <input type="text" name="income" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="familysize">Family Size</label>
+                  <input type="text" name="familysize" class="form-control" required>
+                </div>
+              <div> -->
+
+              <div id="firsthalf">
                   <div class="form-group">
                   <label for="fullname"> Name</label>
                   <input type="text" name="fullname" class="form-control" required>
@@ -39,6 +67,48 @@
                   <label for="username">Username</label>
                   <input type="text" name="username" class="form-control" required>
                 </div>
+<div>
+
+<!-- <section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Create an account</h4>
+            </div>
+            <div class="card-body">
+         
+            {% include 'partials/_alerts.html' %}
+
+                <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+<div id="firsthalf">
+                  <div class="form-group">
+                  <label for="fullname"> Name</label>
+                  <input type="text" name="fullname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="password2">Password</label>
+                  <input type="password" name="password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Confirm Password</label>
+                  <input type="password" name="password2" class="form-control" required>
+                </div>
+                   <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" class="form-control" required>
+                </div>
+<div>
+                 <button id="switchhalf" type="button">Next</button>
+
+                    <div id="secondhalf">
                  <div class="form-group">
                   <label for="occupation">Occupation</label>
                   <input type="text" name="occupation" class="form-control" required>
@@ -55,7 +125,7 @@
                   <label for="familysize">Family Size</label>
                   <input type="text" name="familysize" class="form-control" required>
                 </div>
-              
+              <div>
              
              
                 
@@ -67,6 +137,21 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+</div> 
+<div id="look">
+<p>Yaowwwwmmmmm</p>
+</div>
 
+<script type="text/javascript">
+
+alert('Hi')
+ // document.getElementById('secondhalf').style.display="none"
+//document.getElementById('registerbody').innerHTML = 'dffsdff';
+document.getElementById("switchhalf").addEventListener("click", function(){
+  alert('bye')
+   document.getElementById('secondhalf').style.display="hidden"
+   document.getElementById('firsthalf').style.display="block"
+});
+</script>
   {% endblock %}
