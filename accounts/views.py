@@ -17,10 +17,10 @@ def register(request):
     password = request.POST['password']
     passowrd2 = request.POST['password2']
     username = request.POST['username']
-    occupation = request.POST['occupation']
-    employer = request.POST['employer']
-    income = request.POST['income']
-    familysize = request.POST['familysize']
+    # occupation = request.POST['occupation']
+    # employer = request.POST['employer']
+    # income = request.POST['income']
+    # familysize = request.POST['familysize']
      
     if password == passowrd2:
       if User.objects.filter(username=username).exists():
@@ -31,15 +31,15 @@ def register(request):
            messages.error(request,'That email is being used')
            return redirect('register')
          else:
-            user = User.objects.create_user(username=username,password=password,email=email,first_name=fullname,last_name=familysize+occupation+employer+income)
+            user = User.objects.create_user(username=username,password=password,email=email,first_name=fullname,last_name=fullname)
             #fullname=fullname,occupation=occupation,employer=employer,income=income,familysize=familysize)
             # To login after register
             # auth.login(request,user)
             # messages.success(request,'You are now logged in')
             # return redirect('index')
             user.save()
-            messages.success(request,'You are now registered and can log in')
-            return redirect('login')
+           # messages.success(request,'You are now registered and can log in')
+            return redirect('enroll')
              
     else:
       messages.error(request, 'Passwords do not match')      
@@ -108,3 +108,7 @@ def search_delete(request,search_id):
   print("heyyyyy",)
   return redirect('/accounts/dashboard')
   return
+
+def enroll(request):
+  
+  return render(request,'accounts/enroll.html')

@@ -1,0 +1,103 @@
+{% extends 'basethree.html' %}
+
+{% load socialaccount %}
+
+{% providers_media_js %}
+
+{% block title %} | Register account {% endblock %}
+
+{% block content %}
+
+<div id="registerbody"> 
+        
+            {% include 'partials/_alerts.html' %}
+
+  {% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }} !</p>
+ 
+  {% else %}
+
+<div id="loginbody">
+<br>
+                  <h6 style="color:#465175;font-weight:normal !important";> <a  style="color:#015AEB; !important;text-decoration:underline" href="{% url 'login'  %}">Back</h6></a>
+
+<h3 id="signinheader">Create an account</h3>
+
+<!-- <h6 style="color:#465175;">Sign in with Google or Facebook account </h6>
+
+
+  
+  
+  <a class="loginlink" href="{% provider_login_url 'google' %}">
+      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-google fa-1x"></i>
+  Sign in with Google</a>
+  </button>
+    <a class="loginlink" href="{% provider_login_url "facebook"  %}">
+      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-facebook fa-1x"></i>
+  Sign in with Facebook  </a>
+  </button> -->
+
+
+                  <form>
+                  <label for="occupation">Occupation</label><br>
+                  <input type="text" name="occupation"  placeholder="         Enter Occupation" class="" required><br><br>
+                
+             
+                  <label for="employer">Employer</label><br>
+                  <input type="text" name="employer"  placeholder="         Enter Employer" class="" required><br><br>
+                  
+           
+           
+                  <label for="income">Annual Income</label><br>
+                  <input type="text"  placeholder="         Enter Number" name="income" class="" required><br><br>
+           
+            
+                  <label for="familysize">Household Family Size</label><br>
+                  <input type="text"  placeholder="         Enter Number" name="familysize" class="" required><br><br>
+          
+                    <div>
+                   <label for="familysize">Are you a first time buyer?</label><br>
+                  <button class="button" type=button id="enrollinfo">Yes</Button> &nbsp; <button type=button id="enrollinfo">No</Button><br>
+                   </div>
+                   <div>
+                  <label for="familysizet">Are you a veteran?</label><br>
+                  <button class="button" type=button id="enrollinfot">Yes</Button> &nbsp; <button type=button id="enrollinfot">No</Button><br>
+                  </div>
+              <div> </form><br>
+
+                   </div>
+             
+             
+                
+                
+              </form>
+              <a style="" href="/accounts/register">  <input style="" type="submit" id="signin" value="Next" class=""></a><br><br>
+              <h6 style="color:#465175;font-weight:normal !important";>Already have an account?  <a  style="color:#015AEB; !important;text-decoration:underline" href="{% url 'login'  %}">Sign in</h6>
+    
+  </section>
+  {% endif %}
+</div> 
+
+
+<script type="text/javascript">
+
+//alert('registerone')
+ // document.getElementById('secondhalf').style.display="none"
+//document.getElementById('registerbody').innerHTML = 'dffsdff';
+document.getElementById("enrollinfo").addEventListener("click", function(){
+  document.getElementById('enrollinfo').style.border=".5px solid black";
+});
+document.getElementById("enrollinfot").addEventListener("click", function(){
+  document.getElementById('enrollinfot').style.border=".5px solid black";
+});
+ //  document.getElementById('firsthalf').style.display="block"
+
+ var buttons = document.getElementsByClassName('button')
+
+Array.prototype.forEach.call(buttons, function (button) {
+  button.addEventListener('click', function (event) {
+    button.classList.toggle('button-active')
+  })
+})
+</script>
+  {% endblock %}

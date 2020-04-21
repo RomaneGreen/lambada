@@ -240,7 +240,7 @@ line-height: 27px;
 border: none;
 }
 
-#loginbody #signin{
+#loginbody #signin,#next{
  background-color: #015AEB;
  color: white;
  width: 101.93px;
@@ -385,3 +385,42 @@ font-size: 14px;
 #firsthalf {
     display: none;
 }
+
+#loginbody #enrollinfo {
+    width: 97px;
+height: 50px;
+}
+
+#loginbody #enrollinfot {
+width: 97px;
+height: 50px;
+}
+
+/* #loginbody #enrollinfo:hover {
+    width: 97px;
+height: 50px;
+border: 1px solid black;
+} */
+
+
+
+#loginbody #next{
+ background-color:  #015AEB;
+ color: white;
+ width: 101.93px;
+ height: 37.39px;
+font-family: Inter,sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+border: none;
+
+}
+
+
+
+.button-active {
+    border: 881px solid green;
+}
+

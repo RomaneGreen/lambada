@@ -1,12 +1,38 @@
-{% extends 'basetwo.html' %}
+{% extends 'basethree.html' %}
 
+
+{% load socialaccount %}
+
+{% providers_media_js %}
 
 {% block title %} | Register account {% endblock %}
 
 {% block content %}
 
-<div id="registerbody"> 
-   <div id="secondhalf">
+{% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }} !</p>
+ 
+  {% else %}
+
+<div id="loginbody"> 
+<br>
+
+<h3 id="signinheader">Create an account</h3>
+<br>
+
+<h6 style="color:#465175;">Sign up with Google or Facebook account </h6><br>
+<a class="loginlink" href="{% provider_login_url 'google' %}">
+      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-google fa-1x"></i>
+  Sign in with Google</a>
+  </button> &nbsp;
+    <a class="loginlink" href="{% provider_login_url "facebook"  %}">
+      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-facebook fa-1x"></i>
+  Sign in with Facebook  </a>
+  </button><br><br>
+
+  <h6 style="color:#465175;font-weight:normal !important;">Or Manually create your account </h6><br>
+
+   <!-- <div id="secondhalf">
                  <div class="form-group">
                   <label for="occupation">Occupation</label>
                   <input type="text" name="occupation" class="form-control" required>
@@ -27,7 +53,7 @@
 
    <button id="switchhalf" type="button">Next</button>
 
-                    <!-- <div id="secondhalf">
+                     <div id="secondhalf">
                  <div class="form-group">
                   <label for="occupation">Occupation</label>
                   <input type="text" name="occupation" class="form-control" required>
@@ -46,8 +72,7 @@
                 </div>
               <div> -->
 
-              <div id="firsthalf">
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                   <label for="fullname"> Name</label>
                   <input type="text" name="fullname" class="form-control" required>
                 </div>
@@ -67,49 +92,7 @@
                   <label for="username">Username</label>
                   <input type="text" name="username" class="form-control" required>
                 </div>
-<div>
-
-<!-- <section id="register" class="bg-light py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card">
-            <div class="card-header bg-primary text-white">
-              <h4>
-                <i class="fas fa-user-plus"></i> Create an account</h4>
-            </div>
-            <div class="card-body">
-         
-            {% include 'partials/_alerts.html' %}
-
-                <form action="{% url 'register' %}" method="POST">
-                {% csrf_token %}
-<div id="firsthalf">
-                  <div class="form-group">
-                  <label for="fullname"> Name</label>
-                  <input type="text" name="fullname" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" name="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label for="password2">Password</label>
-                  <input type="password" name="password" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label for="password">Confirm Password</label>
-                  <input type="password" name="password2" class="form-control" required>
-                </div>
-                   <div class="form-group">
-                  <label for="username">Username</label>
-                  <input type="text" name="username" class="form-control" required>
-                </div>
-<div>
-                 <button id="switchhalf" type="button">Next</button>
-
-                    <div id="secondhalf">
-                 <div class="form-group">
+                       <div class="form-group">
                   <label for="occupation">Occupation</label>
                   <input type="text" name="occupation" class="form-control" required>
                 </div>
@@ -124,34 +107,84 @@
                 <div class="form-group">
                   <label for="familysize">Family Size</label>
                   <input type="text" name="familysize" class="form-control" required>
-                </div>
-              <div>
-             
-             
-                
-                
-                <input type="submit" value="Sign up" class="btn btn-secondary btn-block">
-              </form>
+                </div>  -->
+
+<!-- 
+<section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Create ann account</h4>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
+            <div class="card-body">
+          -->
+            {% include 'partials/_alerts.html' %}
+
+                <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+
+                  <div class="form-group">
+                  <label for="fullname"> Name</label><br>
+                  <input type="text" name="fullname" class="" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label><br>
+                  <input type="email" name="email" class="" required>
+                </div>
+                <div class="form-group">
+                  <label for="password2"> Create a Password</label><br>
+                  <input type="password" name="password" class="" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Confirm Password</label><br>
+                  <input type="password" name="password2" class="" required>
+                </div>
+                   <div class="form-group">
+                  <label for="username">Username</label><br>
+                  <input type="text" name="username" class="" required>
+                </div>
+               
+                 <!-- <div class="form-group">
+                  <label for="occupation">Occupation</label>
+                  <input type="text" name="occupation" class="form-control" required>
+                </div> -->
+                <!-- <div class="form-group">
+                  <label for="employer">Employer</label>
+                  <input type="text" name="employer" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="income">Annual Income</label>
+                  <input type="text" name="income" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="familysize">Family Size</label>
+                  <input type="text" name="familysize" class="form-control" required>
+                </div>
+              <div> -->
+             
+             
+                
+                
+                <input type="submit" id="signin" value="Sign up" class="">
+              </form>  <br>            
+                  <h6 style="color:#465175;font-weight:normal !important";>Already have an account?  <a  style="color:#015AEB; !important;text-decoration:underline" href="{% url 'login'  %}">Sign in</h6>
+
+  {% endif %}
 </div> 
-<div id="look">
-<p>Yaowwwwmmmmm</p>
-</div>
+
 
 <script type="text/javascript">
 
-alert('Hi')
+//alert('Hi')
  // document.getElementById('secondhalf').style.display="none"
 //document.getElementById('registerbody').innerHTML = 'dffsdff';
-document.getElementById("switchhalf").addEventListener("click", function(){
-  alert('bye')
-   document.getElementById('secondhalf').style.display="hidden"
-   document.getElementById('firsthalf').style.display="block"
-});
+//document.getElementById("switchhalf").addEventListener("click", function(){
+ // alert('bye')
+ //  document.getElementById('secondhalf').style.display="invisible "
+ //  document.getElementById('firsthalf').style.display="block"
+//});
 </script>
   {% endblock %}
