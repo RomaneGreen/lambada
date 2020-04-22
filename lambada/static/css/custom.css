@@ -151,8 +151,17 @@
 
 }
 
+#listingtop {
+     border-top: 2px solid #EBEEF6;
+}
 #loginbody {
     margin-left: 11.2rem;
+}
+
+#listingbody {
+    margin-left: 7.2rem;
+    overflow: hidden;
+   
 }
 
 #loginbody h3 {
@@ -424,3 +433,123 @@ border: none;
     border: 881px solid green;
 }
 
+#listingbody h3 {
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+color: #465175;
+}
+
+
+#listingbody h6 {
+position: relative;
+width: 202px;
+height: 18px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+
+
+#listingbody p {
+
+font-family: sans-serif;
+font-style: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+#listingbody a:hover {
+  color:#015AEB;
+  text-decoration: none;
+ }
+
+ #listingbody button {
+position: absolute;
+right: 4rem;
+top: 10.4rem;
+font-family: sans-serif;
+color: #015AEB;
+width: 192.15px;
+height: 37.39px;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+display: flex;
+align-items: center;
+text-align: center;
+border: 1px solid #015AEB;
+box-sizing: border-box;
+border-radius: 18.6961px;
+ }
+
+ #navbarred a {
+     color: red;
+ }
+
+ #navlisting {
+     margin-bottom: -1rem;
+     margin-top: -1rem;
+     margin-left: 4.7rem;
+ }
+
+ #navlisting input {
+     position: relative;
+     bottom: 1.3rem;
+     background: #FFFFFF;
+     border: 2px solid #EBEEF7;
+     box-sizing: border-box;
+     border-radius: 25px;
+     
+ }
+
+ #navlisting a {
+     position: relative;
+     bottom: 1.1rem;
+     
+ }
+
+
+ #navlisting span {
+     position: absolute;
+     top: 1.6rem;
+     left: 15rem;
+     font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+/* text-blue */
+
+color: #465175;
+     
+     
+ }
+  #navlisting .sbt {
+  background: none;
+  padding: 0px;
+  border: none;
+
+     
+ }
+
+ #mglass {
+     position:absolute;
+     top:1.7rem;
+     left: 51rem;
+     color:#015AEB;
+ }
+
+ #navlisting input[type=text] {
+    text-indent:85px;
+ }
