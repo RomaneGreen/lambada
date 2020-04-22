@@ -73,14 +73,14 @@
                 <li class="nav-item mr-3">
                 <a class="nav-link" href="{% url 'dashboard' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
-                   Welcome {{ user.username }}
-                  <button class="btn-nav">  Dashboard </button>
+                 <!-- &nbsp;  Welcome {{ user.username }} -->
+                &nbsp;     &nbsp;  <button class="btn-nav">  {{ user.username }}     </button>
                   </a>
               </li>
               <li class="nav-item mr-3">
                 <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
              
-                  <i class="fas fa-sign-out-alt"></i>Logout
+                <button class="btn-nav">  <i class="fas fa-sign-out-alt"></i>Logout</button>
                      </a>
               </li>
               <form id="logout" action="{% url 'logout' %}" method=POST>
