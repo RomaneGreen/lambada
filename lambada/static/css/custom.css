@@ -602,6 +602,8 @@ background: #FFFFFF;
 border: 2px solid #EBEEF6;
 box-sizing: border-box;
 border-radius: 10px;
+width: 387px;
+height: 300px;
  }
 
 
@@ -612,4 +614,43 @@ text-decoration: none;
 
     #indexbody a {
 text-decoration: none;
+ }
+
+
+    #indexhead h1 {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+text-align: center;
+text-decoration: underline;
+ }
+
+     #indexhead .lead {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+/* identical to box height */
+text-align: center;
+
+color: #FFFFFF;
+ }
+
+
+    #indexbody i {
+position: absolute;
+left: 8rem;
+top: -1.2rem;
+background: #EBEEF6;
+/* blue */
+/* border: 2px solid #015AEB; */
+border-radius: 1px;
+ }
+
+
+    #indexbody i:hover {
+ color: #015AEB;
  }

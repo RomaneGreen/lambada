@@ -12,7 +12,7 @@ alert("ki");
 }
 </script> -->
 <br><br><br>
-<section id="">
+<section id="indexhead">
         <div class="text-center">
           <div class="">
             <div class="overlay p-5 searchoverlay">
@@ -90,48 +90,50 @@ alert("ki");
                           <!-- <span class="badge badge-secondary text-white">{{ listing.amountofassistance | intcomma }}</span> -->
                         </h2>
                       </div>
-                    <a  href="{% url 'listing' listing.id %}" class="stretched-link">  <div class="card-body">
-                       
-                        <div class=" text-left">
+                    <a  href="{% url 'listing' listing.id %}" class="stretched-link"> 
+                     <div class="card-body">
+                       <i class="far fa-lg fa-bookmark"></i>
+                        <div class=" text-left"> 
                         
-                          <h5 class=""> &nbsp;&nbsp; {{ listing.programname |truncatechars:30 }}</h4>
+                          <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h4>
                           <p>
                             <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
                         </div>
                         <!-- <hr> -->
-                        <div class="row py-2 text-secondary">
+                        <div class="row py-0 text-secondary">
                           <div class="col-12 text-left">
                             <!-- <i class="fas fa-th-large">  </i> -->
-                                   <h6>Type of program</h6>
-                              <p>{{listing.programoriginator}}</p> </div>
+                                   <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
+                             <p>  &nbsp;&nbsp;&nbsp; {{listing.programoriginator}}</p> </div>
                           <div class="col-6">
                             <!-- <i class="fas fa-car"></i> -->
-                             <h6>Amount</h6>
-                             <p>{{listing.amountofassistance | intcomma}}</p></div>
+                             <h6 class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
+                             <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
                         </div>
                         <div class="row py-2 text-secondary">
                           <div class="col-6">
                             <!-- <i class="fas fa-bed"></i>  -->
-                             <h6>Mortgage Lenders</h6>
-                            <p>{{listing.programcontact}} </p></div>
+                             <h6 class="text-left">  &nbsp;&nbsp;&nbsp; Mortgage Lenders</h6>
+                            <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div>
                           <!-- <div class="col-6"> -->
                             <!-- <i class="fas fa-bath"></i> Requires Inspection: {{listing.requiresinspection}} -->
                             <!-- </div> -->
                         </div>
                         <!-- <hr> -->
-                        <div class="row py-2 text-secondary">
-                          <div class="col-6">
+                        <!-- <div class="row py-2 text-secondary"> -->
+                          <!-- <div class="col-6"> -->
                             <!-- <i class="fas fa-user"></i> {{ listing.programoriginator }}-->
-                            </div> 
-                        </div>
+                            <!-- </div>  -->
+                        <!-- </div> -->
                         <div class="row text-secondary pb-2">
                           <div class="col-6">
                             <!-- <i class="fas fa-clock"></i> {{ listing.list_date | timesince}} -->
                             </div>
                      <!-- <a    href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More info</a> -->
                         </div>
-                        <!-- <hr> --> </a>
-                     <a    href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More info</a>
+                        <!-- <hr> --> 
+                        </a>
+                     <!-- <a  href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More info</a> -->
                       </div>
                     </div>
                   </div> 
@@ -154,21 +156,21 @@ alert("ki");
 
 
       </section> 
-
+<!-- 
             {% include 'partials/_alerts.html' %}
 
 
       <section id="listings" class="py-5">
-            <div class="container">
+            <div class="container"> -->
               <!-- <h3 class="text-center mb-3">Housing Assistant programs</h3> -->
             <!-- <p>Enter you location in search bar or <span>Allow Your Location to see more programs near you</span></p> -->
-              <div class="row">
+              <!-- <div class="row">
 
                 {% if listings %}
-                {% for listing in listings %}
-   
-                 <!-- Listing 1 -->
-                 <div class="col-md-6 col-lg-4 mb-4">
+                {% for listing in listings %} -->
+<!--    
+                 Listing 1 -->
+                 <!-- <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card listing-preview">
                       <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
                       <div class="card-img-overlay">
@@ -179,9 +181,9 @@ alert("ki");
                       <div class="card-body">
                         <div class="listing-heading text-center">
                           <h4 class="text-primary">{{ listing.programname |truncatechars:30  }}</h4>
-                          <p>
+                          <p> -->
                             <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
-                        </div>
+                        <!-- </div>
                         <hr>
                         <div class="row py-2 text-secondary">
                           <div class="col-6">
@@ -195,16 +197,16 @@ alert("ki");
                           <div class="col-6">
                             <i class="fas fa-bath"></i> Requires Inspection: {{listing.requiresinspection}}</div>
                         </div>
-                        <hr>
-                        <div class="row py-2 text-secondary">
-                          <div class="col-6">
+                        <hr> -->
+                        <!-- <div class="row py-2 text-secondary">
+                          <div class="col-6"> -->
                             <!-- <i class="fas fa-user"></i> {{ listing.programoriginator }}-->
-                            </div> 
+                            <!-- </div> 
                         </div>
                         <div class="row text-secondary pb-2">
-                          <div class="col-6">
+                          <div class="col-6"> -->
                             <!-- <i class="fas fa-clock"></i> {{ listing.list_date | timesince}} -->
-                            </div>
+                            <!-- </div>
                         </div>
                         <hr>
                         <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
@@ -220,7 +222,7 @@ alert("ki");
                 </div>
                 {% endif %}
                
-              </section>
+              </section> -->
           <section id="team" class="py-5">
               <div class="container">
                 <h2 class="text-center">Our Mission</h2>
