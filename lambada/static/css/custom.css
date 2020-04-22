@@ -36,6 +36,13 @@
 .searchoverlay {
     background-color: #015AEB !important;
     color: white;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border-radius: 19px;
+    background :url("indexbackground.png");
+    background-repeat:no-repeat;
+
+    /* opacity: 0.1; */
 }
 
 .servicesinfo {
@@ -552,4 +559,57 @@ color: #465175;
 
  #navlisting input[type=text] {
     text-indent:85px;
+ }
+
+
+ #indexbody {
+    
+ }
+
+
+ #indexbody h5 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+ }
+
+
+ #indexbody h6 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #465175;
+ }
+
+
+  #indexbody p {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+ }
+
+   #indexbody .card {
+background: #FFFFFF;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 10px;
+ }
+
+
+    #indexbody a:hover {
+text-decoration: none;
+ }
+
+
+    #indexbody a {
+text-decoration: none;
  }

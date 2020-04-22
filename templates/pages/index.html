@@ -6,33 +6,33 @@
 {% block content %}
 
 
-<script>
+<!-- <script>
 function myFunction() {
 alert("ki");
 }
-</script>
-
-<section id="showcase">
-        <div class="container text-center">
-          <div class="home-search p-5">
+</script> -->
+<br><br><br>
+<section id="">
+        <div class="text-center">
+          <div class="">
             <div class="overlay p-5 searchoverlay">
-              <h1 class="display-4 mb-4">
-                Search Housing Assistance programs
+              <h1 class="">
+                Housing Assistance programs
               </h1>
-              <p class="lead">Enter your in the search bar or <a style="color:white;background-color:none;" href="{% url 'listings' %}"  class=""> Allow your location</a> to see more programs near you</p>
+              <p class="lead">Enter your location in the search bar or <a style="color:white;background-color:none;text-decoration:underline;" href="{% url 'listings' %}"  class=""> Allow your location</a> to see more programs near you</p><br>
               <div class="search">
                 <form action="{% url 'search' %}">
                   <!-- Form Row 1 -->
                   
                     
-                  <div class="form-row">
+                  <!-- <div class="form-row">
 
                         <div class="col-md-4 mb-3">
                                 <label class="sr-only">City</label>
                                 <input type="text" name="city" class="form-control" placeholder="City">
-                              </div>
+                              </div> -->
             
-                    <div class="col-md-4 mb-3">
+                    <!-- <div class="col-md-4 mb-3">
                       <label class="sr-only">State</label>
                       <select name="state" class="form-control">
                           <option selected="true" disabled="disabled">State (All)</option>
@@ -41,15 +41,15 @@ alert("ki");
                           {% endfor %}
                         </select>
                          
-                    </div>
+                    </div> -->
                    
-                                <div class="col-md-4 mb-3">
+                                <!-- <div class="col-md-4 mb-3">
                                   <label class="sr-only">Zipcode</label>
                                   <input type="text" name="keywords" class="form-control" placeholder="Zipcode (.....)">
-                                </div>
-                  </div>
+                                </div> -->
+                  <!-- </div> -->
                   <!-- Form Row 2 -->
-                  <div class="form-row">
+                  <!-- <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="sr-only">Type of Program</label>
                       <select name="bedrooms" class="form-control">
@@ -73,16 +73,95 @@ alert("ki");
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </div> -->
+
+<div class="row">
+
+                {% if listings %}
+                {% for listing in listings %}
+   
+                 <!-- Listing 1 -->
+                 
+                   <div id="indexbody" class="col-md-6 col-lg-4 mb-4"> 
+                    <div class="card listing-preview">
+                      <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                      <div class="card-img-overlay rounded">
+                        <h2>
+                          <!-- <span class="badge badge-secondary text-white">{{ listing.amountofassistance | intcomma }}</span> -->
+                        </h2>
+                      </div>
+                    <a  href="{% url 'listing' listing.id %}" class="stretched-link">  <div class="card-body">
+                       
+                        <div class=" text-left">
+                        
+                          <h5 class=""> &nbsp;&nbsp; {{ listing.programname |truncatechars:30 }}</h4>
+                          <p>
+                            <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
+                        </div>
+                        <!-- <hr> -->
+                        <div class="row py-2 text-secondary">
+                          <div class="col-12 text-left">
+                            <!-- <i class="fas fa-th-large">  </i> -->
+                                   <h6>Type of program</h6>
+                              <p>{{listing.programoriginator}}</p> </div>
+                          <div class="col-6">
+                            <!-- <i class="fas fa-car"></i> -->
+                             <h6>Amount</h6>
+                             <p>{{listing.amountofassistance | intcomma}}</p></div>
+                        </div>
+                        <div class="row py-2 text-secondary">
+                          <div class="col-6">
+                            <!-- <i class="fas fa-bed"></i>  -->
+                             <h6>Mortgage Lenders</h6>
+                            <p>{{listing.programcontact}} </p></div>
+                          <!-- <div class="col-6"> -->
+                            <!-- <i class="fas fa-bath"></i> Requires Inspection: {{listing.requiresinspection}} -->
+                            <!-- </div> -->
+                        </div>
+                        <!-- <hr> -->
+                        <div class="row py-2 text-secondary">
+                          <div class="col-6">
+                            <!-- <i class="fas fa-user"></i> {{ listing.programoriginator }}-->
+                            </div> 
+                        </div>
+                        <div class="row text-secondary pb-2">
+                          <div class="col-6">
+                            <!-- <i class="fas fa-clock"></i> {{ listing.list_date | timesince}} -->
+                            </div>
+                     <!-- <a    href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More info</a> -->
+                        </div>
+                        <!-- <hr> --> </a>
+                     <a    href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More info</a>
+                      </div>
+                    </div>
+                  </div> 
+                
+                {% endfor %}
+                
+                {% else %}
+                <div class="col-md-12">
+                  <p>No listings available</p>
+                </div>
+                {% endif %}
+
+
+
+
+
+
+
+
+
+
+      </section> 
 
             {% include 'partials/_alerts.html' %}
 
 
       <section id="listings" class="py-5">
             <div class="container">
-              <h3 class="text-center mb-3">Housing Assistant programs</h3>
-            <p>Enter you location in search bar or <span>Allow Your Location to see more programs near you</span></p>
+              <!-- <h3 class="text-center mb-3">Housing Assistant programs</h3> -->
+            <!-- <p>Enter you location in search bar or <span>Allow Your Location to see more programs near you</span></p> -->
               <div class="row">
 
                 {% if listings %}
@@ -99,7 +178,7 @@ alert("ki");
                       </div>
                       <div class="card-body">
                         <div class="listing-heading text-center">
-                          <h4 class="text-primary">{{ listing.programname }}</h4>
+                          <h4 class="text-primary">{{ listing.programname |truncatechars:30  }}</h4>
                           <p>
                             <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
                         </div>
@@ -108,7 +187,7 @@ alert("ki");
                           <div class="col-6">
                             <i class="fas fa-th-large"></i> Minimum Contribution: {{listing.minimumcontribution}}</div>
                           <div class="col-6">
-                            <i class="fas fa-car"></i> Amount of Assistance: {{listing.amountofassistance | intcomma}}</div>
+                            <i class="fas fa-car"></i> Amount: {{listing.amountofassistance | intcomma}}</div>
                         </div>
                         <div class="row py-2 text-secondary">
                           <div class="col-6">
