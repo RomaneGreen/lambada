@@ -1,0 +1,129 @@
+  <!-- Navbar -->
+  <nav id="navlisting" style="background-color: transparent !important;color: green !important;padding-bottom:-30000rem;"class="navbar navbar-expand-lg bg-primary sticky-top">
+        <!-- <div class="container" id="sospecial">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/img/logo.png" class="logo" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+              <li
+               {% if request.path == '/'%}
+               class="nav-item active mr-3"
+               {% else %}
+               class="nav-item mr-3"
+               {% endif %}    
+               > -->
+                   <!-- <div id="navbarred"> -->
+                <a id="navbared" style="font-size:22px;padding:23px;margin-right:59rem;font-weight:bold;margin-right:61px;font-family:sans-serif;color:#364269;" class="nav-link" href="{% url 'index' %}">Lambada</a>
+                  <!-- </div> -->
+              <!-- </li> -->
+              <!-- <input type="text"> -->
+
+
+              <form id="form1" action="{% url 'search' %}" >
+                  <!-- {% csrf_token %} -->
+                  {% if user.is_authenticated %}
+                  <input type="hidden" name="user_id" value="{{user.id}}">
+                  {% else %}
+                       <input type="hidden" name="user_id" value="0">
+                      {% endif %}
+              <!-- <div class="col-md-4 mb-0"> -->
+                  <label class="sr-only">City</label>
+                  <div>
+                    
+                  <input id="autocomplete" style="border-radius: 22px; width: 740px;height:50px;margin-top:1.8rem;" type="text" name="city" 
+                  class="form-control" placeholder="Enter a city, state or county" minlength="2" required> <span style="margin-top:.4rem;" id="indexlocationtext">Location</span>
+                  <button class="sbt" type="submit" form="form1">
+                   <i id="mglassindex" class="fas fa-lg fa-search"></i>
+                 </button>
+                  <!-- <button class="btn btn-secondary btn-sm mt-4" type="submit">Sub form</button> -->
+                  </div>
+                <!-- </div> -->
+               
+              </form>
+              
+              <!-- <li 
+              {% if request.path == '/about' %}
+               class="nav-item active mr-3"
+               {% else %}
+               class="nav-item mr-3"
+               {% endif %} 
+              >
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li
+              {% if 'listings' in request.path %}
+               class="nav-item active mr-3"
+               {% else %}
+               class="nav-item mr-3"
+               {% endif %} 
+               class="nav-item mr-3">
+                <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>         
+
+              </li> -->
+            </ul>
+    
+            <ul style="color: black;" class="navbar-nav ml-auto">
+
+            {% if user.is_authenticated %}
+              
+                <li class="nav-item mr-3">
+                <a class="nav-link" href="{% url 'dashboard' %}">
+                  <!-- <i class="fas fa-sign-in-alt"></i> -->
+                   Welcome {{ user.username }}
+                  <button class="btn-nav">  Dashboard </button>
+                  </a>
+              </li>
+              <li class="nav-item mr-3">
+                <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+             
+                  <i class="fas fa-sign-out-alt"></i>Logout
+                     </a>
+              </li>
+              <form id="logout" action="{% url 'logout' %}" method=POST>
+              {% csrf_token %}
+              <input type="hidden">
+              </form>
+            {% else %}
+                
+              <li style="" class="nav-item mr-4">
+                <a class="nav-link" href="{% url 'login' %}">
+                  <!-- <i class="fas fa-sign-in-alt"></i> -->
+                  <button id="indexbutton" class="btn-nav">  Sign in</button>
+                  </a>
+              </li>
+              <li class="nav-item mr-4">
+                  <a class="nav-link" href="{% url 'register' %}">
+                    <!-- <i class="fas fa-search"></i> -->
+                    <button id="indexbutton" class="btn-nav"> Sign up</button>
+                    </a>
+                </li>
+           
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+<script>
+
+function initAutocomplete() {
+	// Create the autocomplete object, restricting the search to geographical
+	// location types.
+	autocomplete = new google.maps.places.Autocomplete(
+	  /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+	  {types: ['geocode']});
+  //console.log(autocomplete)
+  
+	//console.log("params",geolocation,circle)
+	}
+ </script>
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script>
+
+
+
