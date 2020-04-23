@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% load humanize %}
 
 {% block title %} | Welcome {% endblock %}
@@ -18,72 +18,18 @@
               <p class="lead">Enter your location in the search bar or <a style="color:white;background-color:none;text-decoration:underline;" href="{% url 'listings' %}"  class=""> Allow your location</a> to see more programs near you</p><br>
               <div class="search">
                 <form action="{% url 'search' %}">
-                  <!-- Form Row 1 -->
-                  
-                    
-                  <!-- <div class="form-row">
-
-                        <div class="col-md-4 mb-3">
-                                <label class="sr-only">City</label>
-                                <input type="text" name="city" class="form-control" placeholder="City">
-                              </div> -->
-            
-                    <!-- <div class="col-md-4 mb-3">
-                      <label class="sr-only">State</label>
-                      <select name="state" class="form-control">
-                          <option selected="true" disabled="disabled">State (All)</option>
-                          {% for key,value in state_choices.items %}
-                          <option value="{{key}}">{{ value }}</option>
-                          {% endfor %}
-                        </select>
-                         
-                    </div> -->
-                   
-                                <!-- <div class="col-md-4 mb-3">
-                                  <label class="sr-only">Zipcode</label>
-                                  <input type="text" name="keywords" class="form-control" placeholder="Zipcode (.....)">
-                                </div> -->
-                  <!-- </div> -->
-                  <!-- Form Row 2 -->
-                  <!-- <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                      <label class="sr-only">Type of Program</label>
-                      <select name="bedrooms" class="form-control">
-                        <option selected="true" disabled="disabled">Program Type (All)</option>
-                        {% for key,value in bedroom_choices.items %}
-                        <option value="{{key}}">{{ value }}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <select name="price" class="form-control" id="type">
-                        <option selected="true" disabled="disabled">Amount (Any)</option>
-                        {% for key,value in price_choices.items %}
-                        <option value="{{key}}">{{ value }}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  </div>
-                  <button class="btn btn-secondary btn-block mt-4 submitform" type="submit">Submit form</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-<div class="row">
+           
+                         <div class="row">
 
                 {% if listings %}
                 {% for listing in listings %}
-   
-                 <!-- Listing 1 -->
+        
                  
                    <div id="indexbody" class="col-md-6 col-lg-4 mb-4"> 
                     <div class="card listing-preview">
                       <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
                       <div class="card-img-overlay rounded">
                         <h2>
-                          <!-- <span class="badge badge-secondary text-white">{{ listing.amountofassistance | intcomma }}</span> -->
                         </h2>
                       </div>
                     <a  href="{% url 'listing' listing.id %}" class="stretched-link"> 
@@ -93,48 +39,32 @@
                         
                           <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h4>
                           <p>
-                            <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
                         </div>
-                        <!-- <hr> -->
                         <div class="row py-0 text-secondary">
                           <div class="col-12 text-left">
-                            <!-- <i class="fas fa-th-large">  </i> -->
                                    <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
                              <p>  &nbsp;&nbsp;&nbsp; {{listing.programoriginator}}</p> </div>
                           <div class="col-6">
-                            <!-- <i class="fas fa-car"></i> -->
                              <h6 class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
                              <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
                         </div>
                         <div class="row py-2 text-secondary">
                           <div class="col-6">
-                            <!-- <i class="fas fa-bed"></i>  -->
                              <h6 class="text-left">  &nbsp;&nbsp;&nbsp; Mortgage Lenders</h6>
                             <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div>
-                          <!-- <div class="col-6"> -->
-                            <!-- <i class="fas fa-bath"></i> Requires Inspection: {{listing.requiresinspection}} -->
-                            <!-- </div> -->
+                         
                         </div>
-                        <!-- <hr> -->
-                        <!-- <div class="row py-2 text-secondary"> -->
-                          <!-- <div class="col-6"> -->
-                            <!-- <i class="fas fa-user"></i> {{ listing.programoriginator }}-->
-                            <!-- </div>  -->
-                        <!-- </div> -->
+                      
                         <div class="row text-secondary pb-2">
                           <div class="col-6">
-                            <!-- <i class="fas fa-clock"></i> {{ listing.list_date | timesince}} -->
                             </div>
-                     <!-- <a    href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More info</a> -->
                         </div>
-                        <!-- <hr> --> 
                         </a>
-                     <!-- <a  href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More info</a> -->
                       </div>
                     </div>
                   </div> 
-                
-                {% endfor %}
+                       
+                  {% endfor %}
                 
                 {% else %}
                 <div class="col-md-12">
@@ -163,8 +93,8 @@
               <!-- <div class="row">
 
                 {% if listings %}
-                {% for listing in listings %} -->
-<!--    
+                {% for listing in listings %} 
+<-- 
                  Listing 1 -->
                  <!-- <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card listing-preview">
@@ -264,26 +194,42 @@
           <section id="services"  class="py-5 bg-primary text-white servicesinfo">
             <div class="container">
               <div class="row text-center">
+                 <div id="calltoaction">
+                   <h2 class="text-center whylambadaheader">Why Lambada?</h2>
+                     <p id="whyhelp" class="text-succes">This is how we can help</p>
+                         <p id ="whyhelptext">
+                        Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit, &nbsp;<br> sed do eiusmod tempor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                    <p>
+                 </div>
                 <div class="col-md-4">
-                  <i class="fas fa-home fa-4x mr-4"></i>
-                  <hr>
-                  <h3>Why Lambada </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-                    hic dignissimos ratione ea quae.</p>
+                  <i class=""></i>
+                  <div id="rectangle">   <img id="recimage" src="{% static 'css/houseicon.svg' %}" alt="" class="">
+                      <p id="whypoint" class="text-succes">Lorem ipsum</p>
+                       <p id ="whytext">
+                        Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit, &nbsp;<br> sed do eiusmod tempor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                    <p>
+                   <span id="learnmore">Learn More <small> <i class="fas fa-chevron-right"></i> </small></span>
+                     </div>    
                 </div>
                 <div class="col-md-4">
-                  <i class="fas fa-home fa-4x mr-4"></i>
-                  <hr>
-                  <h3>Why Lambada </h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-                    hic dignissimos ratione ea quae.</p>
+                  <i class=""></i>
+                  <div id="rectangle">   <img id="recimage" src="{% static 'css/houseicon.svg' %}" alt="" class="">
+                      <p id="whypoint" class="text-succes">Lorem ipsum</p>
+                       <p id ="whytext">
+                        Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit, &nbsp;<br> sed do eiusmod tempor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                    <p>
+                   <span id="learnmore">Learn More <small> <i class="fas fa-chevron-right"></i> </small></span>
+                     </div>               
                 </div>
                 <div class="col-md-4">
-                  <i class="fas fa-home fa-4x mr-4"></i>
-                  <hr>
-                  <h3>Why Lambada</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-                    hic dignissimos ratione ea quae.</p>
+                  <i class=""></i>
+                     <div id="rectangle">   <img id="recimage" src="{% static 'css/houseicon.svg' %}" alt="" class="">
+                      <p id="whypoint" class="text-succes">Lorem ipsum</p>
+                       <p id ="whytext">
+                        Lorem ipsum dolor sit amet,<br> consectetur adipisicing elit, &nbsp;<br> sed do eiusmod tempor.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                    <p>
+                    <span id="learnmore">Learn More <small> <i class="fas fa-chevron-right"></i> </small></span>
+                     </div>
                 </div>
               </div>
             </div>
