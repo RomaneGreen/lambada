@@ -39,10 +39,23 @@
 .searchoverlay {
     background-color: #015AEB !important;
     color: white;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border-radius: 19px;
+    background :url("indexbackground.png");
+    background-repeat:no-repeat;
+
+    /* opacity: 0.1; */
 }
 
 .servicesinfo {
+    position: relative;
+    left: 45px;
     background-color: #015AEB !important;
+    width: 1350px;
+    height: 692px;
+    border-radius: 10px;
+
 }
 /* #EBEEF6 */
 
@@ -52,7 +65,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    min-height: 100%;
+    
+    min-height: 50%;
     width: 100%;
     background-color: #015AEB !important; 
 }
@@ -154,8 +168,17 @@
 
 }
 
+#listingtop {
+     border-top: 2px solid #EBEEF6;
+}
 #loginbody {
     margin-left: 11.2rem;
+}
+
+#listingbody {
+    margin-left: 7.2rem;
+    overflow: hidden;
+   
 }
 
 #loginbody h3 {
@@ -426,6 +449,500 @@ border: none;
 .button-active {
     border: 881px solid green;
 }
+
+#listingbody h3 {
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+color: #465175;
+}
+
+
+#listingbody h6 {
+position: relative;
+width: 202px;
+height: 18px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+
+
+#listingbody p {
+
+font-family: sans-serif;
+font-style: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+#listingbody a:hover {
+  color:#015AEB;
+  text-decoration: none;
+ }
+
+ #listingbody button {
+position: absolute;
+right: 4rem;
+top: 10.4rem;
+font-family: sans-serif;
+color: #015AEB;
+width: 192.15px;
+height: 37.39px;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+display: flex;
+align-items: center;
+text-align: center;
+border: 1px solid #015AEB;
+box-sizing: border-box;
+border-radius: 18.6961px;
+ }
+
+ #navbarred a {
+     color: red;
+ }
+
+ #navlisting {
+     margin-bottom: -1rem;
+     margin-top: -1rem;
+     margin-left: 4.7rem;
+ }
+
+ #navlisting input {
+     position: relative;
+     bottom: 1.3rem;
+     background: #FFFFFF;
+     border: 2px solid #EBEEF7;
+     box-sizing: border-box;
+     border-radius: 25px;
+     
+ }
+
+ #navlisting a {
+     position: relative;
+     bottom: 1.1rem;
+     
+ }
+
+
+ #navlisting span {
+     position: absolute;
+     top: 1.6rem;
+     left: 15rem;
+     font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+/* text-blue */
+
+color: #465175;
+     
+     
+ }
+  #navlisting .sbt {
+  background: none;
+  padding: 0px;
+  border: none;
+
+     
+ }
+
+ #mglass {
+     position:absolute;
+     top:1.7rem;
+     left: 51rem;
+     color:#015AEB;
+ }
+
+ #navlisting input[type=text] {
+    text-indent:85px;
+ }
+
+
+ #indexbody {
+    
+ }
+
+
+ #indexbody h5 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+ }
+
+
+ #indexbody h6 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #465175;
+ }
+
+
+  #indexbody p {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+ }
+
+   #indexbody .card {
+background: #FFFFFF;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 10px;
+width: 387px;
+height: 300px;
+ }
+
+
+    #indexbody a:hover {
+text-decoration: none;
+ }
+
+
+    #indexbody a {
+text-decoration: none;
+ }
+
+
+    #indexhead h1 {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+text-align: center;
+text-decoration: underline;
+ }
+
+     #indexhead .lead {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+/* identical to box height */
+text-align: center;
+
+color: #FFFFFF;
+ }
+
+
+    #indexbody i {
+position: absolute;
+left: 8rem;
+top: -1.2rem;
+background: #EBEEF6;
+/* blue */
+/* border: 2px solid #015AEB; */
+border-radius: 1px;
+ }
+
+
+    #indexbody i:hover {
+ color: #015AEB;
+ }
+
+
+    .missionheader {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+padding-bottom: 1rem;
+text-align: center;
+  
+/* border-bottom: 5px solid #015AEB; */
+/* text-blue */
+
+color: #465175;
+ }
+
+ .missionheader:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 20%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 5px solid #015AEB; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.missionsubheader {
+    color:red;
+    width: 842px;
+height: 121px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+color: #465175;
+opacity: 0.7;
+text-align: left;
+position: relative;
+left: 11rem;
+}
+
+#missionpoint {
+position: relative;
+left: 3rem;
+width: 192px;
+height: 26px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+
+/* text-blue */
+
+color: #465175;
+}
+
+#missiontext {
+ position: relative;
+right: -0.3rem;
+bottom: .8rem;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+#feedbacktext {
+    width: 348.06px;
+height: 121.31px;
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+
+/* text-blue */
+
+color: #465175;
+}
+
+ .feedbackheader {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+padding-bottom: 1rem;
+text-align: center;
+  
+/* border-bottom: 5px solid #015AEB; */
+/* text-blue */
+
+color: #465175;
+ }
+
+ .feedbackheader:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 29%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 5px solid #015AEB; /* This creates the border. Replace black with whatever color you want. */
+}
+
+#searchboarder {
+    border-top: 2px solid #EBEEF6;
+}
+
+#indexbutton {
+    position: relative;
+    right: 40px;
+    font-Size: 18px;
+    line-height: 27px
+}
+
+ #mglassindex {
+     position:absolute;
+     top:2.1rem;
+     left: 56rem;
+     color:#015AEB;
+ }
+
+
+   span #indexlocationtext {
+     position: absolute;
+     top: 1.6rem;
+     left: 15rem;
+     font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+/* text-blue */
+
+color: #465175;
+     
+     
+ }
+
+
+ #rectangle {
+position: relative;   
+top: 5rem; 
+left: 14.1rem; 
+width: 276px;
+height: 400px;
+
+
+/* white */
+
+background: #FFFFFF;
+/* light-blue */
+
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+/* drop-shadow */
+
+box-shadow: 0px 10px 10px rgba(0, 48, 125, 0.08);
+border-radius: 10px;
+ }
+
+
+ #recimage {
+position: relative;
+bottom: 4rem;
+right: 3.5rem;
+ width: 76px;
+height: 300px;
+
+ }
+
+ #whypoint {
+position: relative;
+left: -.4rem;
+bottom: 7rem;
+width: 192px;
+height: 26px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+
+/* text-blue */
+
+color: #465175;
+ }
+
+ #whytext {
+      position: relative;
+right: .75rem;
+bottom: 7.4rem;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+ }
+
+ #learnmore {
+     position: relative;
+     bottom: 5rem;
+     color: #015AEB;
+     width: 276px;
+height: 26px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+ }
+
+
+ #calltoaction {
+     position: absolute;
+ }
+
+ .whylambadaheader {
+position: relative;
+right: 5rem;
+top: 11rem;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+padding-bottom: 1rem;
+text-align: center;
+  
+/* border-bottom: 5px solid #015AEB; */
+/* text-blue */
+
+color: ;
+ }
+
+ .whylambadaheader:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 99%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 5px solid white; /* This creates the border. Replace black with whatever color you want. */
+    
+}
+
+
+#whyhelp {
+position: relative;
+left: -8rem;
+bottom: .4rem;
+top: 11rem;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 700px;
+font-size: 16px;
+line-height: 24px;
+color: ;
+
+}
+
+#whyhelptext {
+position: relative;
+left: -6.5rem;
+top: 11rem;
+}
+
+
+
+
 
 
 
