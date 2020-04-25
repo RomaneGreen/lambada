@@ -937,3 +937,107 @@ left: -6.5rem;
 top: 11rem;
 }
 
+#listingsbody {
+    
+width: 690px;
+height: 26px;
+/* left: 100px;
+top: 166px; */
+
+/* Header 2 Regular */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 36px;
+
+/* text-blue */
+
+color: #465175;
+/* text-align: center; */
+/* margin: 0 auto; */
+margin-left: 7rem;
+margin-top: 2rem;
+}
+
+#listingcount {
+      color:#015AEB;
+}
+
+
+ #allowlocationbody {
+    
+ }
+
+
+ #allowlocationbody h5 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+ }
+
+
+ #allowlocationbody h6 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 24px;
+color: #465175;
+ }
+
+
+  #allowlocationbody p {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 21px;
+color: #465175;
+ }
+
+   #allowlocationbody .card {
+background: #FFFFFF;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 10px;
+width: 350px;
+height: 270px;
+ }
+
+
+    #allowlocationbody a:hover {
+text-decoration: none;
+ }
+
+
+    #allowlocationbody a {
+text-decoration: none;
+ }
+
+
+    #allowlocationbody i {
+position: absolute;
+left: 17rem;
+top: -1.2rem;
+background: #EBEEF6;
+/* blue */
+/* border: 2px solid #015AEB; */
+border-radius: 1px;
+ }
+
+
+    #allowlocationbody i:hover {
+ color: #015AEB;
+ }
+
+
+
+a.stretched-link {
+    color:#015AEB;
+}
