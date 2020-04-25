@@ -72,8 +72,8 @@ def search(request):
     queryset_list = Listing.objects.order_by('id')
     mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
     
-    my_lat = '40.663918'
-    my_lon = '-73.8820097'
+    # my_lat = '40.663918'
+    # my_lon = '-73.8820097'
     if 'keywords' in request.GET:
       keywords = request.GET['keywords']
       r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
@@ -90,11 +90,9 @@ def search(request):
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
         lat = str(lat)
         lon = str(lon)
-        # r2 = requests.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lon+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
-        # print(r2.json()['results'][0]['address_components'][3]['long_name'])
-        # print(r2.json()['results'][0]['address_components'][3]['short_name'])
-        # print(r2.json()['results'][0]['address_components'][2]['long_name'])
-        # print(r2.json()['results'][0]['address_components'][5]['long_name'])
+        request.session['lat'] = lat
+        request.session['lon'] = lon
+        request.session['city'] = keywords
         coordinates = (lat,lon)
         results = rg.search(coordinates)
         print(results[0]['admin1'])
@@ -110,6 +108,10 @@ def search(request):
         user_id = request.GET['user_id'] 
         #print(user_id,"uuidxxxx")
         link = request.get_full_path()
+
+        # page = request.GET.get('page')
+        # paged_listings = paginator.get_page(page)
+
         print('request',link,)
         if request.user.is_authenticated:
           user_id = request.user.id
@@ -140,24 +142,31 @@ def search(request):
         keywords = request.GET['price']
         if keywords:
             queryset_list = queryset_list.filter(minimumcontribution__lte=keywords)  
-
+    
+    #request.session['lon'] = lon
     amount_of_results = queryset_list.count()  
-
+    paginator = Paginator(queryset_list, 6)   
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+    print("lonzg",request.session['lon'])
+    # if 'lon' in request.session:
+    #  lon = request.session['lon']
+    #  if 'lat' in request.session:
+    #   lat = request.session['lat']
+  
 
     context = {
       
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'mapbox_access_token': mapbox_access_token,
-        'my_lat': lat,
-        'my_lon': lon,
         'price_choices': price_choices,
-        'listings': queryset_list,
+        'listings': paged_listings,
+        'my_lon': request.session['lon'],
+        'my_lat': request.session['lat'],
         'count': amount_of_results,
-        'values': request.GET
+        'values': request.session['city'],
         # 'listings': queryset_listing
     }  
-    r = "hi server"
-    # r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
-    # print("dannnnmm",r.json()['results'])
+ 
     return render(request,'listings/search.html',context)
