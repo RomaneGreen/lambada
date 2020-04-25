@@ -68,8 +68,12 @@ def listing(request, listing_id):
 
 
 def search(request):
+
     queryset_list = Listing.objects.order_by('id')
+    mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
     
+    my_lat = '40.663918'
+    my_lon = '-73.8820097'
     if 'keywords' in request.GET:
       keywords = request.GET['keywords']
       r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc')
@@ -137,15 +141,19 @@ def search(request):
         if keywords:
             queryset_list = queryset_list.filter(minimumcontribution__lte=keywords)  
 
-      
+    amount_of_results = queryset_list.count()  
 
 
     context = {
       
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
+        'mapbox_access_token': mapbox_access_token,
+        'my_lat': lat,
+        'my_lon': lon,
         'price_choices': price_choices,
         'listings': queryset_list,
+        'count': amount_of_results,
         'values': request.GET
         # 'listings': queryset_listing
     }  

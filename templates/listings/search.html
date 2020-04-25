@@ -6,15 +6,70 @@
 
 {% block content %}
 
-  <section id="showcase-inner" class="showcase-search text-white py-5">
+<h3 style="text-align:center;margin:0 auto;margin-bottom:2rem;" id="listingsbody"> There are <span id="listingcount">{{count}} program{{ count |pluralize:"s"}} </span> available based on your search
+"{{values.city}}"
+</h3>
+<br>
+<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;'></div>
+
+
+<script>
+
+function myFunction() {
+
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+   console.log("NOT SUPPORTED")
+  }
+}
+
+function showPosition(position) {
+
+  let lat = position.coords.latitude 
+  let lon = position.coords.longitude
+  console.log("COORDINATES",lat,lon);
+
+}
+
+
+mapboxgl.accessToken = '{{mapbox_access_token}}';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: ['{{my_lon}}','{{my_lat}}'],
+zoom: 13
+});
+
+var marker = new mapboxgl.Marker()
+.setLngLat(['{{my_lon}}', '{{my_lat}}'])
+.addTo(map);
+ 
+
+
+
+</script>
+
+
+
+
+
+
+
+<!-- <h3 id="listingsbody"> There are <span id="listingcount">{{count}} program{{ count |pluralize:"s"}} </span> available based on your search
+{{values.city}}
+</h3> -->
+<br>
+  <!-- <section id="showcase-inner" class="showcase-search text-white py-5">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <form action="{% url 'search' %}">
+          <form action="{% url 'search' %}"> -->
                 <!-- value="{{values.city }}" -->
             <!-- Form Row 1 -->
                   <!-- Form Row 1 -->   
-                  <div class="form-row">
+                  <!-- <div class="form-row">
 
                         <div class="col-md-4 mb-3">
                                 <label class="sr-only">City</label>
@@ -34,15 +89,15 @@
                           {% endfor %}
                         </select>
                          
-                    </div>
+                    </div> -->
                    
-                                <div class="col-md-4 mb-3">
+                                <!-- <div class="col-md-4 mb-3">
                                   <label class="sr-only">Zipcode</label>
                                   <input type="text" name="keywords" class="form-control" placeholder="Zipcode (.....)" value="{{values.keywords }}">
                                 </div>
-                  </div>
+                  </div> -->
                   <!-- Form Row 2 -->
-                  <div class="form-row">
+                  <!-- <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="sr-only">Type of Program</label>
                       <select name="bedrooms" class="form-control">
@@ -55,8 +110,8 @@
                         >{{ value }} </option>
                         {% endfor %}
                       </select>
-                    </div>
-                    <div class="col-md-6 mb-3">
+                    </div> -->
+                    <!-- <div class="col-md-6 mb-3">
                       <select name="price" class="form-control" id="type">
                         <option selected="true" disabled="disabled">Amount (Any)</option>
                         {% for key,value in price_choices.items %}
@@ -74,10 +129,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Breadcrumb -->
-  <section id="bc" class="mt-3">
+  <!-- <section id="bc" class="mt-3">
     <div class="container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -92,7 +147,7 @@
         </ol>
       </nav>
     </div>
-  </section>
+  </section> -->
 
   <!-- Listings -->
   <section id="listings" class="py-4">
@@ -101,48 +156,45 @@
 
             {% if listings %}
             {% for listing in listings %}
-              <!-- Listing 1 -->
-          <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card listing-preview">
-                <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
-                <div class="card-img-overlay">
-                  <h2>
-                    <span class="badge badge-secondary text-white">{{ listing.amount | intcomma }}</span>
-                  </h2>
-                </div>
-                <div class="card-body">
-                  <div class="listing-heading text-center">
-                    <h4 class="text-primary">{{ listing.programname }}</h4>
-                    <p>
-                      <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p>
+          
+             <div id="allowlocationbody" class="col-md-6 col-lg-4 mb-4" style="">
+                <div class="card listing-preview">
+                  <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                  <div class="card-img-overlay rounded">
+                    <h2>
+                    </h2>
                   </div>
-                  <hr>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-6">
-                      <i class="fas fa-th-large"></i> Minimum Contribution: {{listing.minimumcontribution}}</div>
-                    <div class="col-6">
-                      <i class="fas fa-car"></i> First time buyers: {{listing.firstbuyersonly}}</div>
-                  </div>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-6">
-                      <i class="fas fa-bed"></i> Requires Inspection: {{listing.requiresinspection}}</div>
-                    <div class="col-6">
-                      <i class="fas fa-bath"></i> Amount of Assistance: {{listing.amountofassistance}}</div>
-                  </div>
-                  <hr>
-                  <div class="row py-2 text-secondary">
-                    <div class="col-12">
-                      <i class="fas fa-user"></i> {{ listing.programoriginator }}</div>
-                  </div>
+              <a  href="{% url 'listing' listing.id %}" class="stretched-link"> 
+                  <div class="card-body">
+                   <i class="far fa-lg fa-bookmark"></i>
+                    <div class=" text-left">
+                      <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h4>
+                          <p>
+                        <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
+                    </div>
+                    <div class="row py-0 text-secondary">
+                      <div class="col-12 text-left">
+                          <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
+                             <p>  &nbsp;&nbsp;&nbsp; {{listing.programoriginator |truncatewords:4 }}</p> </div>
+                      <div class="col-6">
+                        <h6 class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
+                             <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
+                    </div>
+                    <div class="row py-0 text-secondary">
+                      <!-- <div class="col-6"> -->
+                          <div class="col-6">
+                             <h6 class="text-left">  &nbsp;&nbsp;&nbsp; Mortgage Lenders</h6>
+                            <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div> 
+                             </div>
                   <div class="row text-secondary pb-2">
-                    <div class="col-6">
-                      <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
+                          <div class="col-6">
+                            </div>
+                        </div>
+
+                      </a>
                   </div>
-                  <hr>
-                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
                 </div>
               </div>
-            </div>
             {% endfor %}
          {% else %}
           <div class="col-md-12">
@@ -157,10 +209,10 @@
   </section>
 
   <!-- Footer -->
-  <footer id="main-footer" class="py-4 bg-primary text-white text-center">
+  <!-- <footer id="main-footer" class="py-4 bg-primary text-white text-center">
     Copyright &copy;
     <span class="year"></span> Lambada
-  </footer>
+  </footer> -->
 
   <script src="assets/js/jquery-3.3.1.min.js "></script>
   <script src="assets/js/bootstrap.bundle.min.js "></script>

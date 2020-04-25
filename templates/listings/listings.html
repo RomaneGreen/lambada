@@ -28,22 +28,7 @@ function showPosition(position) {
   console.log("COORDINATES",lat,lon);
 
 }
-/*function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-   console.log("NOT SUPPORTED")
-  }
-}
 
-function showPosition(position) {
-
-  let lat = position.coords.latitude 
-  let lon = position.coords.longitude
-  console.log("COORDINATES",lat,lon);
-
-}
-*/
 
 mapboxgl.accessToken = '{{mapbox_access_token}}';
 var map = new mapboxgl.Map({
@@ -52,22 +37,12 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center: ['{{my_lon}}','{{my_lat}}'],
 zoom: 13
 });
- 
-//map.addControl(
-//new MapboxGeocoder({
-//accessToken: mapboxgl.accessToken,
-//mapboxgl: mapboxgl
-//})
-//);
 
-//mapboxgl.accessToken = '{{mapbox_access_token}}';
-//var map = new mapboxgl.Map({
-  //  container: 'map',
-  //  style: 'mapbox://styles/mapbox/streets-v9',
-  //  center:  [lon, lat], // starting position
-  //  center:  [-79.4512, 43.6568],  starting position
-   // zoom: 13 // starting zoom
-//});
+var marker = new mapboxgl.Marker()
+.setLngLat(['{{my_lon}}', '{{my_lat}}'])
+.addTo(map);
+ 
+
 
 
 </script>
