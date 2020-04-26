@@ -22,8 +22,8 @@
 
           {% if contacts %}
 
-
-          <p>Here are the programs that you have inquired about</p>
+<!-- 
+          <p>Here are the programs that you have inquired about</p> -->
             <table class="table">
                <thead>
               <tr>
@@ -64,15 +64,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
    <section id="dashboardt" class="py-4">
       <div class="container">
         <div class="row">
@@ -81,8 +72,89 @@
             {% if searches %}
   
   
-            <p>Here are your saved searches</p>
-              <table class="table">
+            <!-- <p>Here are your saved searches</p> -->
+                <table id="table" class="">
+                 <thead>
+                <tr>
+            
+                  <th scope="col"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time</th>
+                  <th scope="col">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search phrase</th>
+                  <th scope="col">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Results</th>
+                  <th>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete</th>
+                  <th>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Revisit</th>
+                </tr>
+              </thead>
+              
+             <br>
+              {{count}}
+                <tbody>
+                  <br>
+            {% for search in searches %}
+            {% if search.user_id == user.id %}
+                <tr id="fable" class="">
+                  <td>{{search.time_visited}}</td>
+                  <td> "{{ search.phrase}}"</td>
+                  <td> {{search.length}} programs</td>
+                  <td> <form action="{% url 'search_query_delete' search.id %}" method="post">
+                      {% csrf_token %}
+                      <input id="tablebtn" type="submit" value="Delete">
+                  </form>
+                </td>
+                  <td>
+                    <a id="tablebtn" class="btn btn-light" href="{{search.link_visited }}">Revisit</a>
+                  </td>
+                  {% endif %}
+                </tr>
+                  <!-- <tr> -->
+                   {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <p> You havent made any inquiries</p>
+               {% endif %}
+              </div>
+        </div>
+      </div>
+    
+    </section> 
+
+
+
+    <!-- <div id="box">
+    <p id="test">Time Visited<br>
+ {% for search in searches %}
+            {% if search.user_id == user.id %}
+      <span id = "yoyo">{{search.time_visited}}</span>
+    </p>
+                      {% endif %}
+          {% endfor %}
+                  <p id="test" scope="col">Search phrase <br>
+                      <span id = "yoyo">Yo</span>                
+                  </p>
+                   
+                  <p id="test" scope="col">Results<br>
+                   <span id = "yoyo">Yo</span>
+                  </p>
+                  <p id="test">Delete<br>
+                   <span id = "yoyo">Yo</span>
+                    </p>
+
+                  <p id="test">Revisit<br>
+                  <span id = "yoyo">Yo</span>
+                  </p>
+</div> -->
+
+
+   <!-- <section id="dashboardt" class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+  
+            {% if searches %}
+  
+  
+             <p>Here are your saved searches</p> -->
+              <!-- <table class="table">
                  <thead>
                 <tr>
                   <th scope="col">Time Visited</th>
@@ -120,7 +192,7 @@
         </div>
       </div>
     
-    </section> 
+    </section>  -->
 
 
 <script type="text/javascript">
@@ -142,9 +214,21 @@ function myFunctiont() {
 
       y.style.display = "none";
       x.style.display = "block";
-     
+      a.style.color = "green"
       
 }
+
+   $(document).ready(function () {
+            $('tr').each(function () {
+                $(this).find('tr').each(function () {
+                    if ($(this).text().trim() == "") {
+                        $(this).closest("tr").remove();
+                    };
+                });
+            });
+        });
+        var td = $(this).find('tr:empty');
+if ( tr.length > 0 ) $(this).remove();
 </script>
 
 

@@ -1125,3 +1125,153 @@ opacity: 0.3;
 #dashboardt {
     display: none;
 }
+
+#dashboardt tr {
+    background: #FFFFFF;
+/* light-blue */
+
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+
+/* drop-shadow */
+
+box-shadow: 0px 10px 10px rgba(0, 48, 125, 0.08);
+border-radius: 10px;
+padding-bottom: 19em;
+/* height: 15px;  */
+
+/* width: 1250px;
+}
+
+*/
+}
+
+#dashboardt {
+    /* border-collapse:separate; 
+border-spacing:5em; */
+}
+#dashboardt td {
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+
+
+#dashboardt tr.spaceUnder>td {
+  padding-bottom: 1em;
+  margin-top: 2rem;
+}
+
+
+
+
+
+table#table 
+{
+    /* border-collapse:separate; */
+    border-spacing:50 5px;
+      border-radius:99px;
+
+
+width: 1250px;
+height: 150px;
+
+
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+
+
+color: #465175;
+}
+
+#test {
+    /* display: inline; */
+    margin-top: 1rem;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+
+color: #465175;
+}
+
+#box {
+    position: relative;
+    left: 2rem;
+    top: 2rem;
+    display: flex;
+  align-items: flex-start;
+    justify-content: space-around;
+
+    width: 1250px;
+height: 150px;
+
+
+background: #FFFFFF;
+/* light-blue */
+
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+/* drop-shadow */
+
+box-shadow: 0px 10px 10px rgba(0, 48, 125, 0.08);
+border-radius: 10px;
+}
+
+table#table td {
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+}
+
+table#table #tablebtn {
+
+width: 103px;
+height: 37px;
+background: #fff;
+color: #015AEB;
+border: 1px solid #015AEB;
+box-sizing: border-box;
+border-radius: 18.6961px;
+}
+
+table#table th {
+
+width: 149px;
+height: 26px;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+}
+
+table#table  {
+
+position: relative;
+bottom: 3rem;
+   border-collapse:separate; 
+                border-spacing:0 15px; 
+}
+
+table#fable  {
+
+position: relative;
+bottom: 33rem;
+   border-collapse:separate; 
+                border-spacing:0 15px; 
+}
+
+#table tr:not(:first-child)  {
+
+height: 125px;
+}
