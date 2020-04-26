@@ -1275,3 +1275,48 @@ bottom: 33rem;
 
 height: 125px;
 }
+
+#printbtn {
+position: relative;
+left: 74rem;
+top: -91px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+color: #015AEB;
+}
+
+#printbtnsearch {
+position: relative;
+left: 80.8rem;
+top: 681px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+color: #015AEB;
+}
+
+.tooltip-inner {
+  background-color:  #EBEEF6 !important;
+  border-radius: 5px;
+  font-family: sans-serif;
+  margin: .1rem;
+  color: #465175;
+  /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: #00acd6;
+  background: green;
+  color: red;
+}
+.red-tooltip + .tooltip.top > .tooltip-arrow {background-color: #f00;}
+
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: #f00; /* Red */
+}

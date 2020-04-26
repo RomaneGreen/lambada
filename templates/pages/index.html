@@ -34,7 +34,11 @@
                       </div>
                     <a  href="{% url 'listing' listing.id %}" class="stretched-link"> 
                      <div class="card-body">
-                       <i class="far fa-lg fa-bookmark"></i>
+                     {% if user.is_authenticated %}
+                       <i   class="far fa-lg fa-bookmark red-tooltip btnz"></i>
+                         {% else %}
+                       <i  data-toggle="tooltip" data-placement="top" title="Login or sign up to save" class="far fa-lg fa-bookmark red-tooltip btnz"></i>
+                         {% endif %}
                         <div class=" text-left"> 
                         
                           <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h4>
@@ -277,6 +281,13 @@
               </div>
                      
           </section> 
+
+          <script>
+          
+          $(function () {
+  $('[data-toggle="tooltip"]').tooltip({title: "<h1><strong>HTML</strong> inside <code>the</code> <em>tooltip</em></h1>", html: true, placement: "top"})
+})
+          </script>
 {% endblock %}
 
 
