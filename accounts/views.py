@@ -5,6 +5,7 @@ from contacts.models import Contact
 from listings.models import Searchsave
 from listings.models import Listing
 from django.contrib.gis.geoip2 import GeoIP2
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 import requests
 import ipinfo
 
@@ -88,7 +89,9 @@ def dashboard(request):
   #r = requests.get('https://www.iplocate.io/api/lookup/'+ipinfo)
   #city = r.json()['city']
   #print(r.json()['city'])
-
+  paginator = Paginator(user_contacts, 6)
+  page = request.GET.get('page')
+  user_contacts = paginator.get_page(page)
 
   context = {
     'contacts' : user_contacts,

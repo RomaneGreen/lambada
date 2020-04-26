@@ -7,10 +7,10 @@
 {% block content %}
 
 <br>
-<p id="saveditems">My saved items</p> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <p id="saveditems">My saved items</p> <br>
 
-<p id="savedheader" onclick="myFunction()">Saved Program</p> &nbsp;  &nbsp;
-<p id="savedheadert" onclick="myFunctiont()">Saved Search</p>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <p id="savedheader" onclick="myFunction()">Saved Program</p> &nbsp;  &nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <p id="savedheadert" onclick="myFunctiont()">Saved Search</p>
 
             {% include 'partials/_alerts.html' %}
 
@@ -104,10 +104,10 @@
     
           <div class="row">
             <div class="col-md-12">
-              {% if listings.has_other_pages %}
+              {% if contacts.has_other_pages %}
               <ul class="pagination">
-                  {% if listings.has_previous %}
-                  <li class="page-item"> <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo;
+                  {% if contacts.has_previous %}
+                  <li class="page-item"> <a href="?page={{contacts.previous_page_number}}" class="page-link">&laquo;
                   </a>
                   </li>
                   {% else %}
@@ -115,8 +115,8 @@
                         <a class="page-link">&laquo;</a>
                   </li>
                 {% endif %}
-                {% for i in listings.paginator.page_range %}
-                {% if listings.number == i %}
+                {% for i in contacts.paginator.page_range %}
+                {% if contacts.number == i %}
                   <li class="page-item active">
                     <a class="page-link">{{i}}</a>
                   </li>
@@ -126,8 +126,8 @@
                     </li>
                 {% endif %}
                 {% endfor %}
-                {% if listings.has_next %}
-                <li class="page-item"> <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;
+                {% if contacts.has_next %}
+                <li class="page-item"> <a href="?page={{contacts.next_page_number}}" class="page-link">&raquo;
                 </a>
                 </li>
                 {% else %}
