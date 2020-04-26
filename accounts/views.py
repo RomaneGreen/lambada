@@ -89,9 +89,14 @@ def dashboard(request):
   #r = requests.get('https://www.iplocate.io/api/lookup/'+ipinfo)
   #city = r.json()['city']
   #print(r.json()['city'])
+
   paginator = Paginator(user_contacts, 6)
   page = request.GET.get('page')
   user_contacts = paginator.get_page(page)
+
+  paginator = Paginator(searches, 6)
+  page = request.GET.get('page')
+  searches = paginator.get_page(page)
 
   context = {
     'contacts' : user_contacts,

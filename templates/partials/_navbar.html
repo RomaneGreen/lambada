@@ -71,7 +71,7 @@
                 <li class="nav-item mr-3">
                 <a class="nav-link" href="{% url 'dashboard' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
-                   Welcome {{ user.username }}
+                   Welcome {{ user.username |title }}
                   <button class="btn-nav">  Dashboard </button>
                   </a>
               </li>
