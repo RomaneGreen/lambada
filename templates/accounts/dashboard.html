@@ -6,6 +6,11 @@
 
 {% block content %}
 
+<br>
+<p id="saveditems">My saved items</p> <br>
+
+<p id="savedheader" onclick="myFunction()">Saved Program</p> &nbsp;  &nbsp;
+<p id="savedheadert" onclick="myFunctiont()">Saved Search</p>
 
             {% include 'partials/_alerts.html' %}
 
@@ -13,7 +18,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Welcome {{user.first_name}}</h2>
+          <!-- <h2>Welcome {{user.first_name}}</h2> -->
 
           {% if contacts %}
 
@@ -27,13 +32,19 @@
                 <th></th>
               </tr>
             </thead>
-            <!-- look:   {{searches.link_visited}}
-            {{count}} -->
               <tbody>
           {% for contact in contacts %}
               <tr>
                 <td>{{contact.id}}</td>
                 <td>{{ contact.listing}}</td>
+           {% for listing in listings %}
+             {% if contact.listing_id == listing.id %}
+                <td>{{ listing.amountofassistance}}</td>
+                <td>{{ listing.programtype}}</td>
+                <td>{{ listing.participatinglenders}}</td>
+                {% endif %}
+                 {% endfor %}
+               
                 <td>
                   <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
                 </td>
@@ -48,7 +59,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> 
 
 
 
@@ -62,11 +73,10 @@
 
 
 
-  <section id="dashboard" class="py-4">
+   <section id="dashboardt" class="py-4">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <!-- <h2>Welcome {{user.first_name}}</h2> -->
   
             {% if searches %}
   
@@ -81,7 +91,6 @@
                   <th></th>
                 </tr>
               </thead>
-              <!-- look:   {{searches}} -->
               {{count}}
                 <tbody>
             {% for search in searches %}
@@ -90,8 +99,6 @@
                   <td>{{search.time_visited}}</td>
                   <td> "{{ search.phrase}}"</td>
                   <td> {{search.length}}</td>
-                  <!-- <td> {{search.id}}</td> -->
-                  <!-- <td> {{search.link_visited}}</td> -->
                   <td> <form action="{% url 'search_query_delete' search.id %}" method="post">
                       {% csrf_token %}
                       <input type="submit" value="Delete search query">
@@ -113,8 +120,38 @@
         </div>
       </div>
     
-    </section>
+    </section> 
+
+
+<script type="text/javascript">
+function myFunction() {
+  var x = document.getElementById("dashboardt");
+  var y = document.getElementById("dashboard");
+  var a = document.getElementById("savedheader");
+  var b = document.getElementById("savedheadert");
+      y.style.display = "block";
+      x.style.display = "none";
+    
+
+}
+function myFunctiont() {
+  var x = document.getElementById("dashboardt");
+  var y = document.getElementById("dashboard");
+  var a = document.getElementById("saveheader");
+  var b = document.getElementById("saveheadert");
+
+      y.style.display = "none";
+      x.style.display = "block";
+     
+      
+}
+</script>
+
+
   {% endblock %}
+
+
+
 
 
 

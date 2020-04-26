@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from .models import Contact
+
 from django.core.mail import send_mail
 
 # Create your views here.

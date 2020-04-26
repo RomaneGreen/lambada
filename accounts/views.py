@@ -3,6 +3,7 @@ from django.contrib import messages,auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
 from listings.models import Searchsave
+from listings.models import Listing
 from django.contrib.gis.geoip2 import GeoIP2
 import requests
 import ipinfo
@@ -81,6 +82,7 @@ def dashboard(request):
   citiez =  details.all
   #ipinfo = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
   user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
+  listings = Listing.objects.order_by('id')
   searches = Searchsave.objects.all()
   #count = Searchsave.length()
   #r = requests.get('https://www.iplocate.io/api/lookup/'+ipinfo)
@@ -90,7 +92,7 @@ def dashboard(request):
 
   context = {
     'contacts' : user_contacts,
-    #'ipinfo': ipinfo,
+    'listings': listings,
    # 'city': city,
     'citiez': citiez,
     'searches': searches,

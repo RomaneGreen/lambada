@@ -161,7 +161,7 @@ html.lb-disable-scrolling {
   float: right;
   width: 30px;
   height: 30px;
-  background: url(../img/lightbox/close.png) top right no-repeat;
+  background: url() top right no-repeat;
   text-align: right;
   outline: 0;
   filter: alpha(Opacity=70);
