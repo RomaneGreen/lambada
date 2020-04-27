@@ -109,7 +109,7 @@ def search(request):
         user_id = request.GET['user_id'] 
         #print(user_id,"uuidxxxx")
         link = request.get_full_path()
-
+        request.session['link'] = link
         # page = request.GET.get('page')
         # paged_listings = paginator.get_page(page)
 
@@ -125,8 +125,8 @@ def search(request):
              Q(state__iexact=state) |  Q(zipcode__iexact=state) | Q(city__iexact=state) |
               Q(Neighborhoods__iexact=county) )
         length = queryset_list.count()
-
-        searchsaved = Searchsave(phrase=search_term,link_visited=link,length=queryset_list.count(),user_id=user_id)
+    if request.method == "POST":
+        searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
         searchsaved.save()
       
     if 'state' in request.GET:

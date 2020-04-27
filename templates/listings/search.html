@@ -14,6 +14,15 @@
 
 <p id="printbtnsearch" onclick="window.print()">Print</p> 
 
+  <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+<button type="submit" id="printbtn">Save</button> 
+</form>
+
+  
+
+
+
 <script>
 
 function myFunction() {
