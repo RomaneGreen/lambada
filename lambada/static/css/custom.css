@@ -1320,3 +1320,17 @@ color: #015AEB;
 .bs-tooltip-bottom .arrow::before {
   border-bottom-color: #f00; /* Red */
 }
+
+#savesearchbtn {
+width: 192.15px;
+height: 37.39px;
+
+color: #015AEB;
+font-family: sans-serif;
+border: 1px solid #015AEB;
+box-sizing: border-box;
+border-radius: 18.6961px;
+position: relative;
+left: 70rem;
+bottom: 25rem;
+}
