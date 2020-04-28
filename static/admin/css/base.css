@@ -916,27 +916,7 @@ table#change-history tbody th {
 /* #content-related p {
     padding-left: 16px;
     padding-right: 16px;
-}
 
-#content-related .actionlist {
-    padding: 0;
-    margin: 16px;
-}
-
-#content-related .actionlist li {
-    line-height: 1.2;
-    margin-bottom: 10px;
-    padding-left: 18px;
-}
-
-#content-related .module h2 {
-    background: none;
-    padding: 16px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #eaeaea;
-    font-size: 18px;
-    color: #333;
-} */
 
 .delete-confirmation form input[type="submit"] {
     background: #ba2121;
@@ -969,7 +949,7 @@ table#change-history tbody th {
     background: #ccc;
 }
 
-/* POPUP */
+
 .popup #content {
     padding: 20px;
 }

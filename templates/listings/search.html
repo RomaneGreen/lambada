@@ -11,17 +11,24 @@
 "{{values}}"
 </h3>
 <br> 
-<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;position:relative;top:3rem;'></div>
+<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;position:relative;top:3rem;margin-left:20rem;'></div>
 
 <p id="printbtnsearch" onclick="window.print()">Print</p> 
 
+ {% if user.is_authenticated %}
   <form action="{% url 'search' %}" method="POST">
                 {% csrf_token %}
 <button id="savesearchbtn" type="submit" id="printbtn">Save Search</button> 
 </form>
+{% else %}
+{% endif %}
 
-  
+  <div id="mapgoogle"></div>
+<div id="pano"></div>
 
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&callback=initialize">
+</script>
 
 
 <script>
@@ -58,7 +65,45 @@ var marker = new mapboxgl.Marker()
 .addTo(map);
  
 
+//console.log({{my_lon}}, {{my_lat}})
 
+let dog = {{my_lon}};
+let cat = {{my_lat}};
+
+
+/*function initialize() {
+
+  var fenway = { lat:dog, lng: cat };
+  var mapgoogle = new google.maps.Map(document.getElementById('mapgoogle'), {
+    center: fenway,
+    zoom: 14
+  });
+  var panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('pano'), {
+        position: fenway,
+        pov: {
+          heading: 34,
+          pitch: 10
+        }
+      });
+  mapgoogle.setStreetView(panorama);
+} */
+
+
+var panorama;
+function initialize() {
+  panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('mapgoogle'),
+      {
+        position: {lat: cat, lng: dog},
+        pov: {heading: 165, pitch: 0},
+        zoom: 1
+      });
+}
+
+
+
+le
 
 </script>
 
@@ -68,10 +113,10 @@ var marker = new mapboxgl.Marker()
 
 
 
+<br>
 <!-- <h3 id="listingsbody"> There are <span id="listingcount">{{count}} program{{ count |pluralize:"s"}} </span> available based on your search
 {{values.city}}
 </h3> -->
-<br>
   <!-- <section id="showcase-inner" class="showcase-search text-white py-5">
     <div class="container">
       <div class="row text-center">
@@ -264,10 +309,10 @@ var marker = new mapboxgl.Marker()
     <span class="year"></span> Lambada
   </footer> -->
 
-  <script src="assets/js/jquery-3.3.1.min.js "></script>
+  <!-- <script src="assets/js/jquery-3.3.1.min.js "></script>
   <script src="assets/js/bootstrap.bundle.min.js "></script>
   <script src="assets/js/lightbox.min.js"></script>
-  <script src="assets/js/main.js "></script>
+  <script src="assets/js/main.js "></script> -->
 </body>
 
 </html>
