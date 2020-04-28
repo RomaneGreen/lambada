@@ -160,8 +160,15 @@
 
 #footertext {
    position: relative;
-   left: 11.2rem;
-   top: 2rem;
+   left: 6rem;
+   top: 3rem;
+
+}
+
+#footertexttwo {
+   position: relative;
+   left: 11.7rem;
+   top: 3rem;
 
 }
 

@@ -6,11 +6,12 @@
 
 {% block content %}
 
+<br>
 <h3 style="text-align:center;margin:0 auto;margin-bottom:2rem;" id="listingsbody"> There are <span id="listingcount">{{count}} program{{ count |pluralize:"s"}} </span> available based on your search
 "{{values}}"
 </h3>
-<br>
-<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;'></div>
+<br> 
+<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;position:relative;top:3rem;'></div>
 
 <p id="printbtnsearch" onclick="window.print()">Print</p> 
 
