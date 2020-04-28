@@ -6,7 +6,13 @@
 
 {% block content %}
 
-<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;'></div>
+<div id='map' style='width: 400px; height: 300px;align:center;margin: 0 auto;position:relative;top:3rem;margin-left:20rem;'></div>
+<div style="position:absolute;top:168px;" id="mapgoogle"></div>
+
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&callback=initialize">
+</script>
 
 
 <script>
@@ -42,13 +48,26 @@ zoom: 13
 //.setLngLat(['{{my_lon}}', '{{my_lat}}'])
 //.addTo(map);
  
+let dog = {{my_lon}};
+let cat = {{my_lat}};
 
+
+var panorama;
+function initialize() {
+  panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('mapgoogle'),
+      {
+        position: {lat: cat, lng: dog},
+        pov: {heading: 165, pitch: 0},
+        zoom: 1
+      });
+}
 
 
 </script>
 
 <!-- <button onclick="myFunction()"> im a button</button> -->
-
+<br>
 <h3 id="listingsbody"> There are <span id="listingcount">{{count}} programs </span> near you based on your location</h3>
 
 <!-- <section id="bc" class="mt-3">
