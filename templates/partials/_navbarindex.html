@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav id="navlisting" style="background-color: transparent !important;color: green !important;padding-bottom:-30000rem;"class="navbar navbar-expand-lg bg-primary sticky-top">
+  <nav id="navlisting" style="background-color: transparent !important;color: green !important;"class="navbar navbar-expand-lg bg-primary sticky-top">
         <!-- <div class="container" id="sospecial">
           <a class="navbar-brand" href="index.html">
             <img src="assets/img/logo.png" class="logo" alt="">
@@ -17,7 +17,7 @@
                {% endif %}    
                > -->
                    <!-- <div id="navbarred"> -->
-                <a id="navbared" style="font-size:22px;padding:23px;margin-right:59rem;font-weight:bold;margin-right:61px;font-family:sans-serif;color:#364269;" class="nav-link" href="{% url 'index' %}">Lambada</a>
+                <a id="navbared" style="font-size:22px;padding:23px;font-weight:bold;margin-right:61px;font-family:sans-serif;color:#364269;" class="nav-link" href="{% url 'index' %}">Lambada</a>
                   <!-- </div> -->
               <!-- </li> -->
               <!-- <input type="text"> -->
@@ -35,7 +35,7 @@
                   <div>
                     
                   <input id="autocomplete" style="border-radius: 22px; width: 740px;height:50px;margin-top:1.8rem;" type="text" name="city" 
-                  class="form-control" placeholder="Enter a city, state or county" minlength="2" required> <span style="margin-top:.4rem;" id="indexlocationtext">Location</span>
+                  class="form-control" placeholder="Enter a city, state or county" minlength="2" required> <span style="margin-top:.4rem;" id="indexlocationtext"><strong>Location</strong></span>
                   <button class="sbt" type="submit" form="form1">
                    <i id="mglassindex" class="fas fa-lg fa-search"></i>
                  </button>
@@ -80,7 +80,7 @@
               <li class="nav-item mr-3">
                 <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
              
-                <button class="btn-nav">  <i class="fas fa-sign-out-alt"></i>Logout</button>
+                <button class="btn-nav">  <i class="fas fa-sign-out-alt"></i>Sign out</button>
                      </a>
               </li>
               <form id="logout" action="{% url 'logout' %}" method=POST>
@@ -88,7 +88,7 @@
               <input type="hidden">
               </form>
             {% else %}
-                
+
               <li style="" class="nav-item mr-4">
                 <a class="nav-link" href="{% url 'login' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
@@ -109,18 +109,50 @@
       </nav>
 
 
-
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 <script>
 
+  var pac_input = document.getElementById('autocomplete');
+
+      (function pacSelectFirst(input) {
+        // store the original event binding function
+        var _addEventListener = (input.addEventListener) ? input.addEventListener : input.attachEvent;
+
+        function addEventListenerWrapper(type, listener) {
+            // Simulate a 'down arrow' keypress on hitting 'return' when no pac suggestion is selected,
+            // and then trigger the original listener.
+            if (type == "keydown") {
+                var orig_listener = listener;
+                listener = function(event) {
+                    var suggestion_selected = $(".pac-item-selected").length > 0;
+                    if (event.which == 13 && !suggestion_selected) {
+                        var simulated_downarrow = $.Event("keydown", {
+                            keyCode: 40,
+                            which: 40
+                        });
+                        orig_listener.apply(input, [simulated_downarrow]);
+                    }
+
+                    orig_listener.apply(input, [event]);
+                };
+            }
+
+            _addEventListener.apply(input, [type, listener]);
+        }
+
+        input.addEventListener = addEventListenerWrapper;
+        input.attachEvent = addEventListenerWrapper;
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+    })(pac_input);
 function initAutocomplete() {
-	// Create the autocomplete object, restricting the search to geographical
-	// location types.
+	
 	autocomplete = new google.maps.places.Autocomplete(
 	  /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
 	  {types: ['geocode']});
-  //console.log(autocomplete)
-  
-	//console.log("params",geolocation,circle)
+ 
 	}
  </script>
        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script>

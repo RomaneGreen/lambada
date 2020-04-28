@@ -74,13 +74,13 @@
                 <a class="nav-link" href="{% url 'dashboard' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
                     <!-- {{ user.username |title }} -->
-                  <button class="btn-nav">  {{user.username| title }} </button>
+                  <button style="font-family:sans-serif;" class="btn-nav">  {{user.username| title }} </button>
                   </a>
               </li>
               <li class="nav-item mr-3">
                 <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
              
-                  <i class="fas fa-sign-out-alt"></i>Logout
+                  <i class="fas fa-sign-out-alt"></i>Sign out
                      </a>
               </li>
               <form id="logout" action="{% url 'logout' %}" method=POST>
