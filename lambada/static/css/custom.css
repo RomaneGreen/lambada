@@ -787,11 +787,22 @@ color: #465175;
     border-top: 2px solid #EBEEF6;
 }
 
-#indexbutton {
+.indexbutton {
     position: relative;
     right: 40px;
     font-Size: 18px;
-    line-height: 27px
+    line-height: 27px;
+ 
+}
+
+.indexbuttont {
+    position: relative;
+    right: 40px;
+    font-Size: 18px;
+    line-height: 27px;
+    background-color:white;
+    color: #465175;
+    border: none;
 }
 
  #mglassindex {
@@ -1374,3 +1385,20 @@ html, body {
 .fa-bookmark {
     background : #015AEB;
 }
+
+ #navlisting .btn-nav__nohover {
+     color: #465175;
+     /* font-size: 18px;
+line-height: 27px; */
+}
+
+/* #navlisting .btn-nav__nohover:hover {
+    color:white;
+    background: #015AEB;
+    width: 101px;
+    height: 37px;
+    font-size: 18px;
+line-height: 27px;
+border-radius:19px;
+} */
+

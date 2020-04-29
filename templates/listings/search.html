@@ -6,6 +6,7 @@
 
 {% block content %}
 
+
 <br>
 <h3 style="text-align:center;margin:0 auto;margin-bottom:2rem;" id="listingsbody"> There are <span id="listingcount">{{count}} program{{ count |pluralize:"s"}} </span> available based on your search
 "{{values}}"
@@ -23,12 +24,14 @@
 {% else %}
 {% endif %}
 
-  <div id="mapgoogle"></div>
-<div id="pano"></div>
-
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&callback=initialize">
 </script>
+
+  <div id="mapgoogle"></div>
+<div id="pano"></div>
+
+
 
 
 <script>

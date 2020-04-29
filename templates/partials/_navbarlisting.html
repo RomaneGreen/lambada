@@ -35,7 +35,7 @@
                   <div>
                     
                   <input id="autocomplete" style="border-radius: 22px; width: 640px;margin-top:1.8rem;" type="text" name="city" 
-                  class="form-control" placeholder="Enter a city, state or county" minlength="2" required> <span>Location</span>
+                  class="form-control" placeholder="Enter a city, state or county" minlength="2" required> <span> <strong>Location</strong></span>
                   <button class="sbt" type="submit" form="form1">
                    <i id="mglass" class="fas fa-search"></i>
                  </button>
@@ -92,13 +92,13 @@
               <li class="nav-item mr-3">
                 <a class="nav-link" href="{% url 'login' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
-                  <button class="btn-nav">  Sign in</button>
+                  <button id="indexbuttont" onmouseover="myFunction()" class="btn-nav indexbuttont">  Sign in</button>
                   </a>
               </li>
               <li class="nav-item mr-3">
                   <a class="nav-link" href="{% url 'register' %}">
                     <!-- <i class="fas fa-search"></i> -->
-                    <button class="btn-nav"> Sign up</button>
+                    <button id="indexbutton" onmouseover="myFunctiont()" class="btn-nav indexbutton"> Sign up</button>
                     </a>
                 </li>
                 {% endif %}
@@ -110,6 +110,36 @@
 
 
 <script>
+
+    function myFunction() {
+
+      var x = document.getElementById("indexbutton");
+      var y = document.getElementById("indexbuttont");
+           
+          y.classList.remove("indexbuttont");
+          y.classList.add("indexbutton");
+          x.classList.remove("indexbutton");
+          x.classList.add("indexbuttont");
+    
+          
+        
+    
+    }
+  
+    function myFunctiont() {
+  
+      var x = document.getElementById("indexbutton");
+      var y = document.getElementById("indexbuttont");
+           
+      y.classList.add("indexbuttont");
+      y.classList.remove("indexbutton");
+          x.classList.add("indexbutton");
+          x.classList.remove("indexbuttont");
+    
+          
+        
+    
+    }
 
 function initAutocomplete() {
 	// Create the autocomplete object, restricting the search to geographical

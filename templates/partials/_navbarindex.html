@@ -92,13 +92,13 @@
               <li style="" class="nav-item mr-4">
                 <a class="nav-link" href="{% url 'login' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
-                  <button id="indexbutton" class="btn-nav">  Sign in</button>
+                  <button id="indexbuttont" onmouseover="myFunction()" class="btn-nav indexbuttont">  Sign in</button>
                   </a>
               </li>
               <li class="nav-item mr-4">
                   <a class="nav-link" href="{% url 'register' %}">
                     <!-- <i class="fas fa-search"></i> -->
-                    <button id="indexbutton" class="btn-nav"> Sign up</button>
+                    <button id="indexbutton" onmouseover="myFunctiont()" class="btn-nav indexbutton"> Sign up</button>
                     </a>
                 </li>
            
@@ -112,9 +112,48 @@
 <!-- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script> -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script> -->
        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script> -->
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script>
 
 <script>
 
+
+  function myFunction() {
+
+    var x = document.getElementById("indexbutton");
+    var y = document.getElementById("indexbuttont");
+         
+        y.classList.remove("indexbuttont");
+        y.classList.add("indexbutton");
+        x.classList.remove("indexbutton");
+        x.classList.add("indexbuttont");
+  
+        
+      
+  
+  }
+
+  function myFunctiont() {
+
+    var x = document.getElementById("indexbutton");
+    var y = document.getElementById("indexbuttont");
+         
+    y.classList.add("indexbuttont");
+    y.classList.remove("indexbutton");
+        x.classList.add("indexbutton");
+        x.classList.remove("indexbuttont");
+  
+        
+      
+  
+  }
+
+  function initAutocomplete() {
+	
+    autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      {types: ['geocode']});
+   
+    
 
   var pac_input = document.getElementById('autocomplete');
 
@@ -150,16 +189,14 @@
         var autocomplete = new google.maps.places.Autocomplete(input);
 
     })(pac_input);
+  }
 
-function initAutocomplete() {
-	
-	autocomplete = new google.maps.places.Autocomplete(
-	  /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-	  {types: ['geocode']});
- 
-	}
  </script>
        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script>
-
+   
+       <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&callback=initialize">
+</script>
+ -->
 
 
