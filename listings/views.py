@@ -93,6 +93,7 @@ def search(request):
         lon = str(lon)
         request.session['lat'] = lat
         request.session['lon'] = lon
+        request.session['url'] = request.path
         request.session['city'] = keywords
         coordinates = (lat,lon)
         results = rg.search(coordinates)
@@ -113,7 +114,7 @@ def search(request):
         # page = request.GET.get('page')
         # paged_listings = paginator.get_page(page)
 
-        print('request',link,)
+        print('requestx',link,)
         if request.user.is_authenticated:
           user_id = request.user.id
           has_visited = Searchsave.objects.all().filter(phrase=search_term,user_id=user_id)
@@ -126,13 +127,16 @@ def search(request):
               Q(Neighborhoods__iexact=county) )
         length = queryset_list.count()
     if request.method == "POST":
+        link = request.get_full_path()
+        print("PATH",request.session['link'])
         searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
         has_visited = Searchsave.objects.all().filter(phrase=request.session['city'],user_id=request.user.id)
         if has_visited:
               wishlist = Searchsave.objects.filter(phrase=request.session['city'],user_id=request.user.id)
               wishlist.delete()
         searchsaved.save()
-      
+        next = request.POST.get('next','/')
+        return HttpResponseRedirect(request.session['link'])
     if 'state' in request.GET:
         keywords = request.GET['state']
         if keywords:

@@ -576,9 +576,9 @@ color: #465175;
  }
 
 
- #indexbody {
+ /* #indexbody {
     
- }
+ } */
 
 
  #indexbody h5 {
@@ -924,10 +924,7 @@ text-align: center;
   
 /* border-bottom: 5px solid #015AEB; */
 /* text-blue */
-
-color: ;
  }
-
  .whylambadaheader:after {
     content: ""; /* This is necessary for the pseudo element to work. */ 
     display: block; /* This will put the pseudo element on its own line. */
@@ -949,7 +946,7 @@ font-style: normal;
 font-weight: 700px;
 font-size: 16px;
 line-height: 24px;
-color: ;
+
 
 }
 
@@ -988,9 +985,9 @@ margin-top: 2rem;
 }
 
 
- #allowlocationbody {
+ /* #allowlocationbody {
     
- }
+ } */
 
 
  #allowlocationbody h5 {
@@ -1179,10 +1176,9 @@ padding-bottom: 19em;
 */
 }
 
-#dashboardt {
-    /* border-collapse:separate; 
-border-spacing:5em; */
-}
+/* #dashboardt {
+
+} */
 #dashboardt td {
     padding: 2rem;
     margin-top: 3rem;

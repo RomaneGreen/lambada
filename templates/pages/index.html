@@ -32,10 +32,15 @@
                         <h2>
                         </h2>
                       </div>
-                    <a  href="{% url 'listing' listing.id %}" class="stretched-link"> 
+                    <!-- <a  href="{% url 'listing' listing.id %}" class="stretched-link">  -->
                      <div class="card-body">
                      {% if user.is_authenticated %}
-                       <i   class="far fa-lg fa-bookmark "></i>
+                     <form id="formz" action="/"  method="POST" >
+                     <input type="hidden" id="userid" name="user_id" value="{{user.id}}">
+                     <input type="hidden" class="urlid" name="uri_id" data-cats="{{listing.id}}" value="{{listing.id}}">
+                     <input type="submit"  value="Post" >
+                     <span > <i  class="far fa-lg fa-bookmark "></i> </span> 
+                       </form>
                          {% else %}
                     <i data-toggle="tooltip" data-placement="top" title="𝙻̲𝚘̲𝚐̲𝚒̲𝚗̲ or 𝚂̲𝚒̲𝚐̲𝚗̲ 𝚄̲𝚙̲ to save" class="far fa-lg fa-bookmark"></i>
                          {% endif %}
@@ -49,8 +54,8 @@
                                    <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
                              <p>  &nbsp;&nbsp;&nbsp; {{listing.programoriginator}}</p> </div>
                           <div class="col-6">
-                             <h6 class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
-                             <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
+                             <h6  class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
+                             <p class="tested"  class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
                         </div>
                         <div class="row py-2 text-secondary">
                           <div class="col-6">
@@ -62,11 +67,11 @@
                           <div class="col-6">
                             </div>
                         </div>
-                        </a>
+                        <!-- </a> -->
                       </div>
                     </div>
                   </div> 
-                       
+                       </form>
                   {% endfor %}
                 
                 {% else %}
@@ -89,79 +94,7 @@
             {% include 'partials/_alerts.html' %}
 
 
-      <section id="listings" class="py-5">
-            <div class="container"> -->
-              <!-- <h3 class="text-center mb-3">Housing Assistant programs</h3> -->
-            <!-- <p>Enter you location in search bar or <span>Allow Your Location to see more programs near you</span></p> -->
-              <!-- <div class="row">
-
-                {% if listings %}
-                {% for listing in listings %} 
-<-- 
-                 Listing 1 -->
-                 <!-- <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card listing-preview">
-                      <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
-                      <div class="card-img-overlay">
-                        <h2>
-                          <span class="badge badge-secondary text-white">{{ listing.amount | intcomma }}</span>
-                        </h2>
-                      </div>
-                      <div class="card-body">
-                        <div class="listing-heading text-center">
-                          <h4 class="text-primary">{{ listing.programname |truncatechars:30  }}</h4>
-                          <p> -->
-                            <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
-                        <!-- </div>
-                        <hr>
-                        <div class="row py-2 text-secondary">
-                          <div class="col-6">
-                            <i class="fas fa-th-large"></i> Minimum Contribution: {{listing.minimumcontribution}}</div>
-                          <div class="col-6">
-                            <i class="fas fa-car"></i> Amount: {{listing.amountofassistance | intcomma}}</div>
-                        </div>
-                        <div class="row py-2 text-secondary">
-                          <div class="col-6">
-                            <i class="fas fa-bed"></i> First time buyers: {{listing.firstbuyersonly}}</div>
-                          <div class="col-6">
-                            <i class="fas fa-bath"></i> Requires Inspection: {{listing.requiresinspection}}</div>
-                        </div>
-                        <hr> -->
-                        <!-- <div class="row py-2 text-secondary">
-                          <div class="col-6"> -->
-                            <!-- <i class="fas fa-user"></i> {{ listing.programoriginator }}-->
-                            <!-- </div> 
-                        </div>
-                        <div class="row text-secondary pb-2">
-                          <div class="col-6"> -->
-                            <!-- <i class="fas fa-clock"></i> {{ listing.list_date | timesince}} -->
-                            <!-- </div>
-                        </div>
-                        <hr>
-                        <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
-                      </div>
-                    </div>
-                  </div>
-
-                {% endfor %}
-                
-                {% else %}
-                <div class="col-md-12">
-                  <p>No listings available</p>
-                </div>
-                {% endif %}
-               
-              </section> -->
-          <section id="team indexbody" class="py-5">
-              <div class="container">
-                <h2 class="text-center missionheader">Our Mission</h2>
-                <!-- <hr> -->
-                <h3 class="missionsubheader">Lorem ipsum dolor sit amet,consectetur adipisicing elit,sed do <br>
-                euismod tempor incididunt ut labore et dolore magna aliqua.</h3>
-                <div class="row text-center">
-                  <div class="col-md-4 text-center">
-                    <img src="" alt="" class="rounded-circle mb-3">
-                    <!-- <h4>Lorem ipsum</h4> -->
+ 
                     <p id="missionpoint" class="text-succes missonpoint">
                       
                       </i> Lorem ipsum</p>
@@ -173,7 +106,7 @@
           
                   <div class="col-md-4">
                     <img src="" alt="" class="rounded-circle mb-3">
-                    <!-- <h4>Lorem ipsum</h4> -->
+                     <h4>Lorem ipsum</h4> -->
                     <p id="missionpoint" class="text-succes">Lorem ipsum</p>
 
                     <p id ="missiontext">
@@ -282,8 +215,37 @@
                      
           </section> 
 
-          <script>
+          <script >
           
+            //  $(document).ready(function() {
+
+            
+     
+
+             $("#formz").submit(function(event){
+             
+               alert("nook");
+
+             });
+             
+
+
+
+
+
+
+           // });
+
+
+
+
+
+
+
+
+          //  });
+        
+              
           $(function () {
   $('[data-toggle="tooltip"]').tooltip({title: "<h1><strong>HTML</strong> inside <code>the</code> <em>tooltip</em></h1>", html: true, placement: "top"})
 })
