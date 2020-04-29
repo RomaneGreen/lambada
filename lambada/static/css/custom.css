@@ -660,15 +660,19 @@ left: 8rem;
 top: -1.2rem;
 background: #EBEEF6;
 /* blue */
-/* border: 2px solid #015AEB; */
-border-radius: 1px;
+/* border: 10px solid #015AEB; */
+border-radius: .5px;
+
  }
 
 
-    #indexbody i:hover {
- color: #015AEB;
- }
 
+
+
+    /* #indexbody i:hover {
+ background: #015AEB;
+
+ } */
 
     .missionheader {
  font-family: sans-serif;
@@ -1050,7 +1054,7 @@ a.stretched-link {
 }
 
 
-#savedheader {
+.savedheader {
 font-family: sans-serif;
 font-style: normal;
 font-weight: 600;
@@ -1059,8 +1063,9 @@ line-height: 36px;
 display: inline-block;
   
 color: #465175;
-opacity: 0.3;
+opacity: 1;
 }
+
 
 
 #saveditems {
@@ -1075,17 +1080,17 @@ display: inline-block;
 color:   #465175;
 
 }
- #savedheader:after {
+ .savedheader:after {
     content: ""; /* This is necessary for the pseudo element to work. */ 
    display: block; /* This will put the pseudo element on its own line. */
     margin: 0 auto; 
     width: 100%; /* Change this to whatever width you want. */
     padding-top: -40px; /* This creates some space between the element and the border. */
-    /* border-bottom: 5px solid  #015AEB; */
-    opacity: 0.3;
+    border-bottom: 5px solid  #015AEB;
+    opacity: 1;
 } 
 
-#savedheadert {
+.savedheadert {
 font-family: sans-serif;
 font-style: normal;
 font-weight: 600;
@@ -1098,7 +1103,9 @@ color: #465175;
 opacity: 0.3;
 }
 
- #savedheadert:after {
+
+
+ .savedheadert:after {
     content: ""; /* This is necessary for the pseudo element to work. */ 
    display: block; /* This will put the pseudo element on its own line. */
     margin: 0 auto; 
@@ -1109,25 +1116,33 @@ opacity: 0.3;
 } 
 
 
-  #savedheadert:hover {
+  .savedheadert:hover {
     border-bottom: 5px solid  #015AEB;
     opacity: 1;
 }  
 
-  #savedheader:hover {
+  /* #savedheadert:active {
     border-bottom: 5px solid  #015AEB;
     opacity: 1;
 }  
 
- #savedheader:active {
+  #savedheadert:focus {
     border-bottom: 5px solid  #015AEB;
     opacity: 1;
-}  
+}    */
 
- #savedheadert:active {
-    border-bottom: 5px solid  #015AEB;
+.mystyle {
+   
+    font-size: 25px;
+    opacity: 0.3;
+  }
+
+  .mystyle {
+   
+    font-size: 25px;
     opacity: 1;
-} 
+  }
+
 
 #dashboardt {
     display: none;
@@ -1316,11 +1331,11 @@ color: #015AEB;
   /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
 }
 .tooltip.top .tooltip-arrow {
-  border-top-color: #00acd6;
+  border-top-color:  #015AEB;
   background: green;
-  color: red;
+  color:  #015AEB;
 }
-.red-tooltip + .tooltip.top > .tooltip-arrow {background-color: #f00;}
+.red-tooltip + .tooltip.top > .tooltip-arrow {background-color:   #015AEB;}
 
 
 .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
@@ -1356,3 +1371,6 @@ html, body {
   width: 400px;
 }
 
+.fa-bookmark {
+    background : #015AEB;
+}

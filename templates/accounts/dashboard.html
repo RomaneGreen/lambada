@@ -9,8 +9,8 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <p id="saveditems">My saved items</p> <br><br>
 
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <p id="savedheader" onclick="myFunction()">Saved Program</p> &nbsp;  &nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <p id="savedheadert" onclick="myFunctiont()">Saved Search</p>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <p class="savedheader" id="savedheader" onclick="myFunction()">Saved Program</p> &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <p class="savedheadert" id="savedheadert" onclick="myFunctiont()">Saved Search</p>
 
             {% include 'partials/_alerts.html' %}
 
@@ -252,28 +252,51 @@
 
 
 <script type="text/javascript">
+
 function myFunction() {
   var x = document.getElementById("dashboardt");
   var y = document.getElementById("dashboard");
+  
   var a = document.getElementById("savedheader");
   var b = document.getElementById("savedheadert");
       y.style.display = "block";
       x.style.display = "none";
+      a.classList.remove("savedheadert");
+      a.classList.add("savedheader");
+      b.classList.remove("savedheader");
+      b.classList.add("savedheadert");
+
+      
     
 
 }
 function myFunctiont() {
   var x = document.getElementById("dashboardt");
   var y = document.getElementById("dashboard");
-  var a = document.getElementById("saveheader");
-  var b = document.getElementById("saveheadert");
+ 
+  var a = document.getElementById("savedheader");
+  var b = document.getElementById("savedheadert");
+
 
       y.style.display = "none";
       x.style.display = "block";
-      a.style.color = "green"
+      b.classList.remove("savedheadert");
+      b.classList.add("savedheader");
+      a.classList.remove("savedheader");
+      a.classList.add("savedheadert");
+      
+
+
+
+
       
 }
 
+function myFunctionc() {
+
+
+ 
+}
    $(document).ready(function () {
             $('tr').each(function () {
                 $(this).find('tr').each(function () {
@@ -285,6 +308,12 @@ function myFunctiont() {
         });
         var td = $(this).find('tr:empty');
 if ( tr.length > 0 ) $(this).remove();
+
+
+$(".saveheadert").on("click", function() {
+    $(this).css("backgroundColor", "red");
+}); 
+
 </script>
 
 
