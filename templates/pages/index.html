@@ -17,7 +17,7 @@
               </h1>
               <p class="lead">Enter your location in the search bar or <a style="color:white;background-color:none;text-decoration:underline;" href="{% url 'listings' %}"  class=""> Allow your location</a> to see more programs near you</p><br>
               <div class="search">
-                <form action="{% url 'search' %}">
+                <!-- <form action="{% url 'search' %}"> -->
            
                          <div class="row">
 
@@ -32,35 +32,37 @@
                         <h2>
                         </h2>
                       </div>
+                      
                     <!-- <a  href="{% url 'listing' listing.id %}" class="stretched-link">  -->
                      <div class="card-body">
                      {% if user.is_authenticated %}
-                     <form id="formz" action="/"  method="POST" >
-                     <input type="hidden" id="userid" name="user_id" value="{{user.id}}">
-                     <input type="hidden" class="urlid" name="uri_id" data-cats="{{listing.id}}" value="{{listing.id}}">
-                     <input type="submit"  value="Post" >
-                     <span > <i  class="far fa-lg fa-bookmark "></i> </span> 
-                       </form>
+                     <!-- <input type="hidden" id="userid" name="user_id" value="{{user.id}}">
+                     <input type="hidden" class="urlid" name="uri_id" data-cats="{{listing.id}}" value="{{listing.id}}"> -->
+                  <i  class="far fa-lg fa-bookmark ">
+                     
+                  </i> 
+                  
                          {% else %}
                     <i data-toggle="tooltip" data-placement="top" title="𝙻̲𝚘̲𝚐̲𝚒̲𝚗̲ or 𝚂̲𝚒̲𝚐̲𝚗̲ 𝚄̲𝚙̲ to save" class="far fa-lg fa-bookmark"></i>
                          {% endif %}
                         <div class=" text-left"> 
                         
-                          <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h4>
-                          <p>
+                          <!-- <h5  class="fykebutton" data-nameid={{listing.programname}}> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h4> -->
+                          <h5  class="fykebutton"> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h5>
+                          
                         </div>
                         <div class="row py-0 text-secondary">
                           <div class="col-12 text-left">
                                    <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
-                             <p>  &nbsp;&nbsp;&nbsp; {{listing.programoriginator}}</p> </div>
+                             <p class="dykebutton" data-catid={{listing.id}}> L &nbsp;&nbsp;&nbsp; {{listing.programoriginator}}</p> </div>
                           <div class="col-6">
                              <h6  class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
-                             <p class="tested"  class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
+                             <p class="tested"   class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
                         </div>
                         <div class="row py-2 text-secondary">
                           <div class="col-6">
                              <h6 class="text-left">  &nbsp;&nbsp;&nbsp; Mortgage Lenders</h6>
-                            <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div>                       
+                            <p class="text-left test" data-nameid={{listing.programcontact}} >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div>                       
                         </div>
                       
                         <div class="row text-secondary pb-2">
@@ -71,7 +73,7 @@
                       </div>
                     </div>
                   </div> 
-                       </form>
+                   
                   {% endfor %}
                 
                 {% else %}
@@ -216,34 +218,57 @@
           </section> 
 
           <script >
-          
-            //  $(document).ready(function() {
 
-            
-     
 
-             $("#formz").submit(function(event){
+              var token = '{{csrf_token}}';
+
+              $('.dykebutton').click(function(){
+              
+                var catid;
+
+                catid = $(this).attr("data-catid");
              
-               alert("nook");
+                userid= "{{request.user.id}}"
+                username= "{{request.user.name}}"
+                useremail= "{{request.user.email}"
+                console.log("{{request.user.id}}")
+                alert(catid);
+        
+                $.ajax(
+                  {
+                      type:"POST",
+                      url: "{% url 'contact' %}",
+                      data:{   headers: { "X-CSRFToken": token },
+                               listing_id: catid,
+                               user_id: userid,
+                               name: 'default',
+                               email: 'default@aol.com',
+                               phone: userid+userid+userid,
+                               listing: "defaulting",
+                               message: "no message needed today",
+                               lender_email: "noemail@aol.com",
+                               dataType: "json",
+                               csrfmiddlewaretoken: '{{ csrf_token }}',
+                               
+                      },
+                      success: function( data ) 
+                      {
+                         alert("Good job")
+                      }
+                   })
 
-             });
-             
+              })
+      
+             $('.test').click(function(){
+           
+              var nameid;
+        
+              nameid = $(this).attr("data-nameid");
+             alert(nameid)
+       
 
-
-
-
-
-
-           // });
-
-
-
-
-
-
-
-
-          //  });
+           })
+        
         
               
           $(function () {

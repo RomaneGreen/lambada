@@ -7,6 +7,9 @@ from django.core.mail import send_mail
 # Create your views here.
 
 def contact(request):
+
+  if request.method == 'POST' and request.is_ajax():
+    print("tested")
   if request.method == 'POST':
     listing_id = request.POST['listing_id']
     listing = request.POST['listing']
@@ -26,7 +29,7 @@ def contact(request):
     contact = Contact(listing=listing,listing_id=listing_id,name=name,email=email,phone=phone,message=message,user_id=user_id)
     
     contact.save()
-
+    
     send_mail (
         'Lambada listing inquiry',
         'There has been a inquire for ' + listing +  '. sign into the admin panel for more info',
@@ -35,6 +38,7 @@ def contact(request):
         fail_silently = False
     )
     messages.success(request,'Your request has been sent and saved to your dashboard')
+
     return redirect('/listings/'+listing_id)
 
     return
