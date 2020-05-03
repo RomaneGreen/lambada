@@ -1391,11 +1391,11 @@ html, body {
   padding: 0;
 }
 #mapgoogle, #pano {
-    position: absolute;
-   right: 320px;
-   bottom: 232px;
-  height: 300px;
-  width: 400px;
+    position: relative;
+   right: -722px;
+   bottom: 292px;
+  height: 350px;
+  width: 568px;
 }
 
 .fa-bookmark {
