@@ -100,6 +100,7 @@ def search(request):
         print(results[0]['admin2'])
         state = results[0]['admin1']
         county = results[0]['admin2']
+        print(county,state)
         # state = r2.json()['results'][0]['address_components'][3]['long_name']
         # state_abbrev = r2.json()['results'][0]['address_components'][3]['short_name']
         # county = r2.json()['results'][0]['address_components'][2]['long_name']
@@ -122,8 +123,8 @@ def search(request):
               wishlist.delete()
         if keywords:
             queryset_list = queryset_list.filter(Q(city__iexact=keywords) |
-             Q(state__iexact=state) |  Q(zipcode__iexact=state) | Q(city__iexact=state) |
-              Q(Neighborhoods__iexact=county) )
+             Q(state__iexact=state)  | Q(city__iexact=state) |
+                 Q(Neighborhoods__icontains=keywords) | Q(Neighborhoods__icontains=county) | Q(Neighborhoods__iexact=keywords) )
         length = queryset_list.count()
     if request.method == "POST":
         searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
@@ -150,7 +151,7 @@ def search(request):
     
     #request.session['lon'] = lon
     amount_of_results = queryset_list.count()  
-    paginator = Paginator(queryset_list, 6)   
+    paginator = Paginator(queryset_list, 9)   
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     print("lonzg",request.session['lon'])
