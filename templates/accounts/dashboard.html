@@ -5,7 +5,7 @@
 {% block title %} | Saved {% endblock %}
 
 {% block content %}
-
+<div id ="searchboarder"></div>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <p id="saveditems">My saved items</p> <br><br>
 
@@ -45,7 +45,7 @@
   </section>  --> 
 
 <div id = "dashboard">
- <section id="listings" class="py-4 mb-4">
+ <section id="listingsdash" class="py-4 mb-4">
         <div class="container">
           <div class="row">
            {% if contacts %}
@@ -92,9 +92,11 @@
                 </div>
               </div>
               {% endif %}
+              
               {% endfor %}
               {% endfor %}
            {% else %}
+           
             <div class="col-md-12">
               <p>No listings available</p>
               </div>
@@ -150,7 +152,7 @@
 
 
    <section id="dashboardt" class="py-4">
-      <div class="container">
+      <div class="container dashboardt">
         <div class="row">
           <div class="col-md-12">
   

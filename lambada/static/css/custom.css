@@ -9,6 +9,9 @@
     border: 1px solid #EBEEF6; 
     color: white;
     border-radius: 18.6961px;
+    position: relative;
+    width: 102px;
+    height: 38px;
 }
 .btn-nav-login {
     background-color:white;
@@ -808,6 +811,7 @@ color: #465175;
     right: 40px;
     font-Size: 18px;
     line-height: 27px;
+    padding: 5px;
  
 }
 
@@ -819,6 +823,7 @@ color: #465175;
     background-color:white;
     color: #465175;
     border: none;
+    padding: 5px;
 }
 
  #mglassindex {
@@ -1433,3 +1438,14 @@ border-radius:19px;
   margin-bottom: -40rem;
 
 }
+
+
+#dashboard {
+    padding-bottom: 300px;
+}
+
+
+#dashboardt {
+    padding-bottom: 350px !important;
+}
+
