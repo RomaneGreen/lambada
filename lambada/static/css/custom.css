@@ -21,8 +21,15 @@
     line-height: 21px;
     border-radius: 18.6961px;
     border: 2px solid #EBEEF6;
+    position: relative;
+    top:1rem;
+  
 }
 
+.loginlink {
+    position: relative;
+    bottom: 33px;
+}
 .submitform {
     background-color:#fff !important;
     border: 1px solid rgb(230, 231, 233);
@@ -259,6 +266,11 @@ line-height: 21px;
 color: #465175;
 
 }
+
+
+
+
+
 
 #signin {
     background-color: #015AEB;
@@ -1449,3 +1461,39 @@ border-radius:19px;
     padding-bottom: 350px !important;
 }
 
+#facebooklog {
+    background-image: url('facebook.png');
+    position: relative;
+    right: -12px;
+    top: 9px;
+    height: 29px;
+    width: 29px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#googlelog {
+    background-image: url('google.png');
+    position: relative;
+    right: -22px;
+    top:  11px;
+    height: 25px;
+    width: 26px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#facebooktext {
+ position: relative;
+ top: -1.9rem;
+}
+
+#googletext {
+    position: relative;
+    top: -1.7rem;
+   }
+
+
+.loginlink {
+    bottom: 0px;
+}

@@ -28,12 +28,21 @@
   
   
   <a class="loginlink" href="{% provider_login_url 'google' %}">
-      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-google fa-1x"></i>
-  Sign in with Google</a>
+      <button class="btn-nav-login" style="color:white;">
+         <!-- <i class="fab fa-google fa-1x"></i> -->
+ 
+  <p id="googlelog"></p>
+     
+  <p style="color:#465175;" id="googletext"> Sign in with Google </p>
+</a>
   </button>
     <a class="loginlink" href="{% provider_login_url "facebook"  %}">
-      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-facebook fa-1x"></i>
-  Sign in with Facebook  </a>
+      <button class="btn-nav-login" style="color:white;"> 
+        <!-- <i class="fab fa-facebook fa-1x"></i> -->
+       <p id="facebooklog"></p>
+     
+ <p style="color:#465175;" id="facebooktext"> Sign in with Facebook </p>
+ </a>
   </button>
 
 <br> <br> <br>
