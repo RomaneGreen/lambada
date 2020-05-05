@@ -1222,6 +1222,7 @@ opacity: 0.3;
 
 #dashboardt {
     display: none;
+    min-height: 100%;
     
 }
 
@@ -1491,7 +1492,8 @@ border-radius:19px;
 
 
 #dashboard {
-    padding-bottom: 100px;
+    min-height: 50%;
+    padding-bottom: -900px;
 }
 
 
@@ -1554,3 +1556,4 @@ border-radius:19px;
     bottom: 41rem;
     padding-bottom: 844px;
 } */
+

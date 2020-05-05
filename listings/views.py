@@ -134,8 +134,7 @@ def search(request):
               wishlist = Searchsave.objects.filter(phrase=request.session['city'],user_id=request.user.id)
               wishlist.delete()
         searchsaved.save()
-        return HttpResponseRedirect(request.session['link'])
-      
+        return redirect(request.session['link'])
     if 'state' in request.GET:
         keywords = request.GET['state']
         if keywords:
@@ -176,5 +175,7 @@ def search(request):
         'values': request.session['city'],
         # 'listings': queryset_listing
     }  
- 
+      
+    searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
+    searchsaved.save()
     return render(request,'listings/search.html',context)
