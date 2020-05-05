@@ -175,7 +175,7 @@ def search(request):
         'values': request.session['city'],
         # 'listings': queryset_listing
     }  
-      
-    searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
+    uid = request.user.id or 0
+    searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id or 0)
     searchsaved.save()
     return render(request,'listings/search.html',context)
