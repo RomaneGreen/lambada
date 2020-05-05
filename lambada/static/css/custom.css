@@ -1222,6 +1222,7 @@ opacity: 0.3;
 
 #dashboardt {
     display: none;
+    
 }
 
 #dashboardt tr {
@@ -1490,12 +1491,12 @@ border-radius:19px;
 
 
 #dashboard {
-    padding-bottom: 300px;
+    padding-bottom: 100px;
 }
 
 
 #dashboardt {
-    padding-bottom: 350px !important;
+    padding-bottom: -150px !important;
 }
 
 #facebooklog {
