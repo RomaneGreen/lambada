@@ -1019,6 +1019,35 @@ margin-left: 7rem;
 margin-top: 2rem;
 }
 
+#listingsbodya {
+    
+    width: 690px;
+    height: 26px;
+    position: relative;
+    top: 2rem;
+    right: 6rem;
+    /* left: 100px;
+    top: 166px; */
+    
+    /* Header 2 Regular */
+    
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+    
+    /* text-blue */
+    
+    color: #465175;
+    /* text-align: center; */
+    /* margin: 0 auto; */
+    margin-left: 7rem;
+    margin-top: 2rem;
+    }
+    
+
+
 #listingcount {
       color:#015AEB;
 }
@@ -1419,6 +1448,14 @@ html, body {
   width: 568px;
 }
 
+#mapgooglea, #pano {
+    position: relative;
+   right: -722px;
+   bottom: 300px;
+  height: 350px;
+  width: 568px;
+}
+
 .fa-bookmark {
     background : #015AEB;
 }
@@ -1497,3 +1534,22 @@ border-radius:19px;
 .loginlink {
     bottom: 0px;
 }
+
+
+#listingsbodya {
+    position: relative;
+    left: 3rem;
+}
+
+ #listins {
+    position: relative;
+    /* height: 10px; */
+      margin-top: -270px; 
+    /* padding-bottom: 1400rem;  */
+} 
+
+/* #listings {
+    position: relative;
+    bottom: 41rem;
+    padding-bottom: 844px;
+} */
