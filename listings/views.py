@@ -127,12 +127,14 @@ def search(request):
                  Q(Neighborhoods__icontains=keywords) | Q(Neighborhoods__icontains=county) | Q(Neighborhoods__iexact=keywords) )
         length = queryset_list.count()
     if request.method == "POST":
+        link = request.get_full_path()
         searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
         has_visited = Searchsave.objects.all().filter(phrase=request.session['city'],user_id=request.user.id)
         if has_visited:
               wishlist = Searchsave.objects.filter(phrase=request.session['city'],user_id=request.user.id)
               wishlist.delete()
         searchsaved.save()
+        return HttpResponseRedirect(request.session['link'])
       
     if 'state' in request.GET:
         keywords = request.GET['state']
