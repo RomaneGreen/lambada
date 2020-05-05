@@ -131,12 +131,15 @@ def search(request):
         print("PATH",request.session['link'])
         searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
         has_visited = Searchsave.objects.all().filter(phrase=request.session['city'],user_id=request.user.id)
+        searchsaved.save()
         if has_visited:
               wishlist = Searchsave.objects.filter(phrase=request.session['city'],user_id=request.user.id)
               wishlist.delete()
         searchsaved.save()
-        next = request.POST.get('next','/')
-        return HttpResponseRedirect(request.session['link'])
+        # next = request.POST.get('next','/')
+        # return HttpResponseRedirect(request.session['link']) 
+        # return redirect('/listings/search?user_id='+str(request.user.id)+'&city=')
+        return redirect(request.session['link'])
     if 'state' in request.GET:
         keywords = request.GET['state']
         if keywords:
@@ -177,5 +180,6 @@ def search(request):
         'values': request.session['city'],
         # 'listings': queryset_listing
     }  
- 
+    searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
+    searchsaved.save()
     return render(request,'listings/search.html',context)
