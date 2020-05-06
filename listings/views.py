@@ -124,7 +124,8 @@ def search(request):
         if keywords:
             queryset_list = queryset_list.filter(Q(city__iexact=keywords) |
              Q(state__iexact=state)  | Q(city__iexact=state) |
-                 Q(Neighborhoods__icontains=keywords) | Q(Neighborhoods__icontains=county) | Q(Neighborhoods__iexact=keywords) )
+                 Q(Neighborhoods__icontains=keywords) | Q(Neighborhoods__icontains=county)
+                  ).exclude( Q(zipcode__iexact='') | Q(state__iexact='') | Q(city__iexact='')  )
         length = queryset_list.count()
     if request.method == "POST":
         link = request.get_full_path()
