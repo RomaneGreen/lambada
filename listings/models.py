@@ -3,6 +3,7 @@ from datetime import datetime
 from lenders.models import Lender
 # Create your models here.
 
+
 class Listing(models.Model):
     programoriginator = models.TextField(max_length=400,blank=True,verbose_name="Program Originator") # ---> Program Originator
     programname = models.CharField(max_length=400,blank=True,verbose_name="Program Name")   # ---> Program Name
@@ -44,6 +45,7 @@ class Listing(models.Model):
     # list_date = models.DateTimeField(default=datetime.now,blank=True)
     def __str__(self):
         return self.programname
+  
     class Meta:
         verbose_name = 'Program'
         verbose_name_plural = 'Programs'
@@ -57,3 +59,4 @@ class Searchsave(models.Model):
    user_id = models.IntegerField(blank=True)
    def __str__(self):
         return self.phrase
+

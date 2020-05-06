@@ -3,7 +3,7 @@ from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
-from .models import Listing
+from .models import Listing as Programs
 
 # class ListingAdmin(ImportExportModelAdmin):
 #     pass
@@ -17,5 +17,5 @@ class ListingAdmin(ImportExportModelAdmin):
     search_fields = ('programname','address','programoriginator','city')
     list_per_page = 25
 
-admin.site.register(Listing,ListingAdmin)
+admin.site.register(Programs,ListingAdmin)
 
