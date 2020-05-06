@@ -23,7 +23,7 @@
               <!-- <input type="text"> -->
 
 
-              <form id="form1" action="{% url 'search' %}" >
+             <form id="form1" action="{% url 'search' %}" >
                   <!-- {% csrf_token %} -->
                   {% if user.is_authenticated %}
                   <input type="hidden" name="user_id" value="{{user.id}}">
@@ -66,7 +66,7 @@
               </li> -->
             </ul>
     
-            <ul style="color: black;" class="navbar-nav ml-auto">
+           <ul style="color: black;" class="navbar-nav ml-auto">
 
             {% if user.is_authenticated %}
               
@@ -74,13 +74,13 @@
                 <a class="nav-link" href="{% url 'dashboard' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
                  <!-- &nbsp;  Welcome {{ user.username }} -->
-                &nbsp;     &nbsp;  <button class="btn-nav">  {{ user.username |title |slice:"0:8" }}     </button>
+                &nbsp;       <button style="margin-bottom: .5rem;margin-left:-16rem;" class="btn-nav">  {{ user.username |title |slice:"0:8" }}     </button>
                   </a>
               </li>
               <li class="nav-item mr-3">
                 <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
              
-                <button class="btn-nav">  
+                <button style="margin-left:-9rem;" class="btn-nav">  
                   <!-- <i class="fas fa-sign-out-alt"></i> -->
                   Sign Out</button>
                      </a>
@@ -91,13 +91,13 @@
               </form>
             {% else %}
 
-              <li style="" class="nav-item mr-4">
+             <li style="margin-left:3rem;" class="nav-item mr-4">
                 <a class="nav-link" href="{% url 'login' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
                   <button id="indexbuttont" onmouseover="myFunction()" class="btn-nav indexbuttont">  Sign in</button>
                   </a>
               </li>
-              <li class="nav-item mr-4">
+              <li style="margin-left:-2rem;" class="nav-item mr-4">
                   <a class="nav-link" href="{% url 'register' %}">
                     <!-- <i class="fas fa-search"></i> -->
                     <button id="indexbutton" onmouseover="myFunctiont()" class="btn-nav indexbutton"> Sign up</button>

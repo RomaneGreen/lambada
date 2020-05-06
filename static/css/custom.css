@@ -9,6 +9,9 @@
     border: 1px solid #EBEEF6; 
     color: white;
     border-radius: 18.6961px;
+    position: relative;
+    width: 102px;
+    height: 38px;
 }
 .btn-nav-login {
     background-color:white;
@@ -18,8 +21,15 @@
     line-height: 21px;
     border-radius: 18.6961px;
     border: 2px solid #EBEEF6;
+    position: relative;
+    top:1rem;
+  
 }
 
+.loginlink {
+    position: relative;
+    bottom: 33px;
+}
 .submitform {
     background-color:#fff !important;
     border: 1px solid rgb(230, 231, 233);
@@ -36,10 +46,23 @@
 .searchoverlay {
     background-color: #015AEB !important;
     color: white;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    border-radius: 19px;
+    background :url("indexbackground.png");
+    background-repeat:no-repeat;
+
+    /* opacity: 0.1; */
 }
 
 .servicesinfo {
+    position: relative;
+    left: 45px;
     background-color: #015AEB !important;
+    width: 1350px;
+    height: 692px;
+    border-radius: 10px;
+
 }
 /* #EBEEF6 */
 
@@ -49,7 +72,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    min-height: 100%;
+    
+    min-height: 50%;
     width: 100%;
     background-color: #015AEB !important; 
 }
@@ -146,13 +170,29 @@
 
 #footertext {
    position: relative;
-   left: 11.2rem;
+   left: 6rem;
    top: 3rem;
 
 }
 
+#footertexttwo {
+   position: relative;
+   left: 11.7rem;
+   top: 3rem;
+
+}
+
+#listingtop {
+     border-top: 2px solid #EBEEF6;
+}
 #loginbody {
     margin-left: 11.2rem;
+}
+
+#listingbody {
+    margin-left: 7.2rem;
+    overflow: hidden;
+   
 }
 
 #loginbody h3 {
@@ -226,6 +266,11 @@ line-height: 21px;
 color: #465175;
 
 }
+
+
+
+
+
 
 #signin {
     background-color: #015AEB;
@@ -423,4 +468,1092 @@ border: none;
 .button-active {
     border: 881px solid green;
 }
+
+#listingbody h3 {
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+color: #465175;
+}
+
+
+#listingbody h6 {
+position: relative;
+width: 202px;
+height: 18px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+
+
+#listingbody p {
+
+font-family: sans-serif;
+font-style: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+#listingbody a:hover {
+  color:#015AEB;
+  text-decoration: none;
+ }
+
+ #listingbody button {
+position: absolute;
+right: 4rem;
+top: 10.4rem;
+font-family: sans-serif;
+color: #015AEB;
+width: 192.15px;
+height: 37.39px;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+display: flex;
+align-items: center;
+text-align: center;
+border: 1px solid #015AEB;
+box-sizing: border-box;
+border-radius: 18.6961px;
+ }
+
+ #navbarred a {
+     color: red;
+ }
+
+ #navlisting {
+     margin-bottom: -1rem;
+     margin-top: .5rem;
+     margin-left: 4.7rem;
+ }
+
+ #navlisting input {
+     position: relative;
+     bottom: 1.3rem;
+     background: #FFFFFF;
+     border: 2px solid #EBEEF7;
+     box-sizing: border-box;
+     border-radius: 25px;
+     
+ }
+
+ #navlisting a {
+     position: relative;
+     bottom: 1.1rem;
+     
+ }
+
+
+ #navlisting span {
+     position: absolute;
+     top: 1.6rem;
+     left: 15rem;
+     font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+/* text-blue */
+
+color: #465175;
+     
+     
+ }
+  #navlisting .sbt {
+  background: none;
+  padding: 0px;
+  border: none;
+
+     
+ }
+
+ #mglass {
+     position:absolute;
+     top:1.7rem;
+     left: 51rem;
+     color:#015AEB;
+ }
+
+ #navlisting input[type=text] {
+    text-indent:85px;
+ }
+
+
+ #indexbody {
+    
+ }
+
+
+ #indexbody h5 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+ }
+
+
+ #indexbody h6 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+color: #465175;
+ }
+
+
+  #indexbody p {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+ }
+
+   #indexbody .card {
+background: #FFFFFF;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 10px;
+width: 387px;
+height: 300px;
+ }
+
+
+    #indexbody a:hover {
+text-decoration: none;
+ }
+
+
+    #indexbody a {
+text-decoration: none;
+ }
+
+
+    #indexhead h1 {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+text-align: center;
+/* text-decoration: underline; */
+ }
+
+
+ #indexhead h1:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+        display: block; /* This will put the pseudo element on its own line. */
+        margin: 0 auto; /* This will center the border. */
+        width: 40%; /* Change this to whatever width you want. */
+        padding-top: 0px; /* This creates some space between the element and the border. */
+        border-bottom: 5px solid white; /* This creates the border. Replace black with whatever color you want. */
+     }
+
+
+
+
+
+
+
+     #indexhead .lead {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+/* identical to box height */
+text-align: center;
+
+color: #FFFFFF;
+ }
+
+
+    #indexbody i {
+position: absolute;
+left: 8rem;
+top: -1.2rem;
+background: #EBEEF6;
+/* blue */
+/* border: 10px solid #015AEB; */
+border-radius: .5px;
+
+ }
+
+
+
+
+
+    /* #indexbody i:hover {
+ background: #015AEB;
+
+ } */
+
+    .missionheader {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+padding-bottom: 1rem;
+text-align: center;
+  
+/* border-bottom: 5px solid #015AEB; */
+/* text-blue */
+
+color: #465175;
+ }
+
+ .missionheader:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 20%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 5px solid #015AEB; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.missionsubheader {
+    color:red;
+    width: 842px;
+height: 121px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+color: #465175;
+opacity: 0.7;
+text-align: left;
+position: relative;
+left: 11rem;
+}
+
+#missionpoint {
+position: relative;
+left: 3rem;
+width: 192px;
+height: 26px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+
+/* text-blue */
+
+color: #465175;
+}
+
+#missiontext {
+ position: relative;
+right: -0.3rem;
+bottom: .8rem;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+}
+
+#feedbacktext {
+    width: 348.06px;
+height: 121.31px;
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+
+/* text-blue */
+
+color: #465175;
+}
+
+ .feedbackheader {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+padding-bottom: 1rem;
+text-align: center;
+  
+/* border-bottom: 5px solid #015AEB; */
+/* text-blue */
+
+color: #465175;
+ }
+
+ .feedbackheader:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 29%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 5px solid #015AEB; /* This creates the border. Replace black with whatever color you want. */
+}
+
+#searchboarder {
+    border-top: 2px solid #EBEEF6;
+}
+
+.indexbutton {
+    position: relative;
+    right: 40px;
+    font-Size: 18px;
+    line-height: 27px;
+    padding: 5px;
+ 
+}
+
+.indexbuttont {
+    position: relative;
+    right: 40px;
+    font-Size: 18px;
+    line-height: 27px;
+    background-color:white;
+    color: #465175;
+    border: none;
+    padding: 5px;
+}
+
+ #mglassindex {
+     position:absolute;
+     top:2.1rem;
+     left: 56rem;
+     color:#015AEB;
+ }
+
+
+   span #indexlocationtext {
+     position: absolute;
+     top: 1.6rem;
+     left: 15rem;
+     font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+/* text-blue */
+
+color: #465175;
+     
+     
+ }
+
+
+ #rectangle {
+position: relative;   
+top: 5rem; 
+left: 14.1rem; 
+width: 276px;
+height: 400px;
+
+
+/* white */
+
+background: #FFFFFF;
+/* light-blue */
+
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+/* drop-shadow */
+
+box-shadow: 0px 10px 10px rgba(0, 48, 125, 0.08);
+border-radius: 10px;
+ }
+
+
+ #recimage {
+position: relative;
+bottom: 4rem;
+right: 3.5rem;
+ width: 76px;
+height: 300px;
+
+ }
+
+ #whypoint {
+position: relative;
+left: -.4rem;
+bottom: 7rem;
+width: 192px;
+height: 26px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+
+/* text-blue */
+
+color: #465175;
+ }
+
+ #whytext {
+      position: relative;
+right: .75rem;
+bottom: 7.4rem;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+ }
+
+ #learnmore {
+     position: relative;
+     bottom: 5rem;
+     color: #015AEB;
+     width: 276px;
+height: 26px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+ }
+
+
+ #calltoaction {
+     position: absolute;
+ }
+
+ .whylambadaheader {
+position: relative;
+right: 5rem;
+top: 11rem;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 36px;
+line-height: 54px;
+padding-bottom: 1rem;
+text-align: center;
+  
+/* border-bottom: 5px solid #015AEB; */
+/* text-blue */
+
+color: ;
+ }
+
+ .whylambadaheader:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 99%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 5px solid white; /* This creates the border. Replace black with whatever color you want. */
+    
+}
+
+
+#whyhelp {
+position: relative;
+left: -8rem;
+bottom: .4rem;
+top: 11rem;
+font-family: sans-serif;
+font-style: normal;
+font-weight: 700px;
+font-size: 16px;
+line-height: 24px;
+color: ;
+
+}
+
+#whyhelptext {
+position: relative;
+left: -6.5rem;
+top: 11rem;
+}
+
+#listingsbody {
+    
+width: 690px;
+height: 26px;
+position: relative;
+top: 2rem;
+right: 14rem;
+/* left: 100px;
+top: 166px; */
+
+/* Header 2 Regular */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 36px;
+
+/* text-blue */
+
+color: #465175;
+/* text-align: center; */
+/* margin: 0 auto; */
+margin-left: 7rem;
+margin-top: 2rem;
+}
+
+#listingsbodya {
+    
+    width: 690px;
+    height: 26px;
+    position: relative;
+    top: 2rem;
+    right: 6rem;
+    /* left: 100px;
+    top: 166px; */
+    
+    /* Header 2 Regular */
+    
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+    
+    /* text-blue */
+    
+    color: #465175;
+    /* text-align: center; */
+    /* margin: 0 auto; */
+    margin-left: 7rem;
+    margin-top: 2rem;
+    }
+    
+
+
+#listingcount {
+      color:#015AEB;
+}
+
+
+ #allowlocationbody {
+    
+ }
+
+
+ #allowlocationbody h5 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+ }
+
+
+ #allowlocationbody h6 {
+    color: #465175;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 24px;
+color: #465175;
+ }
+
+
+  #allowlocationbody p {
+ font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 21px;
+color: #465175;
+ }
+
+   #allowlocationbody .card {
+background: #FFFFFF;
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+border-radius: 10px;
+width: 350px;
+height: 270px;
+ }
+
+
+    #allowlocationbody a:hover {
+text-decoration: none;
+ }
+
+
+    #allowlocationbody a {
+text-decoration: none;
+ }
+
+
+    #allowlocationbody i {
+position: absolute;
+left: 17rem;
+top: -1.2rem;
+background: #EBEEF6;
+/* blue */
+/* border: 2px solid #015AEB; */
+border-radius: 1px;
+ }
+
+
+    #allowlocationbody i:hover {
+ color: #015AEB;
+ }
+
+
+
+a.stretched-link {
+    color:#015AEB;
+}
+
+
+.savedheader {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+display: inline-block;
+  
+color: #465175;
+opacity: 1;
+}
+
+
+
+#saveditems {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+display: inline-block;
+  
+
+color:   #465175;
+
+}
+ .savedheader:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+   display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; 
+    width: 100%; /* Change this to whatever width you want. */
+    padding-top: -40px; /* This creates some space between the element and the border. */
+    border-bottom: 5px solid  #015AEB;
+    opacity: 1;
+} 
+
+.savedheadert {
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+display: inline-block;
+  
+
+color: #465175;
+opacity: 0.3;
+}
+
+
+
+ .savedheadert:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+   display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; 
+    width: 100%; /* Change this to whatever width you want. */
+    padding-top: -40px; /* This creates some space between the element and the border. */
+    /* border-bottom: 5px solid  #015AEB; */
+    opacity: 1;
+} 
+
+
+  .savedheadert:hover {
+    border-bottom: 5px solid  #015AEB;
+    opacity: 1;
+}  
+
+  /* #savedheadert:active {
+    border-bottom: 5px solid  #015AEB;
+    opacity: 1;
+}  
+
+  #savedheadert:focus {
+    border-bottom: 5px solid  #015AEB;
+    opacity: 1;
+}    */
+
+.mystyle {
+   
+    font-size: 25px;
+    opacity: 0.3;
+  }
+
+  .mystyle {
+   
+    font-size: 25px;
+    opacity: 1;
+  }
+
+
+#dashboardt {
+    display: none;
+    min-height: 100%;
+    
+}
+
+#dashboardt tr {
+    background: #FFFFFF;
+/* light-blue */
+
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+
+/* drop-shadow */
+
+box-shadow: 0px 10px 10px rgba(0, 48, 125, 0.08);
+border-radius: 10px;
+padding-bottom: 19em;
+/* height: 15px;  */
+
+/* width: 1250px;
+}
+
+*/
+}
+
+#dashboardt {
+    /* border-collapse:separate; 
+border-spacing:5em; */
+}
+#dashboardt td {
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+
+
+#dashboardt tr.spaceUnder>td {
+  padding-bottom: 1em;
+  margin-top: 2rem;
+}
+
+
+
+
+
+table#table 
+{
+    /* border-collapse:separate; */
+    border-spacing:50 5px;
+      border-radius:99px;
+
+
+width: 1250px;
+height: 150px;
+
+
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+
+
+color: #465175;
+}
+
+#test {
+    /* display: inline; */
+    margin-top: 1rem;
+    font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+
+color: #465175;
+}
+
+#box {
+    position: relative;
+    left: 2rem;
+    top: 2rem;
+    display: flex;
+  align-items: flex-start;
+    justify-content: space-around;
+
+    width: 1250px;
+height: 150px;
+
+
+background: #FFFFFF;
+/* light-blue */
+
+border: 2px solid #EBEEF6;
+box-sizing: border-box;
+/* drop-shadow */
+
+box-shadow: 0px 10px 10px rgba(0, 48, 125, 0.08);
+border-radius: 10px;
+}
+
+table#table td {
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+}
+
+table#table #tablebtn {
+
+width: 103px;
+height: 37px;
+background: #fff;
+color: #015AEB;
+border: 1px solid #015AEB;
+box-sizing: border-box;
+border-radius: 18.6961px;
+}
+
+table#table th {
+
+width: 149px;
+height: 26px;
+
+font-family: sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+}
+
+table#table  {
+
+position: relative;
+bottom: 3rem;
+   border-collapse:separate; 
+                border-spacing:0 15px; 
+}
+
+table#fable  {
+
+position: relative;
+bottom: 33rem;
+   border-collapse:separate; 
+                border-spacing:0 15px; 
+}
+
+#table tr:not(:first-child)  {
+
+height: 125px;
+}
+
+#printbtn {
+position: relative;
+left: 74rem;
+top: -61px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+color: #015AEB;
+}
+
+#printbtnsearch {
+position: relative;
+left: 80.8rem;
+top: 101px;
+font-family: sans-serif;
+font-style: normal;
+font-weight: normal;
+/* visibility: hidden; */
+font-size: 16px;
+line-height: 24px;
+color: #015AEB;
+}
+
+.tooltip-inner {
+  background-color:  #EBEEF6 !important;
+  border-radius: 5px;
+  font-family: sans-serif;
+  margin: .1rem;
+  color: #465175;
+  /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color:  #015AEB;
+  background: green;
+  color:  #015AEB;
+}
+.red-tooltip + .tooltip.top > .tooltip-arrow {background-color:   #015AEB;}
+
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: #f00; /* Red */
+}
+
+#savesearchbtn {
+width: 192.15px;
+height: 37.39px;
+
+color: #015AEB;
+font-family: sans-serif;
+border: 1px solid #015AEB;
+box-sizing: border-box;
+border-radius: 18.6961px;
+position: relative;
+left: 70rem;
+bottom: 27.5rem;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#mapgoogle, #pano {
+    position: relative;
+   right: -722px;
+   bottom: 378px;
+  height: 350px;
+  width: 568px;
+}
+
+#mapgooglea, #pano {
+    position: relative;
+   right: -722px;
+   bottom: 300px;
+  height: 350px;
+  width: 568px;
+}
+
+.fa-bookmark {
+    background : #015AEB;
+}
+
+ #navlisting .btn-nav__nohover {
+     color: #465175;
+     /* font-size: 18px;
+line-height: 27px; */
+}
+
+/* #navlisting .btn-nav__nohover:hover {
+    color:white;
+    background: #015AEB;
+    width: 101px;
+    height: 37px;
+    font-size: 18px;
+line-height: 27px;
+border-radius:19px;
+} */
+
+
+#listings {
+    position: relative;
+    bottom: 41rem;
+    padding-bottom: 844px;
+}
+
+#searchpage {
+  margin-bottom: -40rem;
+
+}
+
+
+#dashboard {
+    min-height: 50%;
+    padding-bottom: -900px;
+}
+
+
+#dashboardt {
+    padding-bottom: -150px !important;
+}
+
+#facebooklog {
+    background-image: url('facebook.png');
+    position: relative;
+    right: -12px;
+    top: 9px;
+    height: 29px;
+    width: 29px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#googlelog {
+    background-image: url('google.png');
+    position: relative;
+    right: -22px;
+    top:  11px;
+    height: 25px;
+    width: 26px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#facebooktext {
+ position: relative;
+ top: -1.9rem;
+}
+
+#googletext {
+    position: relative;
+    top: -1.7rem;
+   }
+
+
+.loginlink {
+    bottom: 0px;
+}
+
+
+#listingsbodya {
+    position: relative;
+    left: 3rem;
+}
+
+ #listins {
+    position: relative;
+    /* height: 10px; */
+      margin-top: -270px; 
+    /* padding-bottom: 1400rem;  */
+} 
+
+/* #listings {
+    position: relative;
+    bottom: 41rem;
+    padding-bottom: 844px;
+} */
 

@@ -611,7 +611,7 @@ line-height: 24px;
     font-family: sans-serif;
 font-style: normal;
 font-weight: 600;
-font-size: 16px;
+font-size: 14px;
 line-height: 24px;
 color: #465175;
  }
@@ -631,7 +631,7 @@ background: #FFFFFF;
 border: 2px solid #EBEEF6;
 box-sizing: border-box;
 border-radius: 10px;
-width: 387px;
+width: 349px;
 height: 300px;
  }
 
@@ -661,7 +661,7 @@ text-align: center;
     content: ""; /* This is necessary for the pseudo element to work. */ 
         display: block; /* This will put the pseudo element on its own line. */
         margin: 0 auto; /* This will center the border. */
-        width: 40%; /* Change this to whatever width you want. */
+        width: 45%; /* Change this to whatever width you want. */
         padding-top: 0px; /* This creates some space between the element and the border. */
         border-bottom: 5px solid white; /* This creates the border. Replace black with whatever color you want. */
      }
