@@ -97,10 +97,13 @@ def search(request):
         request.session['city'] = keywords
         coordinates = (lat,lon)
         results = rg.search(coordinates)
-        print(results[0]['admin1'])
-        print(results[0]['admin2'])
+        print('ADMIN1',results[0]['admin1'])
+        print('ADMIN2',results[0]['admin2'])
         state = results[0]['admin1']
         county = results[0]['admin2']
+        if county == '':
+            county = 'not applicable'
+        print('COUNTY',county)
         # state = r2.json()['results'][0]['address_components'][3]['long_name']
         # state_abbrev = r2.json()['results'][0]['address_components'][3]['short_name']
         # county = r2.json()['results'][0]['address_components'][2]['long_name']
@@ -123,8 +126,8 @@ def search(request):
               wishlist.delete()
         if keywords:
             queryset_list = queryset_list.filter(Q(city__iexact=keywords) |
-             Q(state__iexact=state) |  Q(zipcode__iexact=state) | Q(city__iexact=state) |
-              Q(Neighborhoods__iexact=county) )
+             Q(state__iexact=state) |  Q(zipcode__iexact=state) | Q(city__iexact=state) | Q(Neighborhoods__icontains=keywords)
+              ).exclude( Q(zipcode__iexact='') | Q(state__iexact='') | Q(city__iexact='')  )
         length = queryset_list.count()
     if request.method == "POST":
         link = request.get_full_path()
@@ -152,7 +155,7 @@ def search(request):
 
     if 'price' in request.GET:
         keywords = request.GET['price']
-        if keywords:
+        if keywords: 
             queryset_list = queryset_list.filter(minimumcontribution__lte=keywords)  
     
     #request.session['lon'] = lon
@@ -180,6 +183,6 @@ def search(request):
         'values': request.session['city'],
         # 'listings': queryset_listing
     }  
-    searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
+    searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id or 0)
     searchsaved.save()
     return render(request,'listings/search.html',context)

@@ -4,12 +4,12 @@ from lenders.models import Lender
 # Create your models here.
 
 class Listing(models.Model):
-    programoriginator = models.TextField(max_length=400,blank=True) # ---> Program Originator
-    programname = models.CharField(max_length=400,blank=True)   # ---> Program Name
-    programtype = models.CharField(max_length=500,blank=True)    # --->  Program Type
-    programdistribution = models.CharField(max_length=400,blank=True)
-    programcontact = models.CharField(max_length=400,blank=True)
-    participatinglenders = models.CharField(max_length=400,blank=True)
+    programoriginator = models.TextField(max_length=400,blank=True,verbose_name="Program Originator") # ---> Program Originator
+    programname = models.CharField(max_length=400,blank=True,verbose_name="Program Name")   # ---> Program Name
+    programtype = models.CharField(max_length=500,blank=True,verbose_name="Program Type")    # --->  Program Type
+    programdistribution = models.CharField(max_length=400,blank=True,verbose_name="Program Distribution")
+    programcontact = models.CharField(max_length=400,blank=True,verbose_name="Program Contact")
+    participatinglenders = models.CharField(max_length=400,blank=True,verbose_name="Participating Lender")
     link = models.CharField(max_length=500,blank=True)
     address = models.CharField(max_length=400,blank=True)
     city = models.CharField(max_length=500,blank=True)
@@ -44,6 +44,9 @@ class Listing(models.Model):
     # list_date = models.DateTimeField(default=datetime.now,blank=True)
     def __str__(self):
         return self.programname
+    class Meta:
+        verbose_name = 'Program'
+        verbose_name_plural = 'Programs'
 
 
 class Searchsave(models.Model):
