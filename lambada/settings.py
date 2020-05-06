@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+MIDDLEWARE_CLASSES = [
+    "easy_pjax.middleware.UnpjaxMiddleware"
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,7 +56,8 @@ INSTALLED_APPS = [
     'sslserver',
     'django_extensions',
     'import_export',
-    'baton.autodiscover'
+    'baton.autodiscover',
+     "easy_pjax",
 ]
 
 MIDDLEWARE = [
@@ -65,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   
 ]
 
 ROOT_URLCONF = 'lambada.urls'
@@ -75,6 +79,9 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
+               "builtins": [
+                "easy_pjax.templatetags.pjax_tags"
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
