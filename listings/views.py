@@ -15,6 +15,7 @@ def index(request):
    ipdata = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
    ipmapinfo = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
    my_ip = '134.192.135.254' 
+   my_ip = '24.187.82.109' 
    #replace my_ip with ipmapinfo in production
    r = requests.get('https://www.iplocate.io/api/lookup/'+my_ip) 
    r2 = requests.get('https://ipinfo.io/'+my_ip+'?token=bcd68a7fad37ec')
@@ -34,9 +35,9 @@ def index(request):
    mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
 
 
-   listings = Listing.objects.order_by('id').filter(Q(state=your_state) |
-    Q(state=your_regcode)| Q(city=your_bigcity)| Q(city=your_city)| Q(zipcode=your_postal))
-   
+   listings = Listing.objects.order_by('id').filter( Q(state__iexact=your_regcode)  |Q(state__iexact=your_state) | Q(state__iexact=your_bigcity)   | Q(city__iexact=your_bigcity) | Q(zipcode__iexact=your_postal) 
+    | Q(Neighborhoods__icontains=your_bigcity) | Q(Neighborhoods__icontains=your_regcode)).exclude( Q(zipcode__iexact='') | Q(state__iexact='') | Q(city__iexact='')  )
+      
    amount_of_results = listings.count()
 
    paginator = Paginator(listings, 6)
