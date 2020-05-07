@@ -128,23 +128,23 @@
 
                   <div class="form-group">
                   <label for="fullname"> Name</label><br>
-                  <input type="text" name="fullname" class="" required>
+                  <input type="text" name="fullname" class="myInputs" required>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label><br>
-                  <input type="email" name="email" class="" required>
+                  <input type="email" name="email" class="myInputs" required>
                 </div>
                 <div class="form-group">
                   <label for="password2"> Create a Password</label><br>
-                  <input type="password" name="password" class="" required>
+                  <input type="password" id="myInput" name="password" class="myInputs" required> <i onclick="myFunction()" class="far fa-eye"></i>
                 </div>
                 <div class="form-group">
                   <label for="password">Confirm Password</label><br>
-                  <input type="password" name="password2" class="" required>
+                  <input type="password" id="myInputC" name="password2" class="myInputs" required> <i onclick="myFunctionC()" class="far fa-eye"></i>
                 </div>
                    <div class="form-group">
                   <label for="username">Username</label><br>
-                  <input type="text" name="username" class="" required>
+                  <input type="text" name="username" class="myInputs" required>
                 </div>
                
                  <!-- <div class="form-group">
@@ -178,6 +178,25 @@
 
 <script type="text/javascript">
 
+  function myFunction() {
+    // alert("hi")
+     var x = document.getElementById("myInput");
+     if (x.type === "password") {
+       x.type = "text";
+     } else {
+       x.type = "password";
+     }
+   }
+
+      function myFunctionC() {
+      // alert("hi")
+       var x = document.getElementById("myInputC");
+       if (x.type === "password") {
+         x.type = "text";
+       } else {
+         x.type = "password";
+       }
+     }
 //alert('Hi')
  // document.getElementById('secondhalf').style.display="none"
 //document.getElementById('registerbody').innerHTML = 'dffsdff';

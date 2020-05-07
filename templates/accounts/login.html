@@ -60,12 +60,12 @@ Forgot Password ?  </a> -->
                {% csrf_token %}
                 <div class="">
                   <label id="loginusername" for="username">Username</label>    <br>
-                  <input type="text" name="username" class="" placeholder="         Enter Username" required>
+                  <input type="text"   name="username" class="myInputs" placeholder="         Enter Username" required> 
                 </div> 
                
                 <div class="">
                   <label for="password2">Password</label>    <br>
-                  <input type="password" name="password" placeholder="         Enter Password" class="" required>
+                  <input type="password" id="myInput" name="password" placeholder="         Enter Password" class="" required> <i onclick="myFunction()" class="far fa-eye"></i>
                 </div>
 
                   <a style="color:#465175;opacity: 0.6;" href="{% url 'reset_password'  %}">
@@ -140,4 +140,18 @@ Forgot Password ?  </a>
 
   {% endif %}
   </section>  -->
+  <script>
+
+
+   function myFunction() {
+   // alert("hi")
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
+      </script>
 {% endblock %}

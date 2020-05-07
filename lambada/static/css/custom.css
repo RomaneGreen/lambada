@@ -1569,3 +1569,18 @@ border-radius:19px;
    top:-.05rem;
    left: 4px;
 }
+
+
+.fa-eye {
+
+position: relative;
+right: 40px;
+}
+
+#myInput {
+    text-indent: 50px;
+}
+
+.myInputs {
+    text-indent: 50px;
+}
