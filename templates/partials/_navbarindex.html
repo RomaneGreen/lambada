@@ -35,7 +35,7 @@
                   <div>
                     
                   <input id="autocomplete" style="border-radius: 22px; width: 740px;height:50px;margin-top:1.8rem;" type="text" name="city" 
-                  class="form-control" placeholder="Enter a city, state, neighborhood or county" minlength="2" required> <span style="margin-top:.4rem;" id="indexlocationtext"><strong>Location</strong></span>
+                  class="form-control" placeholder="Enter a city, state, neighborhood or county" minlength="2" required> <span style="margin-top:1.1rem;" id="indexlocationtext"><strong>Location</strong></span>
                   <button class="sbt" type="submit" form="form1">
                    <i id="mglassindex" class="fas fa-lg fa-search"></i>
                  </button>
@@ -74,14 +74,22 @@
                 <a class="nav-link" href="{% url 'dashboard' %}">
                   <!-- <i class="fas fa-sign-in-alt"></i> -->
                  <!-- &nbsp;  Welcome {{ user.username }} -->
-                &nbsp;       <button style="margin-bottom: .5rem;margin-left:-16rem;" class="btn-nav">  {{ user.username |title |slice:"0:8" }}     </button>
+                 <div class="dropdown">
+                &nbsp;  <button style="margin-bottom: .5rem;margin-left:-16rem;" class="btn-nav dropbtn">  {{ user.username |title |slice:"0:8" }}     </button>
                   </a>
+                  <br><br>
+            <div class="dropdown-content">
+              <a href="{% url 'index' %}">Account Settings</a>
+              <a href="{% url 'dashboard' %}">Saved Items</a>
+              
+  </div>
+                </div>
               </li>
               <li class="nav-item mr-3">
                 <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
              
-                <button style="margin-left:-9rem;" class="btn-nav">  
-                  <!-- <i class="fas fa-sign-out-alt"></i> -->
+                <button style="margin-left:-9rem;" class="btn-nav  dropbtno">
+                  
                   Sign Out</button>
                      </a>
               </li>

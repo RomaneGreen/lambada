@@ -1,4 +1,4 @@
- {% extends 'basetwo.html' %}
+ {% extends 'basethree.html' %}
 
 {% load humanize %}
 
@@ -11,6 +11,7 @@
 
 {% block content %}
 
+<div id= "loginheight">
  <section id="login" class="bg-white py-5">
 
  {% if user.is_authenticated %}
@@ -25,14 +26,12 @@
 <h6 style="color:#465175;">Sign in with Google or Facebook account </h6> <br>
 
 
-  
-  
   <a class="loginlink" href="{% provider_login_url 'google' %}">
       <button class="btn-nav-login" style="color:white;">
         
   <p id="googlelog"></p>   
   <p style="color:#465175;" id="googletext"> Sign in with Google </p>
-</a>
+</a> 
   </button>
     <a class="loginlink" href="{% provider_login_url "facebook"  %}">
       <button class="btn-nav-login" style="color:white;"> 
@@ -69,14 +68,15 @@ Forgot Password ?  </a> -->
                   <a style="color:#465175;opacity: 0.6;" href="{% url 'reset_password'  %}">
     
 <span style="color: black;margin-top:3rem;">Forgot Password?</span> </a> 
- <br>
+ <br><br>
 
                 <input type="submit" value="Sign in" id="signin" class="">
               </form>
               <br>
 <h6 style="color:#465175;font-weight:normal !important";>Dont have an account?  <a  style="color:#015AEB; !important;text-decoration:underline" href="{% url 'register'  %}">Sign up</h6>
-
+<br>
   {% endif %}
+</div>
 </div>
 <!-- # TEST ABOVE # -->
     <!-- <div class="container">

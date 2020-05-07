@@ -581,7 +581,7 @@ color: #465175;
 
  #mglass {
      position:absolute;
-     top:1.7rem;
+     top:2.1rem;
      left: 51rem;
      color:#015AEB;
  }
@@ -844,7 +844,7 @@ color: #465175;
 
  #mglassindex {
      position:absolute;
-     top:2.1rem;
+     top:2.8rem;
      left: 56rem;
      color:#015AEB;
  }
@@ -852,7 +852,7 @@ color: #465175;
 
    span #indexlocationtext {
      position: absolute;
-     top: 1.6rem;
+     top: 2.6rem;
      left: 15rem;
      font-family: sans-serif;
     font-style: normal;
@@ -1512,7 +1512,7 @@ border-radius:19px;
     background-image: url('facebook.png');
     position: relative;
     right: -12px;
-    top: 9px;
+    top: -12px;
     height: 29px;
     width: 29px;
     background-repeat: no-repeat;
@@ -1523,7 +1523,7 @@ border-radius:19px;
     background-image: url('google.png');
     position: relative;
     right: -22px;
-    top:  11px;
+    top:  -11px;
     height: 25px;
     width: 26px;
     background-repeat: no-repeat;
@@ -1532,17 +1532,19 @@ border-radius:19px;
 
 #facebooktext {
  position: relative;
- top: -1.9rem;
+ top: -3.4rem;
 }
 
 #googletext {
     position: relative;
-    top: -1.7rem;
+    top: -3.0rem;
    }
 
 
 .loginlink {
+    position: relative;
     bottom: 0px;
+    margin-right: 1rem;
 }
 
 
@@ -1584,3 +1586,73 @@ right: 40px;
 .myInputs {
     text-indent: 50px;
 }
+
+#loginheight {
+    /* padding-bottom: 500px; */
+}
+
+
+
+
+
+.dropbtn {
+    position: relative;
+    top: 19px;
+   
+  }
+
+  .dropbtno {
+    position: relative;
+    top: 33px;
+   
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+  
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 75px;
+    bottom: 2rem;
+    padding-top: 1.9rem;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 185px;
+  height: 116px;
+  border: 2px solid #EBEEF6;
+  }
+  
+  
+  .dropdown-content a {
+    font-family: sans-serif;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    Font-Family: sans-serif;
+    Font-style: Medium;
+    font-weight: 500;
+    Font-size: 14px;
+    Line-Height: 21px;
+    Line-Height: 100%;
+    
+    /* text-Align: Left;
+    Vertical-Align: Top; */
+  }
+  
+  .dropdown-content a:hover {
+  font-family: sans-serif;
+  text-decoration: none;
+  
+  }
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
