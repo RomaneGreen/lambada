@@ -1564,3 +1564,8 @@ border-radius:19px;
     padding-bottom: 844px;
 } */
 
+.fa-chevron-left{
+   position: relative;
+   top:-.05rem;
+   left: 4px;
+}
