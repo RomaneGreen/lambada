@@ -101,7 +101,7 @@ def search(request):
         print(results[0]['admin2'])
         state = results[0]['admin1']
         county = results[0]['admin2']
-        print(county,state)
+        print(county,state,keywords)
         # state = r2.json()['results'][0]['address_components'][3]['long_name']
         # state_abbrev = r2.json()['results'][0]['address_components'][3]['short_name']
         # county = r2.json()['results'][0]['address_components'][2]['long_name']
@@ -123,10 +123,15 @@ def search(request):
               wishlist = Searchsave.objects.filter(phrase=search_term,user_id=user_id)
               wishlist.delete()
         if keywords:
-            queryset_list = queryset_list.filter(Q(city__iexact=keywords) |
-             Q(state__iexact=state)  | Q(city__iexact=state) |
-                 Q(Neighborhoods__icontains=keywords) | Q(Neighborhoods__icontains=county)
-                  ).exclude( Q(zipcode__iexact='') | Q(state__iexact='') | Q(city__iexact='')  )
+             queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+             | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state ))
+            # queryset_list = queryset_list.filter(Q(city__iexact=keywords) |
+            #  Q(state__iexact=state)  | Q(city__iexact=state) |
+            #      Q(Neighborhoods__icontains=keywords) | Q(Neighborhoods__icontains=county)
+            #       ).exclude( Q(state__iexact = '') |  Q(city__iexact='') )
+
+
+                #   .exclude( Q(zipcode__iexact='') | Q(state__iexact='') | Q(city__iexact='')  )
         length = queryset_list.count()
     if request.method == "POST":
         link = request.get_full_path()
