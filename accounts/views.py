@@ -122,3 +122,8 @@ def search_delete(request,search_id):
 def enroll(request):
   
   return render(request,'accounts/enroll.html')
+
+
+def enrolled(request):
+  
+  return render(request,'accounts/enrolled.html')
