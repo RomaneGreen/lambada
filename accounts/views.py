@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from contacts.models import Contact
 from listings.models import Searchsave
 from listings.models import Listing
+from accounts.models import UserProfile
 from django.contrib.gis.geoip2 import GeoIP2
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 import requests
@@ -40,6 +41,9 @@ def register(request):
             # messages.success(request,'You are now logged in')
             # return redirect('index')
             user.save()
+            print(user,user.id,user.username)
+            # test = User.objects.get(id=user.id)
+            request.session['user'] = user.id
            # messages.success(request,'You are now registered and can log in')
             return redirect('enroll')
              
@@ -120,10 +124,59 @@ def search_delete(request,search_id):
   return
 
 def enroll(request):
+  print("Watch",request.session['user'])
+  usa = request.session['user']
+  user = User.objects.get(id=usa)
+  print("USA",user)
+  if request.method == "POST":
+     print("hallo") 
+     occupation = request.POST['occupation']
+     employer = request.POST['employer']
+     familysize = request.POST['familysize']
+     annualincome = request.POST['annualincome']
+     print(occupation,employer,familysize,annualincome)
+     userProfile = UserProfile.objects.create(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
+     userProfile.save()
+     messages.success(request,'You are can now in')
+     return redirect('index')
+    #  return render(request,'accounts/dashboard.html')
+  else:
+    # user = request.user
+    return render(request,'accounts/enroll.html')
+     
+
   
   return render(request,'accounts/enroll.html')
 
 
 def enrolled(request):
-  
-  return render(request,'accounts/enrolled.html')
+  print("hallo",request.session['user']) 
+  if request.method == "POST":
+     print("hallo",request.session['user']) 
+     occupation = request.POST['occupation']
+     employer = request.POST['employer']
+     familysize = request.POST['familysize']
+     annualincome = request.POST['annualincome']
+     user = request.user
+     print(occupation,employer,familysize,annualincome)
+    #  UserProfile = UserProfile.objects.create_user(username=username,password=password,email=email,first_name=fullname,last_name=fullname)
+    #  userProfile = UserProfile.objects(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
+     userProfile = UserProfile.objects.filter(user=user).update(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
+     profile = UserProfile.objects.get(user=user)
+     print(profile)
+     context = {
+    'profile' : profile,
+  }
+    #  userProfile.save()
+
+     return render(request,'accounts/enrolled.html',context)
+  else:
+    print("hallo",request.session['user']) 
+    user = request.user
+    profile = UserProfile.objects.get(user=user)
+    print(profile)
+    context = {
+    'profile' : profile,
+  }
+    return render(request,'accounts/enrolled.html',context)
+     

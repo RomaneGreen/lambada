@@ -38,7 +38,8 @@
   </button> -->
 
 
-                  <form>
+                  <form id="postform" method=POST>
+                      {% csrf_token %}
                   <label for="occupation">Occupation</label><br>
                   <input type="text" name="occupation"  placeholder="         Enter Occupation" class="" required><br><br>
                 
@@ -49,11 +50,11 @@
            
            
                   <label for="income">Annual Income</label><br>
-                  <input type="text"  placeholder="         Enter Number" name="income" class="" required><br><br>
+                  <input type="text" name="annualincome"  placeholder="         Enter Number" name="income" class="" required><br><br>
            
             
                   <label for="familysize">Household Family Size</label><br>
-                  <input type="text"  placeholder="         Enter Number" name="familysize" class="" required><br><br>
+                  <input type="text" name="familysize"  placeholder="         Enter Number" name="familysize" class="" required><br><br>
           
                     <div>
                    <label for="familysize">Are you a first time buyer?</label><br>
@@ -71,7 +72,10 @@
                 
                 
               </form>
-              <a style="" href="/accounts/register">  <input style="" type="submit" id="signin" value="Submit" class=""></a><br><br>
+              <!-- <a style="" href="/accounts/register">  -->
+                 <input  form="postform" type="submit" id="signin" value="Submit" class="">
+                <!-- </a> -->
+                <br><br>
               <h6 style="color:#465175;font-weight:normal !important";>Already have an account?  <a  style="color:#015AEB; !important;text-decoration:underline" href="{% url 'login'  %}">Sign in</h6>
     
   </section>
