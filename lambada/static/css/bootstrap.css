@@ -3912,9 +3912,9 @@ button.close {
   .tooltip .arrow {
     position: absolute;
     display: block;
-    border-top: 1px solid grey;
+    /* border-top: 1px solid grey;
     border-left: 1px solid grey;
-    border-right: 1px solid grey;
+    border-right: 1px solid grey; */
     width: 0.8rem;
     height: 0.4rem; }
     .tooltip .arrow::before {
