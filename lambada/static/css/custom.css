@@ -1656,3 +1656,29 @@ right: 40px;
   .dropdown:hover .dropdown-content {display: block;}
   
   /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+
+  #indexbody i:hover {
+   
+      background: #015AEB;
+}
+
+
+svg #bookmarked{
+    fill: #EBEEF6;
+    stroke: #015AEB;
+    stroke-width: 10px;
+  
+  }
+  
+  svg:hover #bookmarked{
+    fill: #015AEB;
+    stroke:  #015AEB;
+    stroke-width: 10px;
+  }
+
+  .svgcontainer {
+      position: absolute;
+      bottom:1px;
+      left: 110px;
+  }

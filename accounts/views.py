@@ -150,7 +150,7 @@ def enroll(request):
 
 
 def enrolled(request):
-  print("hallo",request.session['user']) 
+  # print("hallo",request.session['user']) 
   if request.method == "POST":
      print("hallo",request.session['user']) 
      occupation = request.POST['occupation']
