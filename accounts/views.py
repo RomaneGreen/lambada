@@ -152,7 +152,7 @@ def enroll(request):
 def enrolled(request):
   # print("hallo",request.session['user']) 
   if request.method == "POST":
-     print("hallo",request.session['user']) 
+    #  print("hallo",request.session['user']) 
      occupation = request.POST['occupation']
      employer = request.POST['employer']
      familysize = request.POST['familysize']
@@ -171,7 +171,7 @@ def enrolled(request):
 
      return render(request,'accounts/enrolled.html',context)
   else:
-    print("hallo",request.session['user']) 
+    # print("hallo",request.session['user'] or "hiii") 
     user = request.user
     profile = UserProfile.objects.get(user=user)
     print(profile)

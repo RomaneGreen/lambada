@@ -269,7 +269,10 @@ color: #465175;
 
 
 
-
+.signinbutton {
+    position: relative;
+    right: 50px !important;
+}
 
 
 #signin {
@@ -825,6 +828,7 @@ color: #465175;
 .indexbutton {
     position: relative;
     right: 40px;
+    bottom: -8px;
     font-Size: 18px;
     line-height: 27px;
     padding: 5px;
@@ -834,6 +838,7 @@ color: #465175;
 .indexbuttont {
     position: relative;
     right: 40px;
+    bottom: -8px;
     font-Size: 18px;
     line-height: 27px;
     background-color:white;
@@ -844,7 +849,7 @@ color: #465175;
 
  #mglassindex {
      position:absolute;
-     top:2.8rem;
+     top:2.9rem;
      left: 56rem;
      color:#015AEB;
  }
@@ -1597,13 +1602,13 @@ right: 40px;
 
 .dropbtn {
     position: relative;
-    top: 19px;
+    top: 25px;
    
   }
 
   .dropbtno {
     position: relative;
-    top: 33px;
+    top: 39px;
    
   }
   
@@ -1667,7 +1672,7 @@ right: 40px;
 svg #bookmarked{
     fill: #EBEEF6;
     stroke: #015AEB;
-    stroke-width: 10px;
+    stroke-width: 15px;
   
   }
 
@@ -1683,4 +1688,9 @@ svg #bookmarked{
       position: absolute;
       bottom:1px;
       left: 110px;
+  }
+
+
+  #navindex a #navindex {
+      margin-bottom: 95rem;
   }
