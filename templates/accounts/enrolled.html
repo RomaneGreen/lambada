@@ -54,13 +54,13 @@
           
                     <div>
                    <label for="familysize">Are you a first time buyer?</label><br>
-                   <input id="buyerbutton" type="hidden" name="firsttimebuyer" value="Yes">
-                  <button class="button" type=button id="enrollinfo">Yes</Button> &nbsp; <button type=button id="enrollinfo">No</Button><br>
+                   <input id="firsttime"  type="hidden" name="firstbuyer" value="{{profile.firstimebuyer}}" value="Yes">
+                  <button class="button" type=button id="enrollinfoyes">Yes</Button> &nbsp; <button type=button id="enrollinfono">No</Button><br>
                    </div>
                    <div>
                   <label for="familysizet">Are you a veteran?</label><br>
-                  <input id="vetbutton" type="hidden" name="veteran" value="Yes">
-                  <button class="button" type=button id="enrollinfot">Yes</Button> &nbsp; <button type=button id="enrollinfot">No</Button><br>
+                  <input id="veteran" type="hidden" name="veteran" value="{{profile.veteran}}" value="Yes">
+                  <button class="button" onclick="isAVeteran()" type=button id="enrollinfo">Yes</Button> &nbsp; <button onclick="isntAVeteran()" type=button id="enrollinfot">No</Button><br>
                   </div>
               <div> </form><br>
 
@@ -83,23 +83,76 @@
 
 <script type="text/javascript">
 
-//alert('registerone')
- // document.getElementById('secondhalf').style.display="none"
-//document.getElementById('registerbody').innerHTML = 'dffsdff';
-document.getElementById("enrollinfo").addEventListener("click", function(){
-  document.getElementById('enrollinfo').style.border=".5px solid black";
-});
-document.getElementById("enrollinfot").addEventListener("click", function(){
-  document.getElementById('enrollinfot').style.border=".5px solid black";
-});
- //  document.getElementById('firsthalf').style.display="block"
 
- var buttons = document.getElementsByClassName('button')
-
-Array.prototype.forEach.call(buttons, function (button) {
-  button.addEventListener('click', function (event) {
-    button.classList.toggle('button-active')
-  })
-})
+  
+    function isAVeteran() {
+      
+        var vet =  document.getElementById('veteran');
+        vet.value = "Yes" 
+        }
+  
+        function isntAVeteran() {
+        
+        var vet =  document.getElementById('veteran');
+        vet.value = "No" 
+        }
+         
+  
+       
+  
+  
+    function myFunction() {
+  
+      var x = document.getElementById("indexbu");
+      var y = document.getElementById("indexbuttont");
+           
+          y.classList.remove("indexbuttont");
+          y.classList.add("indexbutton");
+          x.classList.remove("indexbutton");
+          x.classList.add("indexbuttont");
+    
+          
+        
+    
+    }
+  
+    function myFunctiont() {
+  
+      var x = document.getElementById("indexbutton");
+      var y = document.getElementById("indexbuttont");
+           
+      y.classList.add("indexbuttont");
+      y.classList.remove("indexbutton");
+          x.classList.add("indexbutton");
+          x.classList.remove("indexbuttont");
+    
+          
+        
+    
+    }
+  
+  document.getElementById("enrollinfoyes").addEventListener("click", function(){
+    document.getElementById('firsttime').value="Yes";
+    document.getElementById('enrollinfoyes').style.border=".5px solid black";
+    document.getElementById('enrollinfono').style.border="2px solid #EBEEF6";
+  
+  });
+  document.getElementById("enrollinfono").addEventListener("click", function(){
+    document.getElementById('firsttime').value="No";
+    document.getElementById('enrollinfono').style.border=".5px solid black";
+    document.getElementById('enrollinfoyes').style.border="2px solid #EBEEF6";
+  
+  });
+  document.getElementById("enrollinfot").addEventListener("click", function(){
+    document.getElementById('enrollinfot').style.border=".5px solid black";
+    document.getElementById('enrollinfo').style.border="2px solid #EBEEF6";
+  
+  });
+  
+  document.getElementById("enrollinfo").addEventListener("click", function(){
+    document.getElementById('enrollinfo').style.border=".5px solid black";
+    document.getElementById('enrollinfot').style.border="2px solid #EBEEF6";
+  
+  });
 </script>
-  <!-- {% endblock %} -->
+  {% endblock %}

@@ -58,7 +58,7 @@
           
                     <div>
                    <label for="familysize">Are you a first time buyer?</label><br>
-                   <input id="firsttime" type="hidden" name="firsttimebuyer" value="Yes">
+                   <input id="firsttime" name="firstbuyer" type="hidden" name="firsttimebuyer" value="Yes">
                   <button class="button"  type=button id="enrollinfoyes">Yes</Button> &nbsp; <button  type=button id="enrollinfono">No</Button><br>
                    </div>
                    <div>
@@ -161,14 +161,6 @@ document.getElementById("enrollinfo").addEventListener("click", function(){
   document.getElementById('enrollinfot').style.border="2px solid #EBEEF6";
 
 });
- //  document.getElementById('firsthalf').style.display="block"
 
- //var buttons = document.getElementsByClassName('button')
-
-//Array.prototype.forEach.call(buttons, function (button) {
- // button.addEventListener('click', function (event) {
-  //  button.classList.toggle('button-active')
-  //})
-//})
 </script>
   {% endblock %}

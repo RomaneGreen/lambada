@@ -134,8 +134,10 @@ def enroll(request):
      employer = request.POST['employer']
      familysize = request.POST['familysize']
      annualincome = request.POST['annualincome']
+     firstbuyer = request.POST['firstbuyer']
+     veteran = request.POST['veteran']
      print(occupation,employer,familysize,annualincome)
-     userProfile = UserProfile.objects.create(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
+     userProfile = UserProfile.objects.create(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user,firsttimebuyer=firstbuyer,veteran=veteran)
      userProfile.save()
      if user is not None:
       auth.login(request,user,backend='django.contrib.auth.backends.ModelBackend')
@@ -159,11 +161,13 @@ def enrolled(request):
      employer = request.POST['employer']
      familysize = request.POST['familysize']
      annualincome = request.POST['annualincome']
+     firstbuyer = request.POST['firstbuyer']
+     veteran = request.POST['veteran']
      user = request.user
      print(occupation,employer,familysize,annualincome)
     #  UserProfile = UserProfile.objects.create_user(username=username,password=password,email=email,first_name=fullname,last_name=fullname)
     #  userProfile = UserProfile.objects(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
-     userProfile = UserProfile.objects.filter(user=user).update(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
+     userProfile = UserProfile.objects.filter(user=user).update(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user,firsttimebuyer=firstbuyer,veteran=veteran)
      profile = UserProfile.objects.get(user=user)
      print(profile)
      context = {
