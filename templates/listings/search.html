@@ -23,10 +23,10 @@
  {% if user.is_authenticated %}
   <form action="{% url 'search' %}" method="POST">
                 {% csrf_token %}
-<button id="savesearchbtn" type="submit" id="printbtn">Save Search</button> 
+<button id="savesearchbtn" type="submit" id="printbtn">Save Search</button> <br><br>
 </form>
 {% else %}
-<button style="visibility:hidden;" id="savesearchbtn" type="submit" id="printbtn">Save Search</button> 
+<button style="visibility:hidden;" id="savesearchbtn" type="submit" id="printbtn">Save Search</button> <br><br><br>
 {% endif %}
 
 <script async defer

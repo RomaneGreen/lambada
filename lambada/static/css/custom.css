@@ -1405,7 +1405,8 @@ height: 125px;
 #printbtn {
 position: relative;
 left: -50rem;
-top: 99px;
+top: 109px;
+margin-bottom: 4rem;
 font-family: poppins;
 font-style: normal;
 font-weight: normal;
@@ -1472,7 +1473,7 @@ html, body {
 #mapgoogle, #pano {
     position: relative;
    right: -722px;
-   bottom: 381.5px;
+   bottom: 440.5px;
   height: 350px;
   width: 568px;
 }
