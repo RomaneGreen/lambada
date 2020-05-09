@@ -16,7 +16,9 @@
 <br> 
 <div id='map' style='width: 568px; height: 350px;margin: 0 auto;position:relative;top:3rem;margin-left:9.6rem;'></div>
 
-<p id="printbtnsearch" onclick="window.print()">Print</p> 
+<p id="printbtnsearch" onclick="window.print()">Print</p>
+<p class="sortbtn">Sort by <strong>Amount</strong></p>
+<input class="filterbtn" type="submit" value="Filter" id="signin" class=""> 
 
  {% if user.is_authenticated %}
   <form action="{% url 'search' %}" method="POST">
@@ -230,7 +232,7 @@ function initialize() {
                   <div class="card-body">
                    <i class="far fa-lg fa-bookmark"></i>
                     <div class=" text-left">
-                      <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:4 |truncatechars:34 }}</h4>
+                      <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:3 |truncatechars:34 }}</h4>
                           <p>
                         <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
                     </div>
@@ -245,7 +247,7 @@ function initialize() {
                     <div class="row py-0 text-secondary">
                       <!-- <div class="col-6"> -->
                           <div class="col-6">
-                             <h6 class="text-left">  &nbsp;&nbsp;&nbsp; Mortgage Lenders</h6>
+                             <h6 class="text-left">  &nbsp;&nbsp; Mortgage Lenders</h6>
                             <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div> 
                              </div>
                   <div class="row text-secondary pb-2">

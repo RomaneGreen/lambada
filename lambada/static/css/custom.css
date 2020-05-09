@@ -1404,8 +1404,8 @@ height: 125px;
 
 #printbtn {
 position: relative;
-left: 74rem;
-top: -61px;
+left: -50rem;
+top: 99px;
 font-family: poppins;
 font-style: normal;
 font-weight: normal;
@@ -1417,8 +1417,8 @@ visibility: hidden;
 
 #printbtnsearch {
 position: relative;
-left: 80.8rem;
-top: 101px;
+left: 50.8rem;
+top: 99px;
 font-family: poppins;
 font-style: normal;
 font-weight: normal;
@@ -1472,7 +1472,7 @@ html, body {
 #mapgoogle, #pano {
     position: relative;
    right: -722px;
-   bottom: 378px;
+   bottom: 381.5px;
   height: 350px;
   width: 568px;
 }
@@ -1708,4 +1708,25 @@ svg #bookmarked{
 
   #navindex a #navindex {
       margin-bottom: 95rem;
+  }
+
+  .filterbtn {
+      color: white !important;
+      border-radius: 18px;
+      font-family: poppins;
+      position: relative;
+      bottom: -3rem;
+      left: 74rem;
+  }
+
+  .sortbtn {
+      position: absolute;
+      bottom: 3rem;
+      left: 59.5rem;
+      font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+      color: #015AEB;
   }
