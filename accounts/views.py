@@ -61,7 +61,7 @@ def login(request):
     #Login user
      user = auth.authenticate(username=username,password=password)
      if user is not None:
-       auth.login(request,user)
+       auth.login(request,user,)
        messages.success(request,'You are now logged in')
        return redirect('dashboard')
      else:
@@ -137,7 +137,9 @@ def enroll(request):
      print(occupation,employer,familysize,annualincome)
      userProfile = UserProfile.objects.create(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
      userProfile.save()
-     messages.success(request,'You are can now in')
+     if user is not None:
+      auth.login(request,user,backend='django.contrib.auth.backends.ModelBackend')
+      messages.success(request,'You are now logged in')
      return redirect('index')
     #  return render(request,'accounts/dashboard.html')
   else:
