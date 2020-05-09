@@ -437,8 +437,23 @@ font-size: 14px;
 #loginbody #enrollinfo {
     width: 97px;
 height: 50px;
+
 }
 
+.enrollinfo {
+    border: 5px solid red;
+}
+
+#loginbody #enrollinfoyes {
+    width: 97px;
+height: 50px;
+}
+
+
+#loginbody #enrollinfono {
+    width: 97px;
+height: 50px;
+}
 #loginbody #enrollinfot {
 width: 97px;
 height: 50px;

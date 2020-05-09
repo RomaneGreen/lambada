@@ -23,7 +23,7 @@
 
 
   
-  
+
   <a class="loginlink" href="{% provider_login_url 'google' %}">
       <button class="btn-nav-login" style="color:white;"> <i class="fab fa-google fa-1x"></i>
   Sign in with Google</a>
@@ -54,10 +54,12 @@
           
                     <div>
                    <label for="familysize">Are you a first time buyer?</label><br>
+                   <input id="buyerbutton" type="hidden" name="firsttimebuyer" value="Yes">
                   <button class="button" type=button id="enrollinfo">Yes</Button> &nbsp; <button type=button id="enrollinfo">No</Button><br>
                    </div>
                    <div>
                   <label for="familysizet">Are you a veteran?</label><br>
+                  <input id="vetbutton" type="hidden" name="veteran" value="Yes">
                   <button class="button" type=button id="enrollinfot">Yes</Button> &nbsp; <button type=button id="enrollinfot">No</Button><br>
                   </div>
               <div> </form><br>
