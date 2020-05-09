@@ -1602,13 +1602,13 @@ right: 40px;
 
 .dropbtn {
     position: relative;
-    top: 25px;
+    top: 30px;
    
   }
 
   .dropbtno {
     position: relative;
-    top: 39px;
+    top: 44px;
    
   }
   
@@ -1621,7 +1621,7 @@ right: 40px;
   
     display: none;
     position: absolute;
-    top: 50px;
+    top: 60px;
     right: 75px;
     bottom: 2rem;
     padding-top: 1.9rem;
