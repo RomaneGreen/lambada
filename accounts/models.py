@@ -15,5 +15,8 @@ class UserProfile(models.Model):
     firsttimebuyer = models.CharField(max_length=100, blank=True,verbose_name="First Time Home Buyer?")
     def __str__(self):
         return self.user.username
+    class Meta:
+            verbose_name = 'User Profile'
+            verbose_name_plural = 'User Profiles'
 
-
+     
