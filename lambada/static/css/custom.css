@@ -197,7 +197,7 @@
 
 #loginbody h3 {
 color: #465175 !important;
-font-family: sans-serif;
+font-family: poppins;
 font-weight: 600 !important;
 font-size: 24px;
 line-height:36px;
@@ -205,7 +205,7 @@ line-height:36px;
 
 #loginbody h6 {
 color: #465175 !important;
-font-family: sans-serif;
+font-family: poppins;
 font-weight: 600 !important;
 font-size: 14px;
 line-height:21px;
@@ -231,7 +231,7 @@ border-radius: 25px;
 }
 
 #loginbody label {
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
@@ -241,7 +241,7 @@ color: #465175;
 }
 
 #loginbody input {
-font-family: sans-serif;
+font-family: poppins;
 width: 419.46px;
 height: 50px;
 border: 2px solid #EBEEF6;
@@ -251,14 +251,14 @@ border-radius: 25px;
 }
 
 #loginbody input::placeholder {
-font-family: sans-serif;
+font-family: poppins;
 color: #465175;
 opacity: 0.6;
 }
 
 #loginbody span {
 margin-left: 308px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -280,7 +280,7 @@ color: #465175;
     color: red;
     width: 101.93px;
     height: 37.39px;
-    font-family: sans-serif;
+    font-family: poppins;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -293,7 +293,7 @@ border: none;
  color: white;
  width: 101.93px;
  height: 37.39px;
-font-family: Inter,sans-serif;
+font-family: Inter,poppins;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -309,7 +309,7 @@ border: none;
     width: 571.11px;
 height: 30.53px;
 left: 100px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
@@ -321,7 +321,7 @@ color: #465175;
 width: 381.1px;
 height: 50px;
 color: #465175;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -361,7 +361,7 @@ border:none;
 
 width: 282px;
 height: 26px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -378,7 +378,7 @@ color: #465175;
 width: 345.34px;
 height: 25.75px;
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
@@ -394,7 +394,7 @@ color: #465175;
 width: 345.34px;
 height: 25.75px;
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
@@ -410,7 +410,7 @@ color: #465175;
 width: 345.34px;
 height: 25.75px;
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
@@ -472,7 +472,7 @@ border: 1px solid black;
  color: white;
  width: 101.93px;
  height: 37.39px;
-font-family: Inter,sans-serif;
+font-family: Inter,poppins;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -489,7 +489,7 @@ border: none;
 
 #listingbody h3 {
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
@@ -502,7 +502,7 @@ color: #465175;
 position: relative;
 width: 202px;
 height: 18px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
@@ -514,7 +514,7 @@ color: #465175;
 
 #listingbody p {
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-size: 14px;
 line-height: 21px;
@@ -530,7 +530,7 @@ color: #465175;
 position: absolute;
 right: 4rem;
 top: 10.4rem;
-font-family: sans-serif;
+font-family: poppins;
 color: #015AEB;
 width: 192.15px;
 height: 37.39px;
@@ -577,7 +577,7 @@ border-radius: 18.6961px;
      position: absolute;
      top: 1.6rem;
      left: 15rem;
-     font-family: sans-serif;
+     font-family: poppins;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -616,7 +616,7 @@ color: #465175;
 
  #indexbody h5 {
     color: #465175;
-    font-family: sans-serif;
+    font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -626,7 +626,7 @@ line-height: 24px;
 
  #indexbody h6 {
     color: #465175;
-    font-family: sans-serif;
+    font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
@@ -636,7 +636,7 @@ color: #465175;
 
 
   #indexbody p {
- font-family: sans-serif;
+ font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -665,7 +665,7 @@ text-decoration: none;
 
 
     #indexhead h1 {
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 36px;
@@ -692,7 +692,7 @@ text-align: center;
 
 
      #indexhead .lead {
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -725,7 +725,7 @@ border-radius: .5px;
  } */
 
     .missionheader {
- font-family: sans-serif;
+ font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 36px;
@@ -753,7 +753,7 @@ color: #465175;
     color:red;
     width: 842px;
 height: 121px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
@@ -771,7 +771,7 @@ position: relative;
 left: 3rem;
 width: 192px;
 height: 26px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -787,7 +787,7 @@ color: #465175;
 right: -0.3rem;
 bottom: .8rem;
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -811,7 +811,7 @@ color: #465175;
 }
 
  .feedbackheader {
- font-family: sans-serif;
+ font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 36px;
@@ -874,7 +874,7 @@ color: #465175;
      position: absolute;
      top: 2.6rem;
      left: 15rem;
-     font-family: sans-serif;
+     font-family: poppins;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -925,7 +925,7 @@ left: -.4rem;
 bottom: 7rem;
 width: 192px;
 height: 26px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -941,7 +941,7 @@ color: #465175;
 right: .75rem;
 bottom: 7.4rem;
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -955,7 +955,7 @@ color: #465175;
      color: #015AEB;
      width: 276px;
 height: 26px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
@@ -971,7 +971,7 @@ line-height: 27px;
 position: relative;
 right: 5rem;
 top: 11rem;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 36px;
@@ -1003,7 +1003,7 @@ position: relative;
 left: -8rem;
 bottom: .4rem;
 top: 11rem;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 700px;
 font-size: 16px;
@@ -1086,7 +1086,7 @@ margin-top: 2rem;
 
  #allowlocationbody h5 {
     color: #465175;
-    font-family: sans-serif;
+    font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -1096,7 +1096,7 @@ line-height: 24px;
 
  #allowlocationbody h6 {
     color: #465175;
-    font-family: sans-serif;
+    font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
@@ -1106,7 +1106,7 @@ color: #465175;
 
 
   #allowlocationbody p {
- font-family: sans-serif;
+ font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 12px;
@@ -1157,7 +1157,7 @@ a.stretched-link {
 
 
 .savedheader {
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
@@ -1171,7 +1171,7 @@ opacity: 1;
 
 
 #saveditems {
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
@@ -1193,7 +1193,7 @@ color:   #465175;
 } 
 
 .savedheadert {
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 24px;
@@ -1317,7 +1317,7 @@ color: #465175;
 #test {
     /* display: inline; */
     margin-top: 1rem;
-    font-family: sans-serif;
+    font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -1351,7 +1351,7 @@ border-radius: 10px;
 
 table#table td {
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
@@ -1374,7 +1374,7 @@ table#table th {
 width: 149px;
 height: 26px;
 
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
@@ -1406,7 +1406,7 @@ height: 125px;
 position: relative;
 left: 74rem;
 top: -61px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
@@ -1419,7 +1419,7 @@ visibility: hidden;
 position: relative;
 left: 80.8rem;
 top: 101px;
-font-family: sans-serif;
+font-family: poppins;
 font-style: normal;
 font-weight: normal;
 /* visibility: hidden; */
@@ -1431,7 +1431,7 @@ color: #015AEB;
 .tooltip-inner {
   background-color:  #EBEEF6 !important;
   border-radius: 5px;
-  font-family: sans-serif;
+  font-family: poppins;
   margin: .1rem;
   color: #465175;
   /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
@@ -1454,7 +1454,7 @@ width: 192.15px;
 height: 37.39px;
 
 color: #015AEB;
-font-family: sans-serif;
+font-family: poppins;
 border: 1px solid #015AEB;
 box-sizing: border-box;
 border-radius: 18.6961px;
@@ -1651,12 +1651,12 @@ right: 40px;
   
   
   .dropdown-content a {
-    font-family: sans-serif;
+    font-family: poppins;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    Font-Family: sans-serif;
+    Font-Family: poppins;
     Font-style: Medium;
     font-weight: 500;
     Font-size: 14px;
@@ -1668,7 +1668,7 @@ right: 40px;
   }
   
   .dropdown-content a:hover {
-  font-family: sans-serif;
+  font-family: poppins;
   text-decoration: none;
   
   }
