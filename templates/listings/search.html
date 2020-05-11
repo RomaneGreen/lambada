@@ -219,8 +219,13 @@ function initialize() {
   </section> -->
 
   <!-- Listings -->
+
   <section id="listings" class="py-4">
-    <div class="container">
+    <div id="downpayments" class="downpaymentprograms container">Downpayments</div>
+    <div id="closingprograms" class="closingprograms container">Closing</div>
+    <div id="forgivableprograms" class="forgivableprograms container">Forgivable</div>
+    <div id="otherprograms" class="otherprograms container">Others</div>
+    <div id="alllistings" class="alllistings container ">
       <div class="row">
 
             {% if listings %}
@@ -239,7 +244,6 @@ function initialize() {
                     <div class=" text-left">
                       <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ listing.programname |truncatewords:3 |truncatechars:34 }}</h4>
                           <p>
-                        <!-- <i class="fas fa-map-marker text-secondary"></i>{{ listing.city }} {{ listing.state }} {{ listing.zipcode }}</p> -->
                     </div>
                     <div class="row py-0 text-secondary">
                       <div class="col-12 text-left">
@@ -250,7 +254,6 @@ function initialize() {
                              <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
                     </div>
                     <div class="row py-0 text-secondary">
-                      <!-- <div class="col-6"> -->
                           <div class="col-6">
                              <h6 class="text-left">  &nbsp;&nbsp; Mortgage Lenders</h6>
                             <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div> 
@@ -316,6 +319,9 @@ function initialize() {
     </div>
   </section>
 </div>
+
+
+
   <!-- Footer -->
   <!-- <footer id="main-footer" class="py-4 bg-primary text-white text-center">
     Copyright &copy;
@@ -356,7 +362,12 @@ function initialize() {
       unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
       unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
       unsetDisplay("others","selectedothers","selected","others")
- 
+
+      document.getElementById('alllistings').style.display="block";
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
       alert("Hi")
     }
     function closingCosts() {
@@ -366,6 +377,12 @@ function initialize() {
       unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
       unsetDisplay("others","selectedothers","selected","others")
       unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+
+      document.getElementById('closingprograms').style.display="block";
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
       alert("Hi")
     }
 
@@ -375,7 +392,12 @@ function initialize() {
       unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
       unsetDisplay("others","selectedothers","selected","others")
       unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
-
+      
+      document.getElementById('downpayments').style.display="block";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
       alert("Hi")
     }
 
@@ -386,6 +408,11 @@ function initialize() {
       unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
       unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
 
+      document.getElementById('forgivableprograms').style.display="block";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
       alert("Hi")
     }
 
@@ -396,6 +423,11 @@ function initialize() {
       unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
       unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
 
+      document.getElementById('otherprograms').style.display="block";     
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
       alert("Hi")
     }
 </script>

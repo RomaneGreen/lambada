@@ -1964,3 +1964,25 @@ content: ""; /* This is necessary for the pseudo element to work. */
     }
                             
                 
+    .downpaymentprograms {
+        /* visibility: hidden; */
+        display: none;
+    }
+
+    .closingprograms {
+        /* visibility: hidden; */
+        display: none;
+    }
+    .forgivableprograms {
+        /* visibility: hidden; */
+        display: none;
+    }
+
+    .otherprograms {
+        /* visibility: hidden; */
+        display: none;
+    }
+
+    .alllistings {
+        
+    }
