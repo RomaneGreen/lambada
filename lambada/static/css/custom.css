@@ -1986,3 +1986,49 @@ content: ""; /* This is necessary for the pseudo element to work. */
     .alllistings {
         
     }
+
+    @media print  {
+        
+        body {
+            /* visibility: hidden; */
+            /* border: 1px solid red; */
+        }
+     
+        #printbtnsearch , #allPrograms, #closingCosts, #forgivableSecond, #others, #savesearchbtn{
+            visibility: hidden;
+
+        }
+
+        .sortbtn {
+            visibility: hidden;
+
+        }
+
+        #listings {
+            position: relative;
+            right: -4rem;
+            margin-top : -6rem;
+            margin-bottom: 85rem;
+        }
+        
+        #listingsbody {
+            position: relative;
+            right: -5rem;
+        }
+
+         #map{
+                position: relative;
+                width: 350px;
+                left: -60px;
+
+        }
+        #mapgoogle{
+            position: relative;
+         
+            left: 560px;
+         }
+         #footer {
+             background-color: green;
+             height: 30px;
+         }
+      }
