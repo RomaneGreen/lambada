@@ -17,12 +17,12 @@
 <div id='map' style='width: 568px; height: 350px;margin: 0 auto;position:relative;top:3rem;margin-left:9.6rem;'></div>
 
 <p id="printbtnsearch" onclick="window.print()">Print</p>
-<p class="sortbtn">Sort by <strong>Amount</strong></p>
-<p class="allprograms">All Programs</p>
-<p class="downpayment">Down Payment</p>
-<p class="closingcosts">Closing Costs</p>
-<p class="forgivablesecond">Forgivable Second</p>
-<p class="others">Others</p>
+<p  class="sortbtn">Sort by <strong>Amount</strong></p>
+<p id="allPrograms" onclick="allPrograms()" class="allprograms">All Programs</p>
+<p id="downPayment" onclick="downPayment()" class="downpayment">Down Payment</p>
+<p id="closingCosts" onclick="closingCosts()" class="closingcosts">Closing Costs</p>
+<p id="forgivableSecond"onclick="forgivableSecond()" class="forgivablesecond">Forgivable Second</p>
+<p id="others" onclick="others()" class="others">Others</p>
 <input class="filterbtn" type="submit" value="Filter" id="signin" class=""> 
 
  {% if user.is_authenticated %}
@@ -330,5 +330,73 @@ function initialize() {
 
 </html>
 
+<script>
 
+    function setDisplay(id,addValue,removeValue,underline) {
+
+      var x = document.getElementById(id);
+        x.classList.add(addValue);
+        x.classList.add(underline);
+        x.classList.remove(removeValue);
+    }
+
+    function unsetDisplay(id,addValue,underline,originalValue) {
+
+      var x = document.getElementById(id);
+        x.classList.remove(addValue);
+        x.classList.remove(underline);
+        x.classList.add(originalValue);
+    }
+
+
+    
+    function allPrograms() {
+      setDisplay("allPrograms","selectedall","allprograms","selected")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("others","selectedothers","selected","others")
+ 
+      alert("Hi")
+    }
+    function closingCosts() {
+  
+      setDisplay("closingCosts","selectedcosts","closingcosts","selected")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("others","selectedothers","selected","others")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+      alert("Hi")
+    }
+
+    function downPayment() {
+      setDisplay("downPayment","selecteddownpayment","downpayment","selected")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("others","selectedothers","selected","others")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+
+      alert("Hi")
+    }
+
+    function forgivableSecond() {
+      setDisplay("forgivableSecond","selectedforgivable","forgivablesecond","selected")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("others","selectedothers","selected","others")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+
+      alert("Hi")
+    }
+
+    function others() {
+      setDisplay("others","selectedothers","others","selected")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+
+      alert("Hi")
+    }
+</script>
 {% endblock %}

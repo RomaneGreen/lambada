@@ -1739,7 +1739,7 @@ svg #bookmarked{
     left: 17.5rem;
     font-family: Poppins;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 600;
       font-size: 16px;
       line-height: 24px;
     color: #465175;
@@ -1752,10 +1752,24 @@ svg #bookmarked{
     left: 9.5rem;
     font-family: Poppins;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 600;
       font-size: 16px;
       line-height: 24px;
     color: #465175;
+    opacity: 1;
+}
+
+.allprogramsunselect {
+    position: absolute;
+    bottom: 2.8rem;
+    left: 9.5rem;
+    font-family: Poppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+    color: #465175;
+    opacity: 0.3;
 }
 
 .closingcosts {
@@ -1764,7 +1778,7 @@ svg #bookmarked{
     left: 26.5rem;
     font-family: Poppins;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 600;
       font-size: 16px;
       line-height: 24px;
     color: #465175;
@@ -1777,7 +1791,7 @@ svg #bookmarked{
     left: 35.5rem;
     font-family: Poppins;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 600;
       font-size: 16px;
       line-height: 24px;
     color: #465175;
@@ -1790,25 +1804,86 @@ svg #bookmarked{
     left: 46.5rem;
     font-family: Poppins;
       font-style: normal;
-      font-weight: normal;
+      font-weight: 600;
       font-size: 16px;
       line-height: 24px;
     color: #465175;
     opacity: 0.3;
 }
 
-.selectedprogram {
+.selectedcosts {
+    position: absolute;
+    bottom: 2.8rem;
+    left: 26.5rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 1;
+
+}
+
+.selecteddownpayment {
+    position: absolute;
+    bottom: 2.8rem;
+    left: 17.5rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 1;
+
+}
+
+.selectedall {
+    position: absolute;
+    bottom: 2.8rem;
+    left: 9.5rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 1;
+
+}
+.selectedforgivable {
+    position: absolute;
+    bottom: 2.8rem;
+    left: 35.5rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 1;
+
+}
+
+.selectedothers {
     position: absolute;
     bottom: 2.8rem;
     left: 46.5rem;
     font-family: Poppins;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 24px;
-    color: #015AEB;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 1;
+
 }
 
+.selectedprogram:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+        display: block; /* This will put the pseudo element on its own line. */
+        margin: 0 auto; /* This will center the border. */
+        width: 95%; /* Change this to whatever width you want. */
+        padding-top: 0px; /* This creates some space between the element and the border. */
+        border-bottom: 2px solid #015AEB; /* This creates the border. Replace black with whatever color you want. */
+        border-radius: 5px;
+     }
 
 .allprograms:after {
     content: ""; /* This is necessary for the pseudo element to work. */ 
@@ -1820,6 +1895,16 @@ svg #bookmarked{
         border-radius: 5px;
      }
 
+.allprogramsunselect:after {
+content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 95%; /* Change this to whatever width you want. */
+    padding-top: 0px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid #465175; /* This creates the border. Replace black with whatever color you want. */
+    border-radius: 5px;
+    ;
+    }
 
 .downpayment:after {
 content: ""; /* This is necessary for the pseudo element to work. */ 
@@ -1845,15 +1930,15 @@ content: ""; /* This is necessary for the pseudo element to work. */
         }
 
 .forgivablesecond:after {
-    content: ""; /* This is necessary for the pseudo element to work. */ 
-        display: block; /* This will put the pseudo element on its own line. */
-        margin: 0 auto; /* This will center the border. */
-        width: 95%; /* Change this to whatever width you want. */
-        padding-top: 0px; /* This creates some space between the element and the border. */
-        border-bottom: 2px solid #465175; /* This creates the border. Replace black with whatever color you want. */
-        border-radius: 5px;
-        opacity: 0.3;
-        }
+content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 95%; /* Change this to whatever width you want. */
+    padding-top: 0px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid #465175; /* This creates the border. Replace black with whatever color you want. */
+    border-radius: 5px;
+    opacity: 0.3;
+    }
     
 .others:after {
         content: ""; /* This is necessary for the pseudo element to work. */ 
@@ -1866,5 +1951,16 @@ content: ""; /* This is necessary for the pseudo element to work. */
         opacity: 0.3;
         }
 
-                                    
-                        
+
+.selected:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 95%; /* Change this to whatever width you want. */
+    padding-top: 0px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid blue; /* This creates the border. Replace black with whatever color you want. */
+    border-radius: 5px;
+    opacity: 1;
+    }
+                            
+                
