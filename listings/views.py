@@ -72,6 +72,12 @@ def listing(request, listing_id):
 def search(request):
 
     queryset_list = Listing.objects.order_by('id')
+    dp_list = Listing.objects.filter(programtype="Down Payment").order_by('id')
+    cc_list = Listing.objects.filter(programtype="Closing Cost").order_by('id')
+    fs_list = Listing.objects.filter(programtype="Forgivable Second").order_by('id')
+    others_list = Listing.objects.filter(programtype="Other").order_by('id')
+    # queryset_list = Listing.objects.order_by('id')
+    queryset_list = Listing.objects.order_by('id')
     mapbox_access_token = 'pk.eyJ1Ijoicm9tYW5lNzExOTMiLCJhIjoiY2s4cTQ1eGRyMDBjdDNtb2RzcjRiZWluNyJ9._Ju--uLYkgFY7wPsxp5PbA'
     
     # my_lat = '40.663918'
@@ -163,15 +169,15 @@ def search(request):
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     print("lonzg",request.session['lon'])
-    # if 'lon' in request.session:
-    #  lon = request.session['lon']
-    #  if 'lat' in request.session:
-    #   lat = request.session['lat']
+   
   
 
     context = {
       
-        'state_choices': state_choices,
+        'dplist': dp_list,
+        'cclist': cc_list,
+        'fslist': fs_list,
+        'oplist': others_list,
         'bedroom_choices': bedroom_choices,
         'mapbox_access_token': mapbox_access_token,
         'price_choices': price_choices,

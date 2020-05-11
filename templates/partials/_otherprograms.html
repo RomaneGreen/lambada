@@ -1,0 +1,52 @@
+{% load humanize %}
+
+<div class="row">
+
+        {% if oplist %}
+        {% for op in oplist %}
+       
+         <div id="allowlocationbody" class="col-md-6 col-lg-4 mb-4" style="">
+            <div class="card listing-preview">
+              <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+              <div class="card-img-overlay rounded">
+                <h2>
+                </h2>
+              </div>
+          <a  href="{% url 'listing' op.id %}" class="stretched-link"> 
+              <div class="card-body">
+               <i class="far fa-lg fa-bookmark"></i>
+                <div class=" text-left">
+                  <h5 class=""> &nbsp;&nbsp;&nbsp;   {{ op.programname |truncatewords:3 |truncatechars:34 }}</h4>
+                      <p>
+                </div>
+                <div class="row py-0 text-secondary">
+                  <div class="col-12 text-left">
+                      <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
+                         <p>  &nbsp;&nbsp;&nbsp; {{op.programoriginator |truncatewords:4 }}</p> </div>
+                  <div class="col-6">
+                    <h6 class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
+                         <p class="text-left">  &nbsp;&nbsp;&nbsp; {{op.amountofassistance | intcomma}}</p></div>
+                </div>
+                <div class="row py-0 text-secondary">
+                      <div class="col-6">
+                         <h6 class="text-left">  &nbsp;&nbsp; Mortgage Lenders</h6>
+                        <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{op.programcontact}} </p></div> 
+                         </div>
+              <div class="row text-secondary pb-2">
+                      <div class="col-6">
+                        </div>
+                    </div>
+
+                  </a>
+              </div>
+            </div>
+          </div>
+     
+        {% endfor %}
+     {% else %}
+      <div class="col-md-12">
+        <p>No listings available</p>
+        </div>
+
+     {% endif %}
+    </div>

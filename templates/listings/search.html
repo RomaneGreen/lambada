@@ -221,10 +221,10 @@ function initialize() {
   <!-- Listings -->
 
   <section id="listings" class="py-4">
-    <div id="downpayments" class="downpaymentprograms container">Downpayments</div>
-    <div id="closingprograms" class="closingprograms container">Closing</div>
-    <div id="forgivableprograms" class="forgivableprograms container">Forgivable</div>
-    <div id="otherprograms" class="otherprograms container">Others</div>
+    <div id="downpayments" class="downpaymentprograms container"> {% include 'partials/_downpayment.html' %}   </div>
+    <div id="closingprograms" class="closingprograms container">  {% include 'partials/_closingcost.html' %}  </div>
+    <div id="forgivableprograms" class="forgivableprograms container"> {% include 'partials/_forgivablesecond.html' %}  </div>
+    <div id="otherprograms" class="otherprograms container"> {% include 'partials/_otherprograms.html' %} </div>
     <div id="alllistings" class="alllistings container ">
       <div class="row">
 
