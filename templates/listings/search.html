@@ -17,7 +17,11 @@
 <div id='map' style='width: 568px; height: 350px;margin: 0 auto;position:relative;top:3rem;margin-left:9.6rem;'></div>
 
 <p id="printbtnsearch" onclick="window.print()">Print</p>
-<p  class="sortbtn">Sort by <strong>Amount</strong></p>
+
+
+<!-- <p  class="sortbtn sortdropbtn">Sort by <strong>Amount</strong></p> -->
+{% include 'partials/_sortform.html' %}
+
 <p id="allPrograms" onclick="allPrograms()" class="allprograms">All Programs</p>
 <p id="downPayment" onclick="downPayment()" class="downpayment">Down Payment</p>
 <p id="closingCosts" onclick="closingCosts()" class="closingcosts">Closing Costs</p>

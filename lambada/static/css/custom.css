@@ -1994,7 +1994,7 @@ content: ""; /* This is necessary for the pseudo element to work. */
             /* border: 1px solid red; */
         }
      
-        #printbtnsearch , #allPrograms, #closingCosts, #forgivableSecond, #others, #savesearchbtn{
+        #printbtnsearch , #allPrograms, #closingCosts, #forgivableSecond, #others, #savesearchbtn, #downPayment, .boxcontent, .box{
             visibility: hidden;
 
         }
@@ -2028,7 +2028,86 @@ content: ""; /* This is necessary for the pseudo element to work. */
             left: 560px;
          }
          #footer {
-             background-color: green;
-             height: 30px;
+            visibility: hidden;
          }
       }
+
+
+    #sorttog > .fa-angle-down {
+            position: relative;
+            top: .2rem;
+            z-index: 1000;
+      }
+
+
+    #sorttog > .fa-angle-up {
+    position: relative;
+    top: .2rem;
+    z-index: 1000;
+}
+
+
+
+
+      
+   
+
+     .box {
+         position: absolute;
+         background: #FFFFFF;
+         box-sizing: border-box;
+         width: 279px;
+        height: 208px;
+        z-index: 1;
+        border: 2px solid #EBEEF6;
+        left: 60rem;
+        bottom: -9.5rem;
+       
+      
+     }
+
+     #boxl {
+         display: none;
+         z-index: 1;
+         
+     }
+
+     .boxcontent{
+   
+      
+
+     }
+
+     .boxcontent a {
+        
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+text-decoration: none;
+color: #465175;
+position: relative;
+font-family: Poppins;
+left: 36px;
+line-height: 33px;
+top: 17px;
+     }
+
+
+.linktext {
+
+
+}
+
+.programatoz:after {
+content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: inline-block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 34%; /* Change this to whatever width you want. */
+    padding-top: -10px; /* This creates some space between the element and the border. */
+    border-bottom: 2px solid #015AEB; /* This creates the border. Replace black with whatever color you want. */
+    border-radius: 5px;
+    position: relative;
+    top: 13px;
+    right: 93px;
+    }

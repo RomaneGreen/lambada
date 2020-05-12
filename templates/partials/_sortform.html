@@ -1,0 +1,49 @@
+
+
+        <!-- <div class="sortdropdown">
+                <button  class="sortbtn sortdropbtn">Sort by <strong>Amount</strong></button>
+        <div class="sortdropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div> -->
+<!-- 
+    <div class="sortdropdown"> -->
+        <p id="sorttog" onclick="toggleSort()"  class="sortbtn ">Sort by <i id="arrowdirection" class="fas fa-angle-down"></i>  </p>
+       
+
+
+
+          
+         <div id="boxl" class="box">
+             <div class="boxcontent">
+             <a class="linktext programatoz" href="#"> Program: A-Z</a> <br>
+             <a class="linktext" href="#"> Program: Z-A</a> <br> 
+             <a class="linktext"href="#"> Amount: Low to High</a> <br>
+             <a class="linktext" href="#">By Type of Program</a> <br>
+             <a class="linktext" href="#">By Mortage Lender</a> <br>
+            </div>
+            </div>
+
+    
+   <script>
+       function toggleSort() {
+       
+           var x = document.getElementById("boxl");
+           var y = document.getElementById("arrowdirection");
+          
+
+           if (x.style.display === "block") {
+             x.style.display = "none";
+             y.classList.add("fa-angle-down")
+             y.classList.remove("fa-angle-up")
+           } else {
+             x.style.display = "block";
+             y.classList.remove("fa-angle-down")
+             y.classList.add("fa-angle-up")
+
+           }
+        
+       }
+   </script>
