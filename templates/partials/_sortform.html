@@ -14,11 +14,17 @@
        
 
 
-
+       
           
          <div id="boxl" class="box">
              <div class="boxcontent">
-             <a class="linktext programatoz" href="#"> Program: A-Z</a> <br>
+                 <form action="{% url 'search' %}" method="POST" >
+                        {% csrf_token %}
+            <button id="s" type="submit" name=oopz id="p">testget</button>
+
+             <input type="submit" class="linktext programatoz"> Program: A-Z</p> <br>
+             <input type="hidden" name="oops" hidden="hidden">
+            </form>
              <a class="linktext" href="#"> Program: Z-A</a> <br> 
              <a class="linktext"href="#"> Amount: Low to High</a> <br>
              <a class="linktext" href="#">By Type of Program</a> <br>

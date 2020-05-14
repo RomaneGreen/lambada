@@ -88,7 +88,7 @@ def dashboard(request):
   #ipinfo = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', ''))
   user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
   listings = Listing.objects.order_by('id')
-  searches = Searchsave.objects.filter(user_id=request.user.id)
+  searches = Searchsave.objects.filter(user_id=request.user.id).order_by('-id')
   #count = Searchsave.length()
   #r = requests.get('https://www.iplocate.io/api/lookup/'+ipinfo)
   #city = r.json()['city']

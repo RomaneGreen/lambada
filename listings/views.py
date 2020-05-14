@@ -1,5 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponseRedirect
+# from django.core.cache import cache
+import pickle
 from .models import Listing
 from .models import Searchsave
 from listings.choices import price_choices,bedroom_choices,state_choices
@@ -70,7 +72,7 @@ def listing(request, listing_id):
 
 
 def search(request):
-
+    
     queryset_list = Listing.objects.order_by('id')
     dp_list = Listing.objects.filter(programtype="Down Payment").order_by('id')
     cc_list = Listing.objects.filter(programtype="Closing Cost").order_by('id')
@@ -106,6 +108,7 @@ def search(request):
         print(results[0]['admin1'])
         print(results[0]['admin2'])
         state = results[0]['admin1']
+        request.session['spate'] = state
         county = results[0]['admin2']
         print(county,state,keywords)
         # state = r2.json()['results'][0]['address_components'][3]['long_name']
@@ -129,17 +132,16 @@ def search(request):
               wishlist = Searchsave.objects.filter(phrase=search_term,user_id=user_id)
               wishlist.delete()
         if keywords:
+             
              queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
              | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state ))
-            # queryset_list = queryset_list.filter(Q(city__iexact=keywords) |
-            #  Q(state__iexact=state)  | Q(city__iexact=state) |
-            #      Q(Neighborhoods__icontains=keywords) | Q(Neighborhoods__icontains=county)
-            #       ).exclude( Q(state__iexact = '') |  Q(city__iexact='') )
+             dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+             | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
+            #  request.session[key] = pickle.dumps(queryset_list.query)
+            #  request.session['qlist'] = queryset_list
 
-
-                #   .exclude( Q(zipcode__iexact='') | Q(state__iexact='') | Q(city__iexact='')  )
         length = queryset_list.count()
-    if request.method == "POST":
+    if request.method == "POST" and "savesearch" in request.POST:
         link = request.get_full_path()
         searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
         has_visited = Searchsave.objects.all().filter(phrase=request.session['city'],user_id=request.user.id)
@@ -153,17 +155,71 @@ def search(request):
         if keywords:
             queryset_list = queryset_list.filter(state__iexact=keywords)  
     
-    if 'bedrooms' in request.GET:
-        keywords = request.GET['bedrooms']
-        if keywords:
-            queryset_list = queryset_list.filter(id__lte=keywords)   
+    if request.method == "POST" and "oopz" in request.POST:
+        print("it issss",request.session['city'])
+        keywords = request.session['city']     
+        stt = request.session['city']
+        r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
+        lat = r.json()['results'][0]["geometry"]["location"]["lat"]
+        lon = r.json()['results'][0]["geometry"]["location"]["lng"]
+        lat = str(lat)
+        lon = str(lon)
+        coordinates = (lat,lon)
+        results = rg.search(coordinates)
+        state = results[0]['admin1']
+        queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state))
+        
+        
 
-    if 'price' in request.GET:
+
+        #  equipment_list = cache.get('equipment_list')
+        # queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)|
+        # Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)| Q(state__iexact=state ))
+        # dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+        # | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
+        # queryset_list = queryset_list.order_by('-programtype')   
+
+        ts = queryset_list.order_by('programname')
+        amount_of_results = queryset_list.count()  
+        paginator = Paginator(ts, 9)   
+        page = request.GET.get('page')
+        paged_listings = paginator.get_page(page)
+        print("lonzg",request.session['lon'])
+        print(request.session['link'])
+        url = request.session['link']
+
+        context = {
+        
+            'dplist': dp_list,
+            'cclist': cc_list,
+            'fslist': fs_list,
+            'oplist': others_list,
+            'bedroom_choices': bedroom_choices,
+            'mapbox_access_token': mapbox_access_token,
+            'price_choices': price_choices,
+            'listings': paged_listings,
+            'my_lon': request.session['lon'],
+            'my_lat': request.session['lat'],
+            'count': amount_of_results,
+            'values': request.session['city'],
+            # 'listings': queryset_listing
+        }  
+        uid = request.user.id or 0
+    # searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id or 0)
+    # searchsaved.save()
+    # return redirect(request.META['HTTP_REFERER'])
+        # return render(request,'listings/search.html',context) 
+        return render(request,'listings/search.html',context)
+    
+
+    if 'pri' in request.GET:
         keywords = request.GET['price']
         if keywords:
             queryset_list = queryset_list.filter(minimumcontribution__lte=keywords)  
     
     #request.session['lon'] = lon
+    # ts = queryset_list.order_by('-programname')
     amount_of_results = queryset_list.count()  
     paginator = Paginator(queryset_list, 9)   
     page = request.GET.get('page')
@@ -181,7 +237,7 @@ def search(request):
         'bedroom_choices': bedroom_choices,
         'mapbox_access_token': mapbox_access_token,
         'price_choices': price_choices,
-        'listings': paged_listings,
+            'listings': paged_listings,
         'my_lon': request.session['lon'],
         'my_lat': request.session['lat'],
         'count': amount_of_results,

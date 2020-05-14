@@ -2094,6 +2094,22 @@ top: 17px;
      }
 
 
+    .boxcontent p {
+    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    text-decoration: none;
+    color: #465175;
+    position: relative;
+    font-family: Poppins;
+    left: 36px;
+    line-height: 33px;
+    top: 17px;
+            }
+
+
 .linktext {
 
 
