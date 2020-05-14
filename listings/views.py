@@ -135,11 +135,20 @@ def search(request):
              
              queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
              | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state ))
+
              dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
              | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
-            #  request.session[key] = pickle.dumps(queryset_list.query)
-            #  request.session['qlist'] = queryset_list
 
+             cc_list = cc_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+             | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Closing Cost").order_by('id')
+
+             fs_list = fs_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+             | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Forgivable Second").order_by('id')
+
+             others_list = others_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+             | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Others").order_by('id')
+
+           
         length = queryset_list.count()
     if request.method == "POST" and "savesearch" in request.POST:
         link = request.get_full_path()

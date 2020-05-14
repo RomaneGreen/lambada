@@ -18,17 +18,23 @@
           
          <div id="boxl" class="box">
              <div class="boxcontent">
-                 <form action="{% url 'search' %}" method="POST" >
+                 <form id="atozsort" action="{% url 'search' %}" method="POST" >
                         {% csrf_token %}
-            <button id="s" type="submit" name=oopz id="p">testget</button>
+            <button class="linktext atoz" id="s" type="submit" name=oopz id="p">Program: A-Z</button>  <br> 
+            <button class="linktext" id="s" type="submit" name=ztoa id="p">Program: Z-A</button>   <br> 
+            <button class="linktext" id="s" type="submit" name=lowtohigh id="p">Amount: Low to High</button>  <br> 
+            <button class="linktext" id="s" type="submit" name=lowtohigh id="p">By Type of Program</button>  <br> 
+            <button class="linktext" id="s" type="submit" name=mortagelender id="p">By Mortage Lender</button>  <br> 
 
-             <input type="submit" class="linktext programatoz"> Program: A-Z</p> <br>
-             <input type="hidden" name="oops" hidden="hidden">
+             <!-- <input type="submit" class="linktext programatoz"> Program: A-Z</p> <br> -->
+             <!-- <input form="atozsort" type="hidden" name="oops" hidden="hidden"> -->
             </form>
-             <a class="linktext" href="#"> Program: Z-A</a> <br> 
-             <a class="linktext"href="#"> Amount: Low to High</a> <br>
+            <!-- <button id="s" type="submit" name=oopz id="p">testget</button> -->
+             <!-- <a form="atozsort" href="javascript:{}" onclick="document.getElementById('s').submit(); return false;" class="linktext programatoz" href="#"> Program: A-Z</a> <br>  -->
+             <!-- <a class="linktext" href="#"> Program: Z-A</a> <br> 
+             <a class="linktext" href="#"> Amount: Low to High</a> <br>
              <a class="linktext" href="#">By Type of Program</a> <br>
-             <a class="linktext" href="#">By Mortage Lender</a> <br>
+             <a class="linktext" href="#">By Mortage Lender</a> <br> -->
             </div>
             </div>
 
