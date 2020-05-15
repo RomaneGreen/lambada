@@ -446,6 +446,64 @@ def search(request):
         uid = request.user.id or 0
         return render(request,'listings/search.html',context)
 
+    if request.method == "POST" and "filterformbutton" in request.POST:
+        print("it issss",request.session['city'],request.POST['min'],request.POST['max'],request.POST['downpayment'])
+        keywords = request.session['city']     
+        stt = request.session['city']
+        r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
+        lat = r.json()['results'][0]["geometry"]["location"]["lat"]
+        lon = r.json()['results'][0]["geometry"]["location"]["lng"]
+        lat = str(lat)
+        lon = str(lon)
+        coordinates = (lat,lon)
+        results = rg.search(coordinates)
+        state = results[0]['admin1']
+        queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state))
+
+
+        dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+                | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
+
+        cc_list = cc_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Closing Cost").order_by('id')
+
+        fs_list = fs_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Forgivable Second").order_by('id')
+
+        others_list = others_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Others").order_by('id')
+
+        
+        ts = queryset_list.order_by('-participatinglenders')
+        amount_of_results = queryset_list.count()  
+        paginator = Paginator(ts, 9)   
+        page = request.GET.get('page')
+        paged_listings = paginator.get_page(page)
+        print("lonzg",request.session['lon'])
+        print(request.session['link'])
+        url = request.session['link']
+
+        context = {
+        
+            'dplist': dp_list,
+            'cclist': cc_list,
+            'fslist': fs_list,
+            'oplist': others_list,
+            'bedroom_choices': bedroom_choices,
+            'mapbox_access_token': mapbox_access_token,
+            'price_choices': price_choices,
+            'listings': paged_listings,
+            'my_lon': request.session['lon'],
+            'my_lat': request.session['lat'],
+            'count': amount_of_results,
+            'values': request.session['city'],
+            # 'listings': queryset_listing
+        }  
+        
+        uid = request.user.id or 0
+        return render(request,'listings/listing.html',context)
+
     if 'pri' in request.GET:
         keywords = request.GET['price']
         if keywords:
