@@ -1720,6 +1720,15 @@ svg #bookmarked{
       left: 74rem;
   }
 
+  .applybtn {
+    color: white !important;
+    border-radius: 18px;
+    font-family: poppins;
+    position: relative;
+    bottom: -3rem;
+    left: 24rem;
+}
+
   .sortbtn {
       position: absolute;
       bottom: 2.8rem;
@@ -2066,6 +2075,22 @@ content: ""; /* This is necessary for the pseudo element to work. */
       
      }
 
+     .box2 {
+        position: absolute;
+        background: #FFFFFF;
+        box-sizing: border-box;
+        
+       width: 513px;
+       height: 484px;
+        
+       z-index: 1;
+       border: 2px solid #EBEEF6;
+       left: 40rem;
+       bottom: -32.5rem;
+      
+     
+    }
+
      #boxl {
          display: none;
          z-index: 1;
@@ -2074,7 +2099,8 @@ content: ""; /* This is necessary for the pseudo element to work. */
 
      .boxcontent{
    
-      
+      display: inline;
+   
 
      }
 
@@ -2154,3 +2180,79 @@ content: ""; /* This is necessary for the pseudo element to work. */
             
           
     }
+
+#applybtn {
+    background-color: #015AEB;
+    color: red;
+    width: 101.93px;
+    height: 37.39px;
+    font-family: poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 7px;
+border: none;
+
+}
+
+#cancelbtn {
+    background-color: none;
+    color: #465175;
+    width: 101.93px;
+    height: 37.39px;
+    font-family: poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 27px;
+border: none;
+border-radius: 18px;
+}
+
+.filtbtn {
+    border: 2px solid #EBEEF6;
+    border-radius: 25px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+opacity: 0.6;
+
+}
+
+
+.rangeinput {
+    border: 2px solid #EBEEF6;
+    border-radius: 25px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+opacity: 0.6;
+width: 101px;
+height: 45px;
+}
+
+
+
+.yesnobtn {
+    border: 2px solid #EBEEF6;
+    border-radius: 25px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 21px;
+color: #465175;
+opacity: 0.6;
+width: 101px;
+height: 45px;
+}
+

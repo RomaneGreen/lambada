@@ -27,7 +27,7 @@
 <p id="closingCosts" onclick="closingCosts()" class="closingcosts">Closing Costs</p>
 <p id="forgivableSecond"onclick="forgivableSecond()" class="forgivablesecond">Forgivable Second</p>
 <p id="others" onclick="others()" class="others">Others</p>
-<input class="filterbtn" type="submit" value="Filter" id="signin" class=""> 
+<input onclick="toggleSortt()"  class="filterbtn" type="submit" value="Filter" id="signin" class=""> 
 
  {% if user.is_authenticated %}
   <form action="{% url 'search' %}" method="POST">
@@ -274,7 +274,7 @@ function initialize() {
             {% endfor %}
          {% else %}
           <div class="col-md-12">
-            <p>No Programs available</p>
+            <p>No Programs Available</p>
             </div>
 
          {% endif %}
@@ -341,6 +341,13 @@ function initialize() {
 </html>
 
 <script>
+
+ 
+    document.getElementById('signin').addEventListener('click',function() {
+      alert("hi");
+
+    })
+  
 
     function setDisplay(id,addValue,removeValue,underline) {
 
