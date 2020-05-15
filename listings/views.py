@@ -448,6 +448,9 @@ def search(request):
 
     if request.method == "POST" and "filterformbutton" in request.POST:
         print("it issss",request.session['city'],request.POST['min'],request.POST['max'],request.POST['downpayment'])
+        amountmin = request.POST['min']
+        amountmax = request.POST['max']
+        programtype = request.POST['downpayment']
         keywords = request.session['city']     
         stt = request.session['city']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
@@ -460,7 +463,8 @@ def search(request):
         state = results[0]['admin1']
         queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
         | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state))
-
+        
+        queryset_list = queryset_list.filter(Q(programtype__iexact=programtype) & Q(amountofassistance__lte=amountmax) & Q(amountofassistance__gte=amountmin))
 
         dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
                 | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
@@ -502,7 +506,7 @@ def search(request):
         }  
         
         uid = request.user.id or 0
-        return render(request,'listings/listing.html',context)
+        return render(request,'listings/search.html',context)
 
     if 'pri' in request.GET:
         keywords = request.GET['price']

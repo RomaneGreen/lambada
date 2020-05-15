@@ -2084,7 +2084,7 @@ content: ""; /* This is necessary for the pseudo element to work. */
         position: absolute;
         background: #FFFFFF;
         box-sizing: border-box;
-        
+        display: none;
        width: 513px;
        height: 484px;
         
