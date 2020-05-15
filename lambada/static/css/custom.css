@@ -1419,7 +1419,7 @@ visibility: hidden;
 #printbtnsearch {
 position: relative;
 left: 58.8rem;
-top: 99px;
+top: 146px;
 font-family: poppins;
 font-style: normal;
 font-weight: normal;
@@ -1716,8 +1716,8 @@ svg #bookmarked{
       border-radius: 18px;
       font-family: poppins;
       position: relative;
-      bottom: -3rem;
-      left: 74rem;
+      bottom: -5.9rem;
+      left: 71.5rem;
   }
 
   .applybtn {
@@ -2085,8 +2085,8 @@ content: ""; /* This is necessary for the pseudo element to work. */
         
        z-index: 1;
        border: 2px solid #EBEEF6;
-       left: 40rem;
-       bottom: -32.5rem;
+       left: 50rem;
+       bottom: -27.5rem;
       
      
     }
@@ -2192,6 +2192,10 @@ font-weight: 500;
 font-size: 18px;
 line-height: 7px;
 border: none;
+height: 50;
+line-height: 19px;
+vertical-align: middle;
+padding-bottom: 1rem;
 
 }
 
