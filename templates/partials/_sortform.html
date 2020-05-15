@@ -41,21 +41,30 @@
 
             <div id="box2" class="box2">
                     <div class="boxcontent">
-                        <form id="atozsort" action="{% url 'search' %}" method="POST" >
+                        <form id="filterform" action="{% url 'search' %}" method="POST" >
                                {% csrf_token %}
                   <button class="linktext" id="s" type="submit" name=oopz id="p">Type Of Program</button> </a> <br>
+                  <input type="hidden" id="ptype"  name="Downpayment" value="Downpayment">
                   <button onclick="highlight(this)" type="button" class="filtbtn">Down Payment</button>     <button onclick="highlight(this)" type="button" class="filtbtn">Closing Cost</button>    <button onclick="highlight(this)" type="button" class="filtbtn">Forgivable Second</button>  <br>  <br>
                    <!-- <button class="filtbtn">Others</button> <br> -->
 
-
+                        <!-- price range -->
                    <button class="linktext" id="s" type="submit" name=ztoa id="p">Price Limitation</button>   <br><br> 
- &nbsp; &nbsp; &nbsp; &nbsp;  <input type="text" placeholder="        Min" class="rangeinput">  -   <input type="text" placeholder="        Max"  class="rangeinput"> <br>
-
+                   <input id="priceMin" type="hidden" name="pricemin" value="0">
+                   <input   id="priceMax" type="hidden" name="pricemax" value="0">
+ &nbsp; &nbsp; &nbsp; &nbsp;  <input type="text" id="min" name="min" placeholder="Min" class="rangeinput myInputPrice" value="hiii" required>  -   <input type="text" id="max" name="max" placeholder="Max"  class="rangeinput myInputPrice" required> <br>
+                    
+                            <!-- veteran -->
                   <button class="linktext" id="s" type="submit" name=lowtohigh id="p">Veteran</button>  <br> 
+                  <input id="veteran" type="hidden" name="veteran" value="Yes">
                    <button type="button" id="isveteran" class="yesnobtn">Yes</button>     <button type="button" id="isntveteran" class="yesnobtn">No</button> <br> <br>
+                     
+                   <!-- homebuyer -->
                    <button class="linktext" id="s" type="submit" name=typeofprogram id="p">First Time Home Buyer</button><br>
+                   <input id="firsttime" name="firstbuyer" type="hidden" name="firsttimebuyer" value="Yes">
                    <button type="button" id="ishomebuyer" class="yesnobtn">Yes</button>     <button type="button" id="isnthomebuyer" class="yesnobtn">No</button> <br>  <br> 
-                   <button  class="applybtn" id="applybtn" type="submit" name=typeofprogram >Apply</button>  
+
+                   <button form="filterform"  class="applybtn" id="applybtn" type="submit" name=typeofprogram >Apply</button>  
                    <button type="button" onclick="closebox()" class="linktext" id="cancelbtn" type="submit" name=typeofprogram >Cancel</button>  
 
                    <!-- <button class="linktext" id="s" type="submit" name=mortagelender id="p">By Mortage Lender</button>   -->
@@ -122,36 +131,47 @@
     }
 
 document.getElementById("isveteran").addEventListener("click", function() {
-    
+    document.getElementById('veteran').value="Yes";
     document.getElementById('isveteran').style.border=".5px solid black";
     document.getElementById('isntveteran').style.border="2px solid #EBEEF6";
     
     });
 
     document.getElementById("isntveteran").addEventListener("click", function() {
-    
+    document.getElementById('veteran').value="No";
     document.getElementById('isntveteran').style.border=".5px solid black";
     document.getElementById('isveteran').style.border="2px solid #EBEEF6";
     
     });
 
     document.getElementById("ishomebuyer").addEventListener("click", function() {
-    
+        document.getElementById('firsttime').value="Yes";
     document.getElementById('ishomebuyer').style.border=".5px solid black";
     document.getElementById('isnthomebuyer').style.border="2px solid #EBEEF6";
     
     });
 
     document.getElementById("isnthomebuyer").addEventListener("click", function() {
-    
+        document.getElementById('firsttime').value="No";
     document.getElementById('isnthomebuyer').style.border=".5px solid black";
     document.getElementById('ishomebuyer').style.border="2px solid #EBEEF6";
     
     });
 
+    var priceminimum = document.getElementById('min').value
+    document.getElementById('priceMin').value=priceminimum;
+
+
+
+
+
+
+
+
 
 
     var buttonClicked = null;
+
 
     function highlight(element) {
         if (buttonClicked != null) {
@@ -159,9 +179,23 @@ document.getElementById("isveteran").addEventListener("click", function() {
             buttonClicked.style.border="2px solid #EBEEF6";
         }
         buttonClicked = element;
+        document.getElementById('ptype').value=element.innerHTML;
         //buttonClicked.style.background = "red";
         buttonClicked.style.border=".5px solid black";
     }
 
+
+    var pricebuttonClicked = null;
+
+    function pricehighlight(element) {
+        if (pricebuttonClicked != null) {
+           // buttonClicked.style.background = "grey";
+            pricebuttonClicked.style.border="2px solid #EBEEF6";
+        }
+        pricebuttonClicked = element;
+        document.getElementById('priceMax').value="90000";
+        //buttonClicked.style.background = "red";
+        buttonClicked.style.border=".5px solid black";
+    }
     
    </script>
