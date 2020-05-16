@@ -91,8 +91,8 @@ def search(request):
       if keywords:
         queryset_list = queryset_list.filter(description__icontains=keywords)
         
-    if 'city' in request.GET:
-        keywords = request.GET['city']
+    if 'location' in request.GET:
+        keywords = request.GET['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         lat = r.json()['results'][0]["geometry"]["location"]["lat"] 
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -118,7 +118,7 @@ def search(request):
         lon = str(lon)
         request.session['lat'] = lat
         request.session['lon'] = lon
-        request.session['city'] = keywords
+        request.session['location'] = keywords
         coordinates = (lat,lon)
         results = rg.search(coordinates)
         print(results[0]['admin1'])
@@ -164,10 +164,10 @@ def search(request):
         length = queryset_list.count()
     if request.method == "POST" and "savesearch" in request.POST:
         link = request.get_full_path()
-        searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
-        has_visited = Searchsave.objects.all().filter(phrase=request.session['city'],user_id=request.user.id)
+        searchsaved = Searchsave(phrase=request.session['location'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
+        has_visited = Searchsave.objects.all().filter(phrase=request.session['location'],user_id=request.user.id)
         if has_visited:
-              wishlist = Searchsave.objects.filter(phrase=request.session['city'],user_id=request.user.id)
+              wishlist = Searchsave.objects.filter(phrase=request.session['location'],user_id=request.user.id)
               wishlist.delete()
         searchsaved.save()
         return redirect(request.session['link'])
@@ -177,9 +177,9 @@ def search(request):
             queryset_list = queryset_list.filter(state__iexact=keywords)  
     
     if request.method == "POST" and "oopz" in request.POST:
-        print("it issss",request.session['city'])
-        keywords = request.session['city']     
-        stt = request.session['city']
+        print("it issss",request.session['location'])
+        keywords = request.session['location']     
+        stt = request.session['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         lat = r.json()['results'][0]["geometry"]["location"]["lat"]
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -226,16 +226,16 @@ def search(request):
             'my_lon': request.session['lon'],
             'my_lat': request.session['lat'],
             'count': amount_of_results,
-            'values': request.session['city'],
+            'values': request.session['location'],
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
         return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "ztoa" in request.POST:
-        print("it issss",request.session['city'])
-        keywords = request.session['city']     
-        stt = request.session['city']
+        print("it issss",request.session['location'])
+        keywords = request.session['location']     
+        stt = request.session['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         lat = r.json()['results'][0]["geometry"]["location"]["lat"]
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -282,16 +282,16 @@ def search(request):
             'my_lon': request.session['lon'],
             'my_lat': request.session['lat'],
             'count': amount_of_results,
-            'values': request.session['city'],
+            'values': request.session['location'],
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
         return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "lowtohigh" in request.POST:
-        print("it issss",request.session['city'])
-        keywords = request.session['city']     
-        stt = request.session['city']
+        print("it issss",request.session['location'])
+        keywords = request.session['location']     
+        stt = request.session['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         lat = r.json()['results'][0]["geometry"]["location"]["lat"]
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -339,16 +339,16 @@ def search(request):
             'my_lon': request.session['lon'],
             'my_lat': request.session['lat'],
             'count': amount_of_results,
-            'values': request.session['city'],
+            'values': request.session['location'],
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
         return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "typeofprogram" in request.POST:
-        print("it issss",request.session['city'])
-        keywords = request.session['city']     
-        stt = request.session['city']
+        print("it issss",request.session['location'])
+        keywords = request.session['location']     
+        stt = request.session['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         lat = r.json()['results'][0]["geometry"]["location"]["lat"]
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -396,15 +396,15 @@ def search(request):
             'my_lon': request.session['lon'],
             'my_lat': request.session['lat'],
             'count': amount_of_results,
-            'values': request.session['city'],
+            'values': request.session['location'],
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
         return render(request,'programs/search.html',context)
     if request.method == "POST" and "mortagelender" in request.POST:
-        print("it issss",request.session['city'])
-        keywords = request.session['city']     
-        stt = request.session['city']
+        print("it issss",request.session['location'])
+        keywords = request.session['location']     
+        stt = request.session['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         lat = r.json()['results'][0]["geometry"]["location"]["lat"]
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -452,20 +452,20 @@ def search(request):
             'my_lon': request.session['lon'],
             'my_lat': request.session['lat'],
             'count': amount_of_results,
-            'values': request.session['city'],
+            'values': request.session['location'],
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
         return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "filterformbutton" in request.POST:
-        print("it issss",request.session['city'],int(request.POST['min']),int(request.POST['max']),request.POST['downpayment'])
+        print("it issss",request.session['location'],int(request.POST['min']),int(request.POST['max']),request.POST['downpayment'])
         amountmin = int(request.POST['min'])
         amountmax = int(request.POST['max'])
         print(amountmax,amountmin)
         programtype = request.POST['downpayment']
-        keywords = request.session['city']     
-        stt = request.session['city']
+        keywords = request.session['location']     
+        stt = request.session['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         lat = r.json()['results'][0]["geometry"]["location"]["lat"]
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -515,7 +515,7 @@ def search(request):
             'my_lon': request.session['lon'],
             'my_lat': request.session['lat'],
             'count': amount_of_results,
-            'values': request.session['city'],
+            'values': request.session['location'],
             # 'listings': queryset_listing
         }  
         
@@ -550,11 +550,11 @@ def search(request):
         'my_lon': request.session['lon'],
         'my_lat': request.session['lat'],
         'count': amount_of_results,
-        'values': request.session['city'],
+        'values': request.session['location'],
         # 'listings': queryset_listing
     }  
     uid = request.user.id or 0
-    searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id or 0)
+    searchsaved = Searchsave(phrase=request.session['location'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id or 0)
     searchsaved.save()
     return render(request,'programs/search.html',context)
   except:
