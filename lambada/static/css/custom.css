@@ -610,7 +610,7 @@ color: #465175;
 
 
  #indexbody {
-    
+    padding-left: 10px;
  }
 
 
@@ -619,8 +619,10 @@ color: #465175;
     font-family: poppins;
 font-style: normal;
 font-weight: 600;
-font-size: 16px;
+font-size: 14px;
 line-height: 24px;
+
+
  }
 
 
@@ -2264,4 +2266,20 @@ opacity: 0.6;
 width: 101px;
 height: 45px;
 }
+
+.programname {
+    padding-left: 11px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 

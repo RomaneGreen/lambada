@@ -6,7 +6,7 @@ from .models import Listing
 from .models import Searchsave
 from listings.choices import price_choices,bedroom_choices,state_choices
 from django.db.models import Q
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.core.paginator import EmptyPage, PageNotAnInteger,Paginator
 import requests
 from django.contrib import messages
 import reverse_geocoder as rg
@@ -42,7 +42,7 @@ def index(request):
       
    amount_of_results = listings.count()
 
-   paginator = Paginator(listings, 6)
+   paginator = Paginator(listings, 148)
    page = request.GET.get('page')
    paged_listings = paginator.get_page(page)
 
@@ -56,7 +56,7 @@ def index(request):
 
  
    #print('wow',your_lat,your_lon,r.json())
-   return render(request,'listings/listings.html',context)
+   return render(request,'programs/listings.html',context)
 
 
 
@@ -67,12 +67,12 @@ def listing(request, listing_id):
       'listing': listing,
     
   }
-  return render(request,'listings/listing.html',context)
+  return render(request,'programs/listing.html',context)
 
 
 
 def search(request):
-    
+  try:  
     queryset_list = Listing.objects.order_by('id')
     dp_list = Listing.objects.filter(programtype="Down Payment").order_by('id')
     cc_list = Listing.objects.filter(programtype="Closing Cost").order_by('id')
@@ -93,11 +93,27 @@ def search(request):
         
     if 'city' in request.GET:
         keywords = request.GET['city']
-        #print('kword',keywords)
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
-        #print("ONE",r.json()['results'][0]["geometry"]["location"]["lat"],"TWO:",r.json()['results'][0]["geometry"]["location"]["lng"])
-        lat = r.json()['results'][0]["geometry"]["location"]["lat"]
+        lat = r.json()['results'][0]["geometry"]["location"]["lat"] 
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
+        # try:
+        #  lat = r.json()['results'][0]["geometry"]["location"]["lat"] 
+        #  lon = r.json()['results'][0]["geometry"]["location"]["lng"]
+        #  lat = str(lat)
+        #  lon = str(lon)
+        #  request.session['lat'] = lat
+        #  request.session['lon'] = lon
+        #  coordinates = (lat,lon)
+        #  results = rg.search(coordinates)
+        #  print(results[0]['admin1'])
+        #  print(results[0]['admin2'])
+        #  state = results[0]['admin1']
+        #  request.session['spate'] = state
+        #  county = results[0]['admin2']
+        #  print(county,state,keywords)
+        # except IndexError:
+        #  pass
+        #  spate = request.session['spate']
         lat = str(lat)
         lon = str(lon)
         request.session['lat'] = lat
@@ -111,18 +127,14 @@ def search(request):
         request.session['spate'] = state
         county = results[0]['admin2']
         print(county,state,keywords)
-        # state = r2.json()['results'][0]['address_components'][3]['long_name']
-        # state_abbrev = r2.json()['results'][0]['address_components'][3]['short_name']
-        # county = r2.json()['results'][0]['address_components'][2]['long_name']
-        # zip = r2.json()['results'][0]['address_components'][5]['long_name']
-        #print(r2.json())
         search_term = keywords
         user_id = request.GET['user_id'] 
-        #print(user_id,"uuidxxxx")
+        
         link = request.get_full_path()
         request.session['link'] = link
-        # page = request.GET.get('page')
-        # paged_listings = paginator.get_page(page)
+        paginator = Paginator(queryset_list, 148)   
+        page = request.GET.get('page')
+        paged_listings = paginator.get_page(page)
 
         print('request',link,)
         if request.user.is_authenticated:
@@ -194,7 +206,7 @@ def search(request):
         
         ts = queryset_list.order_by('programname')
         amount_of_results = queryset_list.count()  
-        paginator = Paginator(ts, 9)   
+        paginator = Paginator(ts, 148)   
         page = request.GET.get('page')
         paged_listings = paginator.get_page(page)
         print("lonzg",request.session['lon'])
@@ -218,7 +230,7 @@ def search(request):
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
-        return render(request,'listings/search.html',context)
+        return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "ztoa" in request.POST:
         print("it issss",request.session['city'])
@@ -250,7 +262,7 @@ def search(request):
         
         ts = queryset_list.order_by('-programname')
         amount_of_results = queryset_list.count()  
-        paginator = Paginator(ts, 9)   
+        paginator = Paginator(ts, 148)   
         page = request.GET.get('page')
         paged_listings = paginator.get_page(page)
         print("lonzg",request.session['lon'])
@@ -274,7 +286,7 @@ def search(request):
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
-        return render(request,'listings/search.html',context)
+        return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "lowtohigh" in request.POST:
         print("it issss",request.session['city'])
@@ -307,7 +319,7 @@ def search(request):
         
         ts = queryset_list.order_by('amountofassistance')
         amount_of_results = queryset_list.count()  
-        paginator = Paginator(ts, 9)   
+        paginator = Paginator(ts, 148)   
         page = request.GET.get('page')
         paged_listings = paginator.get_page(page)
         print("lonzg",request.session['lon'])
@@ -331,7 +343,7 @@ def search(request):
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
-        return render(request,'listings/search.html',context)
+        return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "typeofprogram" in request.POST:
         print("it issss",request.session['city'])
@@ -364,7 +376,7 @@ def search(request):
         
         ts = queryset_list.order_by('programtype')
         amount_of_results = queryset_list.count()  
-        paginator = Paginator(ts, 9)   
+        paginator = Paginator(ts, 148)   
         page = request.GET.get('page')
         paged_listings = paginator.get_page(page)
         print("lonzg",request.session['lon'])
@@ -388,7 +400,7 @@ def search(request):
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
-        return render(request,'listings/search.html',context)
+        return render(request,'programs/search.html',context)
     if request.method == "POST" and "mortagelender" in request.POST:
         print("it issss",request.session['city'])
         keywords = request.session['city']     
@@ -420,7 +432,7 @@ def search(request):
         
         ts = queryset_list.order_by('-participatinglenders')
         amount_of_results = queryset_list.count()  
-        paginator = Paginator(ts, 9)   
+        paginator = Paginator(ts, 148)   
         page = request.GET.get('page')
         paged_listings = paginator.get_page(page)
         print("lonzg",request.session['lon'])
@@ -444,12 +456,13 @@ def search(request):
             # 'listings': queryset_listing
         }  
         uid = request.user.id or 0
-        return render(request,'listings/search.html',context)
+        return render(request,'programs/search.html',context)
 
     if request.method == "POST" and "filterformbutton" in request.POST:
-        print("it issss",request.session['city'],request.POST['min'],request.POST['max'],request.POST['downpayment'])
-        amountmin = request.POST['min']
-        amountmax = request.POST['max']
+        print("it issss",request.session['city'],int(request.POST['min']),int(request.POST['max']),request.POST['downpayment'])
+        amountmin = int(request.POST['min'])
+        amountmax = int(request.POST['max'])
+        print(amountmax,amountmin)
         programtype = request.POST['downpayment']
         keywords = request.session['city']     
         stt = request.session['city']
@@ -464,7 +477,8 @@ def search(request):
         queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
         | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state))
         
-        queryset_list = queryset_list.filter(Q(programtype__iexact=programtype) & Q(amountofassistance__lte=amountmax) & Q(amountofassistance__gte=amountmin))
+        # queryset_list = queryset_list.filter(Q(programtype__iexact=programtype) & Q(amountofassistance__lte=amountmax) & Q(amountofassistance__gte=amountmin))
+        queryset_list = queryset_list.filter(Q(programtype__iexact=programtype) & Q(amountofassistance__lte=10000)) 
 
         dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
                 | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
@@ -481,7 +495,7 @@ def search(request):
         
         ts = queryset_list.order_by('-participatinglenders')
         amount_of_results = queryset_list.count()  
-        paginator = Paginator(ts, 9)   
+        paginator = Paginator(ts, 148)   
         page = request.GET.get('page')
         paged_listings = paginator.get_page(page)
         print("lonzg",request.session['lon'])
@@ -506,7 +520,7 @@ def search(request):
         }  
         
         uid = request.user.id or 0
-        return render(request,'listings/search.html',context)
+        return render(request,'programs/search.html',context)
 
     if 'pri' in request.GET:
         keywords = request.GET['price']
@@ -516,7 +530,7 @@ def search(request):
     #request.session['lon'] = lon
     # ts = queryset_list.order_by('-programname')
     amount_of_results = queryset_list.count()  
-    paginator = Paginator(queryset_list, 9)   
+    paginator = Paginator(queryset_list, 148)   
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     print("lonzg",request.session['lon'])
@@ -542,4 +556,6 @@ def search(request):
     uid = request.user.id or 0
     searchsaved = Searchsave(phrase=request.session['city'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id or 0)
     searchsaved.save()
-    return render(request,'listings/search.html',context)
+    return render(request,'programs/search.html',context)
+  except:
+    return render(request,'programs/notfound.html')

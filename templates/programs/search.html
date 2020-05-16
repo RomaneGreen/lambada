@@ -1,0 +1,533 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | search results {% endblock %}
+
+{% block content %}
+
+<div id="searchpage" style="overflow-x: hidden;">
+<div id ="searchboarder"></div>
+
+<br>
+<h3 style="text-align:left;margin:0 auto;margin-bottom:2rem;" id="listingsbody"> There are <span id="listingcount">{{count}} program{{ count |pluralize:"s"}} </span> available based on your search<br>
+"{{values}}"
+</h3>
+<br> 
+<div id='map' style='width: 568px; height: 350px;margin: 0 auto;position:relative;top:3rem;margin-left:9.6rem;'></div>
+
+<p id="printbtnsearch" onclick="window.print()">Print</p>
+
+
+<!-- <p  class="sortbtn sortdropbtn">Sort by <strong>Amount</strong></p> -->
+{% include 'partials/_sortform.html' %}
+
+<p id="allPrograms" onclick="allPrograms()" class="allprograms">All Programs</p>
+<p id="downPayment" onclick="downPayment()" class="downpayment">Down Payment</p>
+<p id="closingCosts" onclick="closingCosts()" class="closingcosts">Closing Costs</p>
+<p id="forgivableSecond"onclick="forgivableSecond()" class="forgivablesecond">Forgivable Second</p>
+<p id="others" onclick="others()" class="others">Others</p>
+<input onclick="toggleSortt()"  class="filterbtn" type="submit" value="Filter" id="signin" class=""> 
+
+ {% if user.is_authenticated %}
+  <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+<button id="savesearchbtn" name="savesearch" type="submit" id="printbtn">Save Search</button> <br><br>
+</form>
+{% else %}
+<button style="visibility:hidden;" id="savesearchbtn" type="submit" id="printbtn">Save Search</button> <br><br><br>
+{% endif %}
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&callback=initialize">
+</script>
+
+  <div id="mapgoogle"></div>
+<div id="pano"></div>
+
+
+
+
+<script>
+
+function myFunction() {
+
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+   console.log("NOT SUPPORTED")
+  }
+}
+
+function showPosition(position) {
+
+  let lat = position.coords.latitude 
+  let lon = position.coords.longitude
+  console.log("COORDINATES",lat,lon);
+
+}
+
+
+mapboxgl.accessToken = '{{mapbox_access_token}}';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: ['{{my_lon}}','{{my_lat}}'],
+zoom: 13
+});
+
+var marker = new mapboxgl.Marker()
+.setLngLat(['{{my_lon}}', '{{my_lat}}'])
+.addTo(map);
+ 
+
+//console.log({{my_lon}}, {{my_lat}})
+
+let dog = {{my_lon}};
+let cat = {{my_lat}};
+
+
+/*function initialize() {
+
+  var fenway = { lat:dog, lng: cat };
+  var mapgoogle = new google.maps.Map(document.getElementById('mapgoogle'), {
+    center: fenway,
+    zoom: 14
+  });
+  var panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('pano'), {
+        position: fenway,
+        pov: {
+          heading: 34,
+          pitch: 10
+        }
+      });
+  mapgoogle.setStreetView(panorama);
+} */
+
+
+var panorama;
+function initialize() {
+  panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('mapgoogle'),
+      {
+        position: {lat: cat, lng: dog},
+        pov: {heading: 165, pitch: 0},
+        zoom: 1
+      });
+}
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<!-- <br> -->
+<!-- <h3 id="listingsbody"> There are <span id="listingcount">{{count}} program{{ count |pluralize:"s"}} </span> available based on your search
+{{values.city}}
+</h3> -->
+  <!-- <section id="showcase-inner" class="showcase-search text-white py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <form action="{% url 'search' %}"> -->
+                <!-- value="{{values.city }}" -->
+            <!-- Form Row 1 -->
+                  <!-- Form Row 1 -->   
+                  <!-- <div class="form-row">
+
+                        <div class="col-md-4 mb-3">
+                                <label class="sr-only">City</label>
+                                <input type="text" name="city" class="form-control" placeholder="City" value="{{values.city }}">
+                              </div>
+            
+                    <div class="col-md-4 mb-3">
+                      <label class="sr-only">State</label>
+                      <select name="state" class="form-control">
+                          <option selected="true" disabled="disabled">State (All)</option>
+                          {% for key,value in state_choices.items %}
+                          <option value="{{key}}"
+                              {% if key == values.state %}
+                              selected 
+                              {% endif %} >{{ value }}
+                          </option>
+                          {% endfor %}
+                        </select>
+                         
+                    </div> -->
+                   
+                                <!-- <div class="col-md-4 mb-3">
+                                  <label class="sr-only">Zipcode</label>
+                                  <input type="text" name="keywords" class="form-control" placeholder="Zipcode (.....)" value="{{values.keywords }}">
+                                </div>
+                  </div> -->
+                  <!-- Form Row 2 -->
+                  <!-- <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label class="sr-only">Type of Program</label>
+                      <select name="bedrooms" class="form-control">
+                        <option selected="true" disabled="disabled">Program Type (All)</option>
+                        {% for key,value in bedroom_choices.items %}
+                        <option value="{{key}}" 
+                        {% if key == values.bedrooms %}
+                        selected 
+                        {% endif %} 
+                        >{{ value }} </option>
+                        {% endfor %}
+                      </select>
+                    </div> -->
+                    <!-- <div class="col-md-6 mb-3">
+                      <select name="price" class="form-control" id="type">
+                        <option selected="true" disabled="disabled">Amount (Any)</option>
+                        {% for key,value in price_choices.items %}
+                        <option value="{{key}}"
+                                {% if key == values.price %}
+                                selected 
+                                {% endif %} >{{ value }}
+                        </option> 
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <button class="btn btn-secondary btn-block mt-4 submitform" type="submit">Submit form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Breadcrumb -->
+  <!-- <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="listings.html">Browse Listings</a>
+          </li>
+          <li class="breadcrumb-item active"> Search Results</li>
+        </ol>
+      </nav>
+    </div>
+  </section> -->
+
+  <!-- Listings -->
+
+  <section id="listings" class="py-4">
+    <div id="downpayments" class="downpaymentprograms container"> {% include 'partials/_downpayment.html' %}   </div>
+    <div id="closingprograms" class="closingprograms container">  {% include 'partials/_closingcost.html' %}  </div>
+    <div id="forgivableprograms" class="forgivableprograms container"> {% include 'partials/_forgivablesecond.html' %}  </div>
+    <div id="otherprograms" class="otherprograms container"> {% include 'partials/_otherprograms.html' %} </div>
+    <div id="alllistings" class="alllistings container ">
+      <div class="row">
+
+            {% if listings %}
+            {% for listing in listings %}
+          
+             <div id="allowlocationbody" class="col-md-6 col-lg-4 mb-4" style="">
+                <div class="card listing-preview">
+                  <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                  <div class="card-img-overlay rounded">
+                    <h2>
+                    </h2>
+                  </div>
+              <a  href="{% url 'listing' listing.id %}" class="stretched-link"> 
+                  <div class="card-body">
+                   <i class="far fa-lg fa-bookmark"></i>
+                    <div class=" text-left">
+                      <h5 class="programname">    {{ listing.programname }}</h4>
+                          <p>
+                    </div>
+                    <div class="row py-0 text-secondary">
+                      <div class="col-12 text-left">
+                          <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
+                             <p>  &nbsp;&nbsp;&nbsp; {{listing.programoriginator |truncatewords:4 }}</p> </div>
+                      <div class="col-6">
+                        <h6 class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
+                             <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
+                    </div>
+                    <div class="row py-0 text-secondary">
+                          <div class="col-6">
+                             <h6 class="text-left">  &nbsp;&nbsp; Mortgage Lenders</h6>
+                            <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div> 
+                             </div>
+                  <div class="row text-secondary pb-2">
+                          <div class="col-6">
+                            </div>
+                        </div>
+
+                      </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+         {% else %}
+          <div class="col-md-12">
+            <p>No Programs Available</p>
+            </div>
+
+         {% endif %}
+        </div>
+
+
+
+ <div class="row">
+            <div class="col-md-12">
+              {% if listings.has_other_pages %}
+              <ul class="pagination">
+                  {% if listings.has_previous %}
+                  <li class="page-item"> <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo;
+                  </a>
+                  </li>
+                  {% else %}
+                  <li class="page-item disabled">
+                        <a class="page-link">&laquo;</a>
+                  </li>
+                {% endif %}
+                {% for i in listings.paginator.page_range %}
+                {% if listings.number == i %}
+                  <li class="page-item active">
+                    <a class="page-link">{{i}}</a>
+                  </li>
+                  {% else %}
+                  <li class="page-item">
+                      <a href="?page={{i}}" class="page-link">{{i}}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                {% if listings.has_next %}
+                <li class="page-item"> <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;
+                </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                      <a class="page-link">&raquo;</a>
+                </li>
+              {% endif %}
+              </ul>
+              {% endif %}
+            </div>
+            
+          </div>
+    </div>
+  </section>
+</div>
+
+
+
+  <!-- Footer -->
+  <!-- <footer id="main-footer" class="py-4 bg-primary text-white text-center">
+    Copyright &copy;
+    <span class="year"></span> Lambada
+  </footer> -->
+
+  <!-- <script src="assets/js/jquery-3.3.1.min.js "></script>
+  <script src="assets/js/bootstrap.bundle.min.js "></script>
+  <script src="assets/js/lightbox.min.js"></script>
+  <script src="assets/js/main.js "></script> -->
+</body>
+
+</html>
+
+<script>
+
+ 
+    document.getElementById('signin').addEventListener('click',function() {
+      
+
+    })
+  
+
+    function setDisplay(id,addValue,removeValue,underline) {
+
+      var x = document.getElementById(id);
+        x.classList.add(addValue);
+        x.classList.add(underline);
+        x.classList.remove(removeValue);
+    }
+
+    function unsetDisplay(id,addValue,underline,originalValue) {
+
+      var x = document.getElementById(id);
+        x.classList.remove(addValue);
+        x.classList.remove(underline);
+        x.classList.add(originalValue);
+    }
+
+
+    
+    function allPrograms() {
+      setDisplay("allPrograms","selectedall","allprograms","selected")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("others","selectedothers","selected","others")
+
+      document.getElementById('alllistings').style.display="block";
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
+     
+    }
+    function closingCosts() {
+  
+      setDisplay("closingCosts","selectedcosts","closingcosts","selected")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("others","selectedothers","selected","others")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+
+      document.getElementById('closingprograms').style.display="block";
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
+     
+    }
+
+    function downPayment() {
+      setDisplay("downPayment","selecteddownpayment","downpayment","selected")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("others","selectedothers","selected","others")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+      
+      document.getElementById('downpayments').style.display="block";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
+    
+    }
+
+    function forgivableSecond() {
+      setDisplay("forgivableSecond","selectedforgivable","forgivablesecond","selected")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("others","selectedothers","selected","others")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+
+      document.getElementById('forgivableprograms').style.display="block";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
+      document.getElementById('otherprograms').style.display="none";
+      
+    }
+
+    function others() {
+      setDisplay("others","selectedothers","others","selected")
+      unsetDisplay("forgivableSecond","selectedforgivable","selected","forgivablesecond")
+      unsetDisplay("closingCosts","selectedcosts","selected","closingcosts")
+      unsetDisplay("allPrograms","allprograms","selectedall","allprogramsunselect")
+      unsetDisplay("downPayment","selecteddownpayment","selected","downpayment")
+
+      document.getElementById('otherprograms').style.display="block";     
+      document.getElementById('forgivableprograms').style.display="none";
+      document.getElementById('downpayments').style.display="none";
+      document.getElementById('alllistings').style.display="none";
+      document.getElementById('closingprograms').style.display="none";
+     
+    }
+
+    
+</script>
+
+<script>
+
+    var token = '{{csrf_token}}';
+
+
+    $('#spec').click(function(){
+    
+    
+      alert("hi");
+
+      $.ajax(
+        {
+            type:"POST",
+            url: "{% url 'search' %}",
+            data:{   headers: { "X-CSRFToken": token },
+         //            listing_id: catid,
+              //       user_id: userid,
+          //           name: 'default',
+              //       email: 'default@aol.com',
+               //      phone: userid+userid+userid,
+                //     listing: "defaulting",
+                //     message: "no message needed today",
+                //     lender_email: "noemail@aol.com",
+                     dataType: "json",
+                     csrfmiddlewaretoken: '{{ csrf_token }}',
+                     
+            },
+            success: function( data ) 
+            {
+               alert("Good job")
+            }
+         })
+
+
+        event.preventDefault();
+        console.log("form submitted!") 
+
+    })
+
+
+
+
+
+    var tokens = '{{csrf_token}}';
+
+
+    $('#atosort').on('submit',function(event){
+    
+   
+      alert("byhi");
+
+      $.ajax(
+        {
+            type:"POST",
+            url: "{% url 'search' %}",
+            data:{   headers: { "X-CSRFToken": tokens },
+         //            listing_id: catid,
+              //       user_id: userid,
+          //           name: 'default',
+              //       email: 'default@aol.com',
+               //      phone: userid+userid+userid,
+                //     listing: "defaulting",
+                //     message: "no message needed today",
+                //     lender_email: "noemail@aol.com",
+             //        dataType: "json",
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                     
+            },
+            success: function( data ) 
+           {
+              alert("Good rob")
+            }
+         
+        
+            })
+        event.preventDefault();
+        console.log("form nsubmitted!") 
+
+    })
+
+
+  
+
+
+</script>
+{% endblock %}
