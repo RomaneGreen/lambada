@@ -62,24 +62,26 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
                     <!-- <i data-toggle="tooltip" data-placement="top" title="𝙻̲𝚘̲𝚐̲𝚒̲𝚗̲ or 𝚂̲𝚒̲𝚐̲𝚗̲ 𝚄̲𝚙̲ to save" class="far fa-lg fa-bookmark"></i> -->
                          {% endif %}
                         <div class=" text-left"> 
-                        
+                        <br>
                           <h5 class="programname">    {{ listing.programname }}</h4>
                           <p>
                         </div>
                         <div class="row py-0 text-secondary">
                           <div class="col-12 text-left">
                                    <h6>  &nbsp;&nbsp;&nbsp; Type of program</h6>
-                             <p>  &nbsp;&nbsp;&nbsp; {{listing.programoriginator}}</p> </div>
+                             <p class="ptypetext">  &nbsp;&nbsp;&nbsp; {{listing.programoriginator}}</p> </div>
                           <div class="col-6">
+                            <div class="indexamount">
                              <h6 class="text-left"> &nbsp;&nbsp;&nbsp; Amount</h6>
-                             <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div>
+                             <p class="text-left">  &nbsp;&nbsp;&nbsp; {{listing.amountofassistance | intcomma}}</p></div></div>
                         </div>
                         <div class="row py-2 text-secondary">
                           <div class="col-6">
+                            <div class="mglender">
                              <h6 style="" class="text-left">  &nbsp;&nbsp; Mortgage Lenders</h6>
-                            <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div>                       
+                            <p class="text-left" >  &nbsp;&nbsp;&nbsp; {{listing.programcontact}} </p></div></div>                       
                         </div>
-                      
+                       
                         <div class="row text-secondary pb-2">
                           <div class="col-6">
                             </div>
