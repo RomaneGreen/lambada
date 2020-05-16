@@ -480,19 +480,19 @@ def search(request):
         | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state))
         
         # queryset_list = queryset_list.filter(Q(programtype__iexact=programtype) & Q(amountofassistance__lte=amountmax) & Q(amountofassistance__gte=amountmin))
-        queryset_list = queryset_list.filter(Q(programtype__iexact=programtype) & Q(amountofassistance__lte=10000)) 
+        queryset_list = queryset_list.filter(Q(ami__range=(amountmin,amountmax)) & Q(programtype__iexact=programtype)) 
 
         dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
-                | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
+                | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id').filter(Q(ami__lte=100000))
 
         cc_list = cc_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
-        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Closing Cost").order_by('id')
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Closing Cost").order_by('id').filter(Q(ami__lte=100000))
 
         fs_list = fs_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
-        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Forgivable Second").order_by('id')
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Forgivable Second").order_by('id').filter(Q(ami__lte=100000))
 
         others_list = others_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
-        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Others").order_by('id')
+        | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Others").order_by('id').filter(Q(ami__lte=100000))
 
         
         ts = queryset_list.order_by('-participatinglenders')
