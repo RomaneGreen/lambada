@@ -10,7 +10,7 @@
       </div> -->
 <!-- 
     <div class="sortdropdown"> -->
-        <p id="sorttog" onclick="toggleSort()"  class="sortbtn ">Sort by <i id="arrowdirection" class="fas fa-angle-down"></i>  </p>
+        <p id="sorttog" onclick="toggleSort();"  class="sortbtn ">Sort by <i id="arrowdirection" class="fas fa-angle-down"></i>  </p>
        
 
 
@@ -20,7 +20,8 @@
              <div class="boxcontent">
                  <form id="atozsort" action="{% url 'search' %}"  method="POST" >
                         {% csrf_token %}
-           <button class="linktext atoz" id="s" type="submit" name=oopz id="p">Program: A-Z</button> </a> <br> 
+                   <input id="sortbyhide" type="hidden" name="test" value="">
+           <button onclick="" class="linktext atoz" id="s" type="submit" name=oopz id="p">Program: A-Z</button> </a> <br> 
             <button class="linktext" id="s" type="submit" name=ztoa id="p">Program: Z-A</button>   <br> 
             <button class="linktext" id="s" type="submit" name=lowtohigh id="p">Amount: Low to High</button>  <br> 
             <button class="linktext" id="s" type="submit" name=typeofprogram id="p">By Type of Program</button>  <br> 
@@ -84,23 +85,34 @@
     
    <script>
 
-        
+      //  function swapUrl() {
+        //    alert('hi')
+         //   event.preventDefault()
+       // window.history.pushState("object or string", "Title", "?oopsz=url");
+     //   window.history.replaceState(null, null, "?param1=value");
+
+     //   }
+
 
        function toggleSort() {
        
            var x = document.getElementById("boxl");
            var y = document.getElementById("arrowdirection");
-          
+           var z = document.getElementById("box2");
 
+           
            if (x.style.display === "block") {
              x.style.display = "none";
              y.classList.add("fa-angle-down")
              y.classList.remove("fa-angle-up")
+            
            } else {
              x.style.display = "block";
              y.classList.remove("fa-angle-down")
              y.classList.add("fa-angle-up")
-
+             if(z.style.display === "block") {
+                z.style.display="none"
+             }
            }
         
        }
@@ -110,26 +122,40 @@
        
         var x = document.getElementById("box2");
         var y = document.getElementById("arrowdirection2");
-       
+        var z = document.getElementById("boxl");
+
+
+        
 
         if (x.style.display === "block") {
           x.style.display = "none";
-          y.classList.add("fa-angle-down")
-          y.classList.remove("fa-angle-up")
+        
+         
         } else {
           x.style.display = "block";
-          y.classList.remove("fa-angle-down")
-          y.classList.add("fa-angle-up")
+          if(z.style.display === "block") {
+            z.style.display="none"
+         }
 
         }
      
     }
 
     function closebox() {
-      x =   document.getElementById("box2");
+      x  =   document.getElementById("box2");
       x.style.display = "none";
     }
 
+
+
+    function closesort() {
+       var a  =  document.getElementById("boxl");
+       var b =   document.getElementById("box2");
+      
+       a.style.display="none"
+
+      }
+  
 document.getElementById("isveteran").addEventListener("click", function() {
     document.getElementById('veteran').value="Yes";
     document.getElementById('isveteran').style.border=".5px solid black";
@@ -197,5 +223,7 @@ document.getElementById("isveteran").addEventListener("click", function() {
         //buttonClicked.style.background = "red";
         buttonClicked.style.border=".5px solid black";
     }
+
+
     
    </script>

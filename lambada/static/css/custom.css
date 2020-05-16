@@ -866,14 +866,14 @@ color: #465175;
 
  #mglassindex {
      position:absolute;
-     top:2.9rem;
+     top:37.5%;
      left: 56rem;
      color:#015AEB;
  }
 
 
    span #indexlocationtext {
-     position: absolute;
+     position: relative;
      top: 2.6rem;
      left: 15rem;
      font-family: poppins;
@@ -1625,7 +1625,7 @@ right: 40px;
 
 .dropbtn {
     position: relative;
-    top: 30px;
+    top: 1.8rem;
    
   }
 
@@ -1738,7 +1738,7 @@ svg #bookmarked{
 
   .sortbtn {
       position: absolute;
-      bottom: 2.8rem;
+      bottom: 5%;
       left: 64rem;
       font-family: Poppins;
         font-style: normal;

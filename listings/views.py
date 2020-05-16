@@ -162,6 +162,8 @@ def search(request):
 
            
         length = queryset_list.count()
+    # if request.method == 'GET' and 'oopsz' in request.GET:
+        # queryset_list = queryset_list.filter(id=1)
     if request.method == "POST" and "savesearch" in request.POST:
         link = request.get_full_path()
         searchsaved = Searchsave(phrase=request.session['location'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id)
