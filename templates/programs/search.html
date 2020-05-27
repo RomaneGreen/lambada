@@ -14,20 +14,27 @@
 "{{values}}"
 </h3>
 <br> 
+{% if user.is_authenticated %}
+
+<div id='map' style='width: 568px; height: 350px;margin: 0 auto;position:relative;top:3.8rem;margin-left:9.6rem;'></div>
+{% else %}
 <div id='map' style='width: 568px; height: 350px;margin: 0 auto;position:relative;top:3rem;margin-left:9.6rem;'></div>
 
+{% endif %}
+
+<div class="containb">
 <p id="printbtnsearch" onclick="window.print()">Print</p>
-
-
-<!-- <p  class="sortbtn sortdropbtn">Sort by <strong>Amount</strong></p> -->
+<input onclick="toggleSortt()"  class="filterbtn" type="submit" value="Filter" id="signin" class=""> 
 {% include 'partials/_sortform.html' %}
+</div>
 
+<div class="containa">
 <p id="allPrograms" onclick="allPrograms()" class="allprograms">All Programs</p>
 <p id="downPayment" onclick="downPayment()" class="downpayment">Down Payment</p>
 <p id="closingCosts" onclick="closingCosts()" class="closingcosts">Closing Costs</p>
 <p id="forgivableSecond"onclick="forgivableSecond()" class="forgivablesecond">Forgivable Second</p>
 <p id="others" onclick="others()" class="others">Others</p>
-<input onclick="toggleSortt()"  class="filterbtn" type="submit" value="Filter" id="signin" class=""> 
+</div>
 
  {% if user.is_authenticated %}
   <form action="{% url 'search' %}" method="POST">
@@ -35,79 +42,43 @@
 <button id="savesearchbtn" name="savesearch" type="submit" id="printbtn">Save Search</button> <br><br>
 </form>
 {% else %}
-<button style="visibility:hidden;" id="savesearchbtn" type="submit" id="printbtn">Save Search</button> <br><br><br>
+<button style="display:none;" id="savesearchbtn" type="submit" id="printbtn">Save Search</button> <br><br><br>
 {% endif %}
 
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&callback=initialize">
-</script>
 
-  <div id="mapgoogle"></div>
+
+<div id="mapgoogle"></div>
 <div id="pano"></div>
 
 
 
+<script> 
 
-<script>
+    mapboxgl.accessToken = '{{mapbox_access_token}}';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: ['{{my_lon}}','{{my_lat}}'],
+    zoom: 13
+    });
+    
+    var marker = new mapboxgl.Marker()
+    .setLngLat(['{{my_lon}}', '{{my_lat}}'])
+    .addTo(map);
+     
+    
+    //console.log({{my_lon}}, {{my_lat}})
+    
+    let dog = {{my_lon}};
+    let cat = {{my_lat}};
+    
+    
+    
+    
+    
+    
+    var panorama;
 
-function myFunction() {
-
-
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-   console.log("NOT SUPPORTED")
-  }
-}
-
-function showPosition(position) {
-
-  let lat = position.coords.latitude 
-  let lon = position.coords.longitude
-  console.log("COORDINATES",lat,lon);
-
-}
-
-
-mapboxgl.accessToken = '{{mapbox_access_token}}';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-center: ['{{my_lon}}','{{my_lat}}'],
-zoom: 13
-});
-
-var marker = new mapboxgl.Marker()
-.setLngLat(['{{my_lon}}', '{{my_lat}}'])
-.addTo(map);
- 
-
-//console.log({{my_lon}}, {{my_lat}})
-
-let dog = {{my_lon}};
-let cat = {{my_lat}};
-
-
-/*function initialize() {
-
-  var fenway = { lat:dog, lng: cat };
-  var mapgoogle = new google.maps.Map(document.getElementById('mapgoogle'), {
-    center: fenway,
-    zoom: 14
-  });
-  var panorama = new google.maps.StreetViewPanorama(
-      document.getElementById('pano'), {
-        position: fenway,
-        pov: {
-          heading: 34,
-          pitch: 10
-        }
-      });
-  mapgoogle.setStreetView(panorama);
-} */
-
-
-var panorama;
 function initialize() {
   panorama = new google.maps.StreetViewPanorama(
       document.getElementById('mapgoogle'),
@@ -116,7 +87,133 @@ function initialize() {
         pov: {heading: 165, pitch: 0},
         zoom: 1
       });
+
+
 }
+
+    function initAutocomplete() {
+	
+      autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+        {types: ['geocode']});
+     
+      
+    
+    var pac_input = document.getElementById('autocomplete');
+    
+        (function pacSelectFirst(input) {
+          // store the original event binding function
+          var _addEventListener = (input.addEventListener) ? input.addEventListener : input.attachEvent;
+    
+          function addEventListenerWrapper(type, listener) {
+              // Simulate a 'down arrow' keypress on hitting 'return' when no pac suggestion is selected,
+              // and then trigger the original listener.
+              if (type == "keydown") {
+                  var orig_listener = listener;
+                  listener = function(event) {
+                      var suggestion_selected = $(".pac-item-selected").length > 0;
+                      if (event.which == 13 && !suggestion_selected) {
+                          var simulated_downarrow = $.Event("keydown", {
+                              keyCode: 40,
+                              which: 40
+                          });
+                          orig_listener.apply(input, [simulated_downarrow]);
+                      }
+    
+                      orig_listener.apply(input, [event]);
+                  };
+              }
+    
+              _addEventListener.apply(input, [type, listener]);
+          }
+    
+          input.addEventListener = addEventListenerWrapper;
+          input.attachEvent = addEventListenerWrapper;
+    
+          var autocomplete = new google.maps.places.Autocomplete(input);
+    
+      })(pac_input);
+
+      initialize();
+    }     
+
+  </script>  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script> 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<script async defer
+
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&callback=initialize">
+</script> -->
+
+  <div id="mapgoogle"></div>
+<div id="pano"></div>
+
+
+<script>
+
+//mapboxgl.accessToken = '{{mapbox_access_token}}';
+//var map = new mapboxgl.Map({
+//container: 'map',
+//style: 'mapbox://styles/mapbox/streets-v11',
+//center: ['{{my_lon}}','{{my_lat}}'],
+//zoom: 13
+//});
+
+//var marker = new mapboxgl.Marker()
+//.setLngLat(['{{my_lon}}', '{{my_lat}}'])
+//.addTo(map);
+ 
+
+//console.log({{my_lon}}, {{my_lat}})
+
+//let dog = {{my_lon}};
+//let cat = {{my_lat}};
+
+
+
+
+
+
+//var panorama;
+
+//function initialize() {
+ // panorama = new google.maps.StreetViewPanorama(
+ //     document.getElementById('mapgoogle'),
+  //    {
+ //       position: {lat: cat, lng: dog},
+  //      pov: {heading: 165, pitch: 0},
+  //      zoom: 1
+  //    });
+
+
+//}
+
+
+
+
+
+
+
 
 
 
@@ -530,4 +627,27 @@ function initialize() {
 
 
 </script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+</script> -->
 {% endblock %}

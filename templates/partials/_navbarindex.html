@@ -1,69 +1,27 @@
-  <!-- Navbar -->
-  <nav id="navlisting" style="background-color: transparent !important;color: green !important;padding-top:0rem;padding-bottom:0rem;"class="navbar navbar-expand-lg bg-primary sticky-top">
-        <!-- <div class="container" id="sospecial">
-          <a class="navbar-brand" href="index.html">
-            <img src="assets/img/logo.png" class="logo" alt="">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div  class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-              <li
-               {% if request.path == '/'%}
-               class="nav-item active mr-3"
-               {% else %}
-               class="nav-item mr-3"
-               {% endif %}    
-               > -->
-                   <!-- <div id="navbarred"> -->
+
+  <!-- <nav id="navlisting" style="background-color: transparent !important;color: green !important;padding-top:0rem;padding-bottom:0rem;"class="navbar navbar-expand-lg bg-primary sticky-top">
+      
                 <a id="navbared" style="font-size:22px;padding:23px;font-weight:bold;margin-right:61px;font-family:poppins;color:#364269;bottom:.5rem;" class="nav-link" href="{% url 'index' %}">Lambada</a>
-                  <!-- </div> -->
-              <!-- </li> -->
-              <!-- <input type="text"> -->
-
-
+             
              <form id="form1" action="{% url 'search' %}" >
-                  <!-- {% csrf_token %} -->
                   {% if user.is_authenticated %}
                   <input type="hidden" name="user_id" value="{{user.id}}">
                   {% else %}
                        <input type="hidden" name="user_id" value="0">
                       {% endif %}
-              <!-- <div class="col-md-4 mb-0"> -->
                   <label class="sr-only">City</label>
                   <div>
                     
-                  <input id="autocomplete" style="border-radius: 22px; width: 740px;height:50px;margin-top:3rem;" type="text" name="location" 
+                  <input id="autocomplet" style="border-radius: 22px; width: 740px;height:50px;margin-top:3rem;" type="text" name="location" 
                   class="form-control" placeholder="Enter a city, state, neighborhood or county" minlength="2" required> <span style="margin-top:1.4%;margin-left:1%;" id="indexlocationtext"><strong>Location</strong></span>
-                  <button class="sbt" type="submit" form="form1">
+                  <button  type="submit" form="form1">
                    <i id="mglassindex" class="fas fa-lg fa-search"></i>
                  </button>
-                  <!-- <button class="btn btn-secondary btn-sm mt-4" type="submit">Sub form</button> -->
                   </div>
-                <!-- </div> -->
                
               </form>
               
-              <!-- <li 
-              {% if request.path == '/about' %}
-               class="nav-item active mr-3"
-               {% else %}
-               class="nav-item mr-3"
-               {% endif %} 
-              >
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-              <li
-              {% if 'listings' in request.path %}
-               class="nav-item active mr-3"
-               {% else %}
-               class="nav-item mr-3"
-               {% endif %} 
-               class="nav-item mr-3">
-                <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>         
-
-              </li> -->
+         
             </ul>
     
            <ul style="color: black;" class="navbar-nav ml-auto">
@@ -72,8 +30,7 @@
               
                 <li class="nav-item mr-3">
                 <a class="nav-link" href="{% url 'dashboard' %}">
-                  <!-- <i class="fas fa-sign-in-alt"></i> -->
-                 <!-- &nbsp;  Welcome {{ user.username }} -->
+                
                  <div class="dropdown">
                 &nbsp;  <button style="margin-bottom: .5rem;margin-left:-16rem;" class="btn-nav dropbtn">  {{ user.username |title |slice:"0:8" }}     </button>
                   </a>
@@ -101,13 +58,11 @@
 
              <li style="margin-left:3rem;" class="nav-item mr-4">
                 <a class="nav-link" href="{% url 'login' %}">
-                  <!-- <i class="fas fa-sign-in-alt"></i> -->
                   <button id="indexbuttont" onmouseover="myFunction()" class="btn-nav indexbuttont signinbutton">  Sign in</button>
                   </a>
               </li>
               <li style="margin-left:-2rem;" class="nav-item mr-4">
                   <a class="nav-link" href="{% url 'register' %}">
-                    <!-- <i class="fas fa-search"></i> -->
                     <button id="indexbutton" onmouseover="myFunctiont()" class="btn-nav indexbutton"> Sign up</button>
                     </a>
                 </li>
@@ -116,16 +71,87 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> -->
 
 
-<!-- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script> -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script> -->
-       <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script> -->
+      <!-- Opus header -->
+     <div id="opusheader">
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white box-shadow">
+     <a href="/" class="ml-2 mr-md-auto  font-weight-normal title">Lambda</a> 
+      <div class="mr-md-auto col-6" >
+        <div class="input-group">
+           <div class="input-group-prepend">
+            <span class="input-group-text">Location</span>
+            </div>
+
+            <form id="form1"  action="{% url 'search' %}" >
+                {% if user.is_authenticated %}
+                <input type="hidden" name="user_id" value="{{user.id}}">
+                {% else %}
+                     <input type="hidden" name="user_id" value="0">
+                    {% endif %}
+                            
+                 
+                    <input id="autocomplete" type="text" class="form-control" name="location" placeholder=" Enter a City, State, Neighborhood or County"  aria-label="City, State, Neighborhood or County" aria-describedby="basic-addon2" minlength="2" required>
+                  </form>
+                
+
+                  <div class="input-group-append">
+                      <button id="myButton" class="btn" type="button" form="form1"><i id="" class="fas fa-lg fa-search"></i></button>
+                    </div>
+                  
+     
+               
+                    
+      </div>
+
+      </div>
+      <ul class="nav nav-pills">
+
+
+          {% if user.is_authenticated %}
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle navone" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Romane G</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{% url 'enrolled' %}">My Account</a>
+      <a class="dropdown-item" href="{% url 'dashboard' %}">Saved Items</a>
+      
+    </div>
+  </li>
+  <li class="nav-item">
+    <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link active" href="#">Sign Out</a>
+  </li>
+  <form id="logout" action="{% url 'logout' %}" method=POST>
+      {% csrf_token %}
+      <input type="hidden">
+      </form>
+ {% else %}
+
+ <li class="nav-item">
+    <a href="{% url 'login' %}" class="nav-link active navone" href="#">Signin</a>
+   
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'register' %}" class="nav-link active" href="#">Sign Up</a>
+  </li>
+
+      {% endif %}
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqO1MJZ55ohsVhEGj-v8-RAUJj-HwGuc&libraries=places&callback=initAutocomplete"></script>
 
 <script>
-
+    $('#myButton').on('click',function(){
+      $('#form1').submit();
+  });
 
   function myFunction() {
 

@@ -72,7 +72,7 @@ def listing(request, listing_id):
 
 
 def search(request):
-  try:  
+#   try:  
     queryset_list = Listing.objects.order_by('id')
     dp_list = Listing.objects.filter(programtype="Down Payment").order_by('id')
     cc_list = Listing.objects.filter(programtype="Closing Cost").order_by('id')
@@ -94,8 +94,22 @@ def search(request):
     if 'location' in request.GET:
         keywords = request.GET['location']
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
+        h = requests.get('https://geocoder.ls.hereapi.com/6.2/geocode.json?apiKey=Sh5s6AMzJLzM8tsiTjP0V0XvRMufxaNLnpf5VEVEPSM&searchtext='+keywords)
+        print("HEREAPI",h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["AdditionalData"][1]["value"])
+        fullstatename = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["AdditionalData"][1]["value"]
+        stateAbbrev = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["State"]
+        hcounty = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["County"]
+        hcity = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["City"]
+        hjson = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]
+        if "District" in hjson:
+         Neighborhood =  h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["District"] 
+        else:
+         Neighborhood = "No Neighborhoods currently listed"
+        print("HRESULTS",stateAbbrev,hcounty,hcity,Neighborhood)
         lat = r.json()['results'][0]["geometry"]["location"]["lat"] 
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
+        # county = r.json()['results'][0]["access_points"]
+        # print('COUNTY', county)
         # try:
         #  lat = r.json()['results'][0]["geometry"]["location"]["lat"] 
         #  lon = r.json()['results'][0]["geometry"]["location"]["lng"]
@@ -120,9 +134,12 @@ def search(request):
         request.session['lon'] = lon
         request.session['location'] = keywords
         coordinates = (lat,lon)
+        print(coordinates)
         results = rg.search(coordinates)
+        print(results)
         print(results[0]['admin1'])
         print(results[0]['admin2'])
+        print(results[0]['cc'])
         state = results[0]['admin1']
         request.session['spate'] = state
         county = results[0]['admin2']
@@ -473,6 +490,7 @@ def search(request):
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
         lat = str(lat)
         lon = str(lon)
+        
         coordinates = (lat,lon)
         results = rg.search(coordinates)
         state = results[0]['admin1']
@@ -559,5 +577,5 @@ def search(request):
     searchsaved = Searchsave(phrase=request.session['location'],link_visited=request.get_full_path(),length=queryset_list.count(),user_id=request.user.id or 0)
     searchsaved.save()
     return render(request,'programs/search.html',context)
-  except:
-    return render(request,'programs/notfound.html')
+#   except:
+#     return render(request,'programs/notfound.html')

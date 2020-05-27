@@ -1269,9 +1269,10 @@ pre {
   .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #265eb8;
+    border-color: lightgray;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(16, 40, 78, 0.25); }
+    /* box-shadow: 0 0 0 0.2rem rgba(16, 40, 78, 0.25); */
+   }
   .form-control::placeholder {
     color: #6c757d;
     opacity: 1; }
@@ -2752,6 +2753,7 @@ input[type="button"].btn-block {
   border-bottom: 1px solid #dee2e6; }
   .nav-tabs .nav-item {
     margin-bottom: -1px; 
+    
   
     }
   .nav-tabs .nav-link {
@@ -2775,12 +2777,16 @@ input[type="button"].btn-block {
     border-top-right-radius: 0; }
 
 .nav-pills .nav-link {
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem;
+  color: #465175;
+ }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #0a4096; }
+  background-color: #015AEB;
+  border-radius: 18px;
+ }
 
 .nav-fill .nav-item {
   flex: 1 1 auto;

@@ -1410,8 +1410,8 @@ height: 125px;
 #printbtn {
 position: relative;
 left: -50rem;
-top: 109px;
-margin-bottom: 4rem;
+top: 90px;
+margin-bottom: 3.8rem;
 font-family: poppins;
 font-style: normal;
 font-weight: normal;
@@ -1424,7 +1424,7 @@ visibility: hidden;
 #printbtnsearch {
 position: relative;
 left: 58.8rem;
-top: 146px;
+top: 90px;
 font-family: poppins;
 font-style: normal;
 font-weight: normal;
@@ -1466,7 +1466,7 @@ box-sizing: border-box;
 border-radius: 18.6961px;
 position: relative;
 left: 70rem;
-bottom: 27.5rem;
+bottom: 29.5rem;
 }
 
 
@@ -1478,7 +1478,7 @@ html, body {
 #mapgoogle, #pano {
     position: relative;
    right: -722px;
-   bottom: 440.5px;
+   bottom: 427.5px;
   height: 350px;
   width: 568px;
 }
@@ -1726,7 +1726,7 @@ svg #bookmarked{
       border-radius: 18px;
       font-family: poppins;
       position: relative;
-      bottom: -5.9rem;
+      bottom: -2.5rem;
       left: 71.5rem;
   }
 
@@ -1741,7 +1741,7 @@ svg #bookmarked{
 
   .sortbtn {
       position: absolute;
-      bottom: 5%;
+      bottom: 5.5%;
       left: 64rem;
       font-family: Poppins;
         font-style: normal;
@@ -2287,3 +2287,106 @@ height: 45px;
     position: relative;
     top: -49px;
 }
+
+#opusheader {
+    padding-top: 30px;
+}
+
+#opusheader .title {
+  font-size: 28px;
+}
+
+#opusheader i {
+    color: #015AEB;
+}
+
+#opusheader input {
+  
+  height: 50px;
+  margin-right: 19rem;
+}
+
+#opusheader .title {
+font-family: poppins;
+color: #465175;
+text-decoration: none;
+position: relative;
+right: -15px;
+
+}
+
+.input-group-text {
+    background-color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    border-right: none;
+}
+
+.input-group-append {
+    border: .5px solid lightgray;
+    z-index: 1;
+    border-bottom: 1px solid lightgray;
+    background-color: none;
+    border-radius: 6px;
+    border-left: none;
+    position: relative;
+    left: -5px;
+
+}
+
+.nav {
+    margin-right: 3rem;
+}
+
+.navone {
+    position: relative;
+    right: 1rem;
+}
+
+
+
+@media screen and (max-width: 1400px) {
+    
+   .input-group-append{
+       position: relative;
+       left: 37rem;
+       top: -2.7rem;
+       border: none;
+   }
+    
+  }
+  
+
+
+@media screen and (max-width: 1233px) {
+    
+   .sortbtn {
+       bottom: 2.0%;
+   }
+    
+  }
+  
+
+@media screen and (max-width: 1310px) {
+    
+    .input-group-append,.input-group-text{
+        display: none;
+    }
+    .sortbtn {
+        bottom: 10.5%;
+    }
+     
+   }
+
+
+
+
+   .containa {  
+    position: relative;
+    bottom: -10rem;
+}
+/* 
+.containb {  
+    position: relative;
+    bottom: -3rem;
+} */
