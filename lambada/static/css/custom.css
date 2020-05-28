@@ -1741,7 +1741,7 @@ svg #bookmarked{
 
   .sortbtn {
       position: absolute;
-      bottom: 5.5%;
+      bottom: 11.0%;
       left: 64rem;
       font-family: Poppins;
         font-style: normal;
@@ -2003,7 +2003,7 @@ content: ""; /* This is necessary for the pseudo element to work. */
     }
 
     .alllistings {
-        
+        margin-top: -42rem;
     }
 
     @media print  {

@@ -96,16 +96,22 @@ def search(request):
         r = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+keywords+'&key=AIzaSyCuYOJlcMVw9bYfEw-QNgio7RQVK766-tk')
         h = requests.get('https://geocoder.ls.hereapi.com/6.2/geocode.json?apiKey=Sh5s6AMzJLzM8tsiTjP0V0XvRMufxaNLnpf5VEVEPSM&searchtext='+keywords)
         print("HEREAPI",h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["AdditionalData"][1]["value"])
+        hjson = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]
         fullstatename = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["AdditionalData"][1]["value"]
         stateAbbrev = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["State"]
-        hcounty = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["County"]
-        hcity = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["City"]
-        hjson = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]
-        if "District" in hjson:
-         Neighborhood =  h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["District"] 
+        if "City" in hjson:
+         hcity = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["City"]
         else:
-         Neighborhood = "No Neighborhoods currently listed"
-        print("HRESULTS",stateAbbrev,hcounty,hcity,Neighborhood)
+         hcity = "none specified" 
+        if "County" in hjson:
+         hcounty = h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["County"]
+        else:
+         hcounty = "None Listed"
+        if "District" in hjson:
+         hNeighborhood =  h.json()["Response"]["View"][0]["Result"][0]["Location"]["Address"]["District"] 
+        else:
+         hNeighborhood = "No Neighborhoods listed"
+        print("HRESULTS","state:",stateAbbrev,"county:",hcounty,"city:",hcity,"hood:",hNeighborhood)
         lat = r.json()['results'][0]["geometry"]["location"]["lat"] 
         lon = r.json()['results'][0]["geometry"]["location"]["lng"]
         # county = r.json()['results'][0]["access_points"]
@@ -143,7 +149,7 @@ def search(request):
         state = results[0]['admin1']
         request.session['spate'] = state
         county = results[0]['admin2']
-        print(county,state,keywords)
+        print("Googal",county,state,keywords)
         search_term = keywords
         user_id = request.GET['user_id'] 
         
@@ -161,9 +167,15 @@ def search(request):
               wishlist = Searchsave.objects.filter(phrase=search_term,user_id=user_id)
               wishlist.delete()
         if keywords:
+             cat = 'sss'
+            #  queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
+            #  | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state ))
+             if hcity == "none specified" and hcounty == "None Listed":
+              queryset_list = queryset_list.filter(Q(state__iexact=stateAbbrev))
+             else:
+              queryset_list = queryset_list.filter(Q(state__iexact='stateAbbrev') & Q(city__iexact=hcity) | Q(Neighborhoods__icontains=hcounty)
+              | Q(blocks__icontains=hcounty)| Q(blocks__icontains=county))
              
-             queryset_list = queryset_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
-             | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state ))
 
              dp_list = dp_list.filter(Q(city__iexact=keywords)| Q(state__iexact=keywords)
              | Q(Neighborhoods__iexact=keywords) | Q(Neighborhoods__icontains=keywords)|Q(state__iexact=state )).filter(programtype="Down Payment").order_by('id')
