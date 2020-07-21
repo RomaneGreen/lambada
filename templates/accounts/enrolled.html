@@ -8,6 +8,12 @@
 
 {% block content %}
 
+{% if user.is_authenticated and  backends.associated %}
+<meta http-equiv="REFRESH" content="0;url=/accounts/register">
+<p>dcdcdc</p>
+{% else %}
+    <p>xxxxxx</p>
+
 <div id="registerbody"> 
         
             {% include 'partials/_alerts.html' %}
@@ -19,19 +25,7 @@
  <h3 id="signinheader">Edit Your account, {{profile | title}}</h3>
  <br>
 
-<!-- <h6 style="color:#465175;">Sign in with Google or Facebook account </h6>
 
-
-  
-
-  <a class="loginlink" href="{% provider_login_url 'google' %}">
-      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-google fa-1x"></i>
-  Sign in with Google</a>
-  </button>
-    <a class="loginlink" href="{% provider_login_url "facebook"  %}">
-      <button class="btn-nav-login" style="color:white;"> <i class="fab fa-facebook fa-1x"></i>
-  Sign in with Facebook  </a>
-  </button> -->
 
 
                   <form id="editform" method=POST>
@@ -53,7 +47,7 @@
                   <input type="text" name="familysize"  placeholder="Enter Number" value="{{profile.familysize}}" name="familysize" class="myInputs" required><br><br>
           
                     <div>
-                   <label for="familysize">Are you a first time buyer?</label><br>
+                   <label for="familysize">Are you a first timxe buyer?</label><br>
                    <input id="firsttime"  type="hidden" name="firstbuyer" value="{{profile.firstimebuyer}}" value="Yes">
                   <button class="button" type=button id="enrollinfoyes">Yes</Button> &nbsp; <button type=button id="enrollinfono">No</Button><br>
                    </div>
@@ -79,7 +73,8 @@
   </section>
   
 </div> 
-
+{% endif %}
+{% endblock %}
 
 <script type="text/javascript">
 
@@ -155,4 +150,3 @@
   
   });
 </script>
-  {% endblock %}

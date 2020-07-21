@@ -773,7 +773,7 @@ left: 11rem;
 
 #missionpoint {
 position: relative;
-left: 3rem;
+left: 5rem;
 width: 192px;
 height: 26px;
 font-family: poppins;
@@ -1021,6 +1021,8 @@ color: ;
 position: relative;
 left: -6.5rem;
 top: 11rem;
+padding: 1rem;
+padding-right: 1rem;
 }
 
 #listingsbody {

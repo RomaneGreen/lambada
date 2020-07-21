@@ -154,35 +154,41 @@ def enroll(request):
 
 
 def enrolled(request):
-  # print("hallo",request.session['user']) 
-  if request.method == "POST":
-    #  print("hallo",request.session['user']) 
-     occupation = request.POST['occupation']
-     employer = request.POST['employer']
-     familysize = request.POST['familysize']
-     annualincome = request.POST['annualincome']
-     firstbuyer = request.POST['firstbuyer']
-     veteran = request.POST['veteran']
-     user = request.user
-     print(occupation,employer,familysize,annualincome)
-    #  UserProfile = UserProfile.objects.create_user(username=username,password=password,email=email,first_name=fullname,last_name=fullname)
-    #  userProfile = UserProfile.objects(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
-     userProfile = UserProfile.objects.filter(user=user).update(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user,firsttimebuyer=firstbuyer,veteran=veteran)
-     profile = UserProfile.objects.get(user=user)
-     print(profile)
-     context = {
-    'profile' : profile,
-  }
-    #  userProfile.save()
+  # print("hallo",request.session['user'])
+  try:
+    if request.method == "POST":
+      #  print("hallo",request.session['user']) 
+      occupation = request.POST['occupation']
+      employer = request.POST['employer']
+      familysize = request.POST['familysize']
+      annualincome = request.POST['annualincome']
+      firstbuyer = request.POST['firstbuyer']
+      veteran = request.POST['veteran']
+      user = request.user
+      print(occupation,employer,familysize,annualincome)
+      #  UserProfile = UserProfile.objects.create_user(username=username,password=password,email=email,first_name=fullname,last_name=fullname)
+      #  userProfile = UserProfile.objects(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user)
+      userProfile = UserProfile.objects.filter(user=user).update(occupation=occupation,employer=employer,familysize=familysize,householdincome=annualincome,user=user,firsttimebuyer=firstbuyer,veteran=veteran)
+      profile = UserProfile.objects.get(user=user)
+      #social_profile=SocialAccount.objects.get(user=request.user).extra_data
+      #print(social_profile)
+      print(profile)
+      context = {
+      'profile' : profile,
+    }
+      #  userProfile.save()
 
-     return render(request,'accounts/enrolled.html',context)
-  else:
-    # print("hallo",request.session['user'] or "hiii") 
-    user = request.user
-    profile = UserProfile.objects.get(user=user)
-    print(profile)
-    context = {
-    'profile' : profile,
-  }
-    return render(request,'accounts/enrolled.html',context)
+      return render(request,'accounts/enrolled.html',context)
+    else:
+      # print("hallo",request.session['user'] or "hiii") 
+      print("look dumb ass",UserProfile.objects.get(user = request.user))
+      user = request.user
+      profile = UserProfile.objects.get(user=user)
+      print(profile)
+      context = {
+      'profile' : profile,
+    }
+      return render(request,'accounts/enrolled.html',context)
+  except:
+    return render(request,'programs/notfound.html')
      
